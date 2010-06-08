@@ -10,20 +10,6 @@
 	<inceptionYear>2008</inceptionYear>
 	<!-- Dependency list -->
 	<dependencies>
-		<dependency>
-			<groupId>org.fitnesse</groupId>
-			<artifactId>fitnesse</artifactId>
-			<version>20100303</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/fitnesse/fitnesse.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>org.fitnesse</groupId>
-			<artifactId>fitlibrary</artifactId>
-			<version>20100303</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/fitnesse/fitlibrary.jar</systemPath>
-		</dependency>
 		<!-- test dependencies -->
 		<dependency>
 			<groupId>junit</groupId>
