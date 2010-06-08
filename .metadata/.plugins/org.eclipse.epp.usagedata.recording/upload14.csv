@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+started,bundle,org.eclipse.mylyn.bugzilla.core,3.3.1.v20091215-0000-e3x,"org.eclipse.mylyn.bugzilla.core",1275809767912
+started,bundle,org.eclipse.mylyn.bugzilla.ui,3.3.1.v20091215-0000-e3x,"org.eclipse.mylyn.bugzilla.ui",1275809767913
+started,bundle,org.eclipse.mylyn.commons.net,3.3.0.v20091013-0200-e3x,"org.eclipse.mylyn.commons.net",1275809767913
+started,bundle,org.eclipse.mylyn.commons.ui,3.3.1.v20091215-0000-e3x,"org.eclipse.mylyn.commons.ui",1275809767914
+started,bundle,org.eclipse.mylyn.context.core,3.3.1.v20091215-0000-e3x,"org.eclipse.mylyn.context.core",1275809767914
+started,bundle,org.eclipse.mylyn.context.ui,3.3.1.v20091215-0000-e3x,"org.eclipse.mylyn.context.ui",1275809767915
+started,bundle,org.eclipse.mylyn.monitor.ui,3.3.1.v20091215-0000-e3x,"org.eclipse.mylyn.monitor.ui",1275809767915
+started,bundle,org.eclipse.mylyn.tasks.ui,3.3.1.v20091215-0000-e3x,"org.eclipse.mylyn.tasks.ui",1275809767919
+started,bundle,org.eclipse.mylyn.team.ui,3.3.1.v20091215-0000-e3x,"org.eclipse.mylyn.team.ui",1275809767920
+started,bundle,org.eclipse.pde.ui,3.5.0.v20090821,"org.eclipse.pde.ui",1275809767921
+started,bundle,org.eclipse.team.cvs.ui,3.3.201.R35x_v20090826-0905,"org.eclipse.team.cvs.ui",1275809767922
+started,bundle,org.eclipse.ui.views.log,1.0.100.v20090731,"org.eclipse.ui.views.log",1275809767923
+started,bundle,org.eclipse.wst.common.project.facet.core,1.4.1.v200908111817,"org.eclipse.wst.common.project.facet.core",1275809767923
+started,bundle,org.eclipse.wst.web,1.1.301.v200909021400,"org.eclipse.wst.web",1275809767923
+os,sysinfo,,,"macosx",1275809768073
+arch,sysinfo,,,"x86",1275809768073
+ws,sysinfo,,,"carbon",1275809768073
+locale,sysinfo,,,"en_US",1275809768073
+processors,sysinfo,,,"2",1275809768073
+java.runtime.name,sysinfo,,,"Java(TM) 2 Runtime Environment, Standard Edition",1275809768073
+java.runtime.version,sysinfo,,,"1.5.0_20-b02-315",1275809768073
+java.specification.name,sysinfo,,,"Java Platform API Specification",1275809768073
+java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1275809768073
+java.specification.version,sysinfo,,,"1.5",1275809768073
+java.vendor,sysinfo,,,"Apple Inc.",1275809768073
