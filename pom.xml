@@ -10,6 +10,11 @@
 	<inceptionYear>2008</inceptionYear>
 	<!-- Dependency list -->
 	<dependencies>
+		<dependency>
+			<groupId>org.fitnesse</groupId>
+			<artifactId>fitnesse</artifactId>
+			<version>20081201</version>
+		</dependency>
 		<!-- test dependencies -->
 		<dependency>
 			<groupId>junit</groupId>
