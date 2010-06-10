@@ -13,8 +13,8 @@
 !path fitnesse.jar
 !path fitlibrary.jar
 !path ../target/classes
-!path ${M2_REPO}/org/slf4j/slf4j-api/1.4.2/slf4j-api-1.4.2.jar
-!path ${M2_REPO}/org/slf4j/slf4j-log4j12/1.4.2/slf4j-log4j12-1.4.2.jar
+!path ${M2_REPO}/org/slf4j/slf4j-api/1.5.0/slf4j-api-1.5.0.jar
+!path ${M2_REPO}/org/slf4j/slf4j-log4j12/1.5.0/slf4j-log4j12-1.5.0.jar
 !path ${M2_REPO}/log4j/log4j/1.2.13/log4j-1.2.13.jar
 !path classes
 !path fitnium2.jar
