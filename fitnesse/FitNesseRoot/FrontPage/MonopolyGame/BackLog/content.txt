@@ -1,0 +1,25 @@
+!2 Backlog
+!3 User Stories
+'''Format: As a ... I can ... So that ...'''
+
+| '''Description'''| Priority |
+| ${testRequirementUs01} | 1 |
+| ${testRequirementUs08} | 1 |
+| ${testRequirementUs09} | 1 |
+| ${testRequirementUs10} | 1 |
+| ${testRequirementUs02} | 2 |
+| ${testRequirementUs03} | 2 |
+| ${testRequirementUs04} | 2 |
+| ${testRequirementUs05} | 2 |
+| ${testRequirementUs06} | 3 |
+| ${testRequirementUs07} | 3 |
+
+
+| !3 SPRINT 1 |
+| ${testRequirementUs01} |
+| ${testRequirementUs08} |
+| !3 SPRINT 2 |
+| ${testRequirementUs02} |
+| ${testRequirementUs09} |
+| ${testRequirementUs10} |
+etc..

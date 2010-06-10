@@ -1,0 +1,9 @@
+!*> '''Setup'''
+
+!2 '''This is the basic setup that can be used in all tests'''
+
+| return players to start position |
+| reset assets |
+| reset bank |
+
+*!

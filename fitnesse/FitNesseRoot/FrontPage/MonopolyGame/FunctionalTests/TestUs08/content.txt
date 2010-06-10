@@ -1,0 +1,19 @@
+!3 ${testRequirementUs08}
+
+All players should be visible to all players at all time during the game.
+
+Context:
+- A player has to be able and is responsible for collecting his rent and therefor needs to know when other players visit his property.
+- A player might want to change his strategy if other players are about to land on his property.
+
+----
+!* '''Example of a Row Fixture'''
+| !check position |
+| player | position |
+| Aman | Oriental Avenue |
+| Cirilo | Conneticut Avenue |
+| Harsh | Go |
+
+*!
+
+

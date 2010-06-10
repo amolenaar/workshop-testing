@@ -1,0 +1,18 @@
+!*> Test Setup
+
+!define TEST_SYSTEM {slim}
+
+|import|
+|nl.javadude.monopoly.fixtures|
+
+*!
+!3 ${testRequirementUs01}
+
+!* '''A player can throw with two dices'''
+| role dice decision table |
+| player | first die | second die | position? |
+| Cirilo | 1 | 1 | Community Chest |
+| Cirilo | 3 | 4 | Connecticut Avenue |
+| Aman   | 5 | 1 | Oriental Avenue |
+
+*!

@@ -1,0 +1,12 @@
+| check properties for user | cirilo |
+| check  | account | $500 |
+| check  | position | conneticut avenue |
+
+| check status for property | conneticut avenue |
+| check | value | $200 |
+| check | houses | 0 |
+| check | hotels | 0 |
+| check | house price | $10 |
+| check | hotel prices | $20 |
+| check | available | true |
+| check | owner | bank  |

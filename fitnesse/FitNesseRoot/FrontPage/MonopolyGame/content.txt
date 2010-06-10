@@ -1,0 +1,22 @@
+!2 Monopoly project
+
+!*> Used variables
+
+!define testRequirementUs01 {'''US01 As a Player I can roll the dice so that my token can move to a new position'''}
+!define testRequirementUs02 {'''US02 As a Player I can pay so that I can buy assets (streets/stations)'''}
+!define testRequirementUs03 {'''US03 As a Player I can pay so that I can buy real-estate'''}
+!define testRequirementUs04 {'''US04 As a Player I have to pay an owner in order to rent a spot I visit'''}
+!define testRequirementUs05 {'''US05 As a Owner I want want players that visit my possessions to pay rent so I can earn money'''}
+!define testRequirementUs06 {'''US06 As a Player I can get into Jail as a result of a rule*'''}
+!define testRequirementUs07 {'''US07 As a Player I have to throw doubles in order to leave Jail'''}
+!define testRequirementUs08 {'''US08 As a Player I know the position of other players in order to determine a strategy'''}
+!define testRequirementUs09 {'''US09 As a Player I can view the status of an asset in order to determine if I want to buy'''}
+!define testRequirementUs10 {'''US10 As a Player I can view my possessions in order to determine a strategy'''}
+
+*!
+>RequirementsPage
+>BackLog
+>FunctionalTests
+>SetUpTemp
+>SampleFixture
+

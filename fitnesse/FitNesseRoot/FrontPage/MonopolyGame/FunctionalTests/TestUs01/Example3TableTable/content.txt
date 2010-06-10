@@ -1,0 +1,8 @@
+!3 ${testRequirementUs01}
+!* '''Example 3: Table table'''
+
+| count dice table table|
+| 1 | 2 | 3 | 3 | 4 | 4 | 3 | 6 |
+|   | 3 | | 6 | | 8 | | 9 |
+
+*!

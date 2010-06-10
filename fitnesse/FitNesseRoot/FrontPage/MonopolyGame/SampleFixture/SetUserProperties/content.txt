@@ -1,0 +1,12 @@
+| set user properties |
+| create user | cirilo |
+| set | account | $500 |
+| set | position | conneticut avenue |
+
+| set property status |
+| street name | conneticut avenue |
+| value | $200 |
+| houses | 0 |
+| hotels | 0 |
+| available | true |
+

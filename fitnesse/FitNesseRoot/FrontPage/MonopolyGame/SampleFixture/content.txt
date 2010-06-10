@@ -1,0 +1,6 @@
+>SetUserProperties
+>BuyAssets
+>ActionFixtureSample
+>DecisionTableSample
+>FitniumSample
+>FitnesseSeleniumSample

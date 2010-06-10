@@ -1,0 +1,98 @@
+!2 Monopoly: System requirements
+
+!img http://files/images/Monopoly.jpg
+
+System Requirements
+
+OBJECT
+The object of the game is to become the wealthiest player through buying, renting and selling of property.
+
+INTERFACE
+The interface consists of a representation of a board, 2 dice, tokens representing users. There are 16 Chance and 16 Community Chest cards, 28 Title Deed card (one for each property), and play money.
+
+PREPARATION
+Each player chooses one token to represent them while travelling around the board. Each player is given $1500 at the start of the game.
+
+BANKER
+The application acts as bank and auctioneer.
+
+THE BANK
+Besides the Bank’s money, the Bank holds the Title Deeds, and the houses and hotels prior to purchase by the players. The Bank pays salaries and bonuses. It sells and auctions properties and hands out the properties when purchased by a player.
+The Bank collects all taxes, fines, loans and interest, and the price of all properties which it sells and auctions. The Bank “never goes broke.” If the Bank runs out of money.
+
+THE PLAY
+Starting the game, each player in turn rolls the dice. The player with the highest total starts the play. All tokens are placed on the corner marked “GO”, after throwing the dice the token moves to it’s new position (in the direction of the arrow) the number of spaces indicated by the dice.
+After the turn passes the next players turn starts. The tokens remain on the spaces occupied and proceed from that point on the player’s next turn. Two or more tokens may rest on the same space at the same time.
+Depending on the space your token reaches, you may be entitled to buy real estate or other properties, or be obliged to pay rent, pay taxes, draw a Chance or Community Chest card, Go To Jail, or etc...
+
+If you throw doubles, you move your token as usual, the sum of the two dice, and are subject to any privileges or penalties pertaining to the space on which you land. Retaining the dice, throw again and move your token as before. If you throw doubles three times in succession, move your token immediately to the space marked “In Jail”.
+
+GO
+Each time a player’s token lands on or passes over GO, whether by throwing the dice or drawing a card, a player receives a $200 salary.
+The $200 is paid only once each time around the board. However, if a player passing GO on the throw of the dice lands 2 spaces beyond it on Community Chest, or 7 spaces beyond it on Chance, and draws the “Advance to GO” card, they collect $200 for passing GO the first time, and another $200 for Advancing to it the second time by the instructions on the card.
+
+BUYING PROPERTY
+Whenever you land on an unowned property you may buy that property from the Bank at its printed price. You receive the Title Deed card showing ownership. Place the title deed card face up in front of you. If you do not wish to buy the property, it remains available for the next player to land on this property.
+
+PAYING RENT
+When you land on a property that is owned by another player, the owner collects rent from you in accordance with the list printed on its Title Deed card.
+
+It is an advantage to hold all the Title Deed cards in a color-group (i.e., Boardwalk and Park Place, or Connecticut, Vermont and Oriental Avenues) because the owner may then charge double rent for unimproved properties in that colour-group. It is even more advantageous to have houses or hotels on properties because rents are much higher than for unimproved properties. 
+
+CHANCE AND COMMUNITY CHEST
+When you land on either of these spaces, take the top card from the deck indicated, follow the instructions and return the card face down to the bottom of the deck. The “Get Out of Jail Free” card is held until used and then returned to the bottom of the deck. If the player who draws it does not wish to use it, then they may sell it, at any time, to another player at a price agreeable to both.
+
+INCOME TAX
+If you land here you have two options: You may estimate your tax at $200 and pay the Bank, or you may pay 10% of your total worth to the Bank. Your total worth is all your cash on hand, printed prices properties and cost price of all buildings you own.
+You must decide which option you will take before you add up your total worth.
+
+JAIL
+You land in Jail when...
+(1) Your token lands on the space marked “Go to Jail”,
+(2) You draw a card marked “Go to Jail” or
+(3) You throw doubles three times in succession.
+When you are sent to Jail you cannot collect your $200 salary in that move since, regardless of where your token is on the board, you must move directly into Jail. Your turn ends when you are sent to Jail.
+If you are not “sent to jail” but in the ordinary course of play lands on that space, you are
+”Just Visiting”, you incur no penalty, and you move ahead in the usual manner on your next turn.
+You still are able to collect rent on your properties because you are “Just Visiting”.
+
+A player gets out of Jail by...
+(1) Throwing doubles on any of your next three turns,
+if you succeed in doing this you immediately move forward the number of spaces shown by your doubles throw. Even though you had thrown doubles, you do not take another turn.
+(2) Using the “Get Out of Jail Free Card”
+(3) Purchasing the “Get Out of Jail Free Card” from another player and playing it.
+(4) Paying a fine of $50 before you roll the dice on either of your next two turns. If you do not throw doubles by your third turn, you must pay the $50 fine. You then get out of Jail and immediately move forward the number of spaces shown by your throw.
+Even though you are in Jail, you may buy and sell property, buy and sell houses and hotels and collect rents.
+
+FREE PARKING
+A player landing on this place does not receive any money, property or reward of any kind.
+This is just a “free” resting-place.
+
+HOUSES
+When a player owns all the properties in a colour-group they may buy houses from the Bank and erect them on those properties.
+If you buy one house, you may put it on any one of those properties. The next house you buy must be erected on one of the unimproved properties of this or any other complete colour-group you may own. The price you must pay the Bank for each house is shown on your Title Deed card for the property on which you erect the house. The owner still collects double rent from an opponent who lands on the unimproved properties of there complete colour-group.
+Following the above rules, you may buy and erect at any time as many houses as your judgement and financial standing will allow. But you must build evenly, i.e., you cannot erect more than one house on any one property of any colour-group until you have built one house on every property of that group. You may then begin on the second row of houses, and so on, up to a limit of four houses to a property. For example, you cannot build three Houses on one property if you have only one house on another property of that group.  In total there are 32 houses available.
+As you build evenly, you must also break down evenly if you sell houses back to the Bank (see SELLING PROPERTY)
+
+HOTELS
+When a player has four houses on each property of a complete colour-group, they may buy a hotel from the Bank and erect it on any property of the colour-group. They return the four houses from that property to the Bank and pay the price for the hotel as shown on the Title Deed card. Only one hotel may be erected on any one property. There is a maximum of 12 Hotels available.
+
+BUILDING SHORTAGES
+When the Bank has no houses to sell, players wishing to build must wait for some player to return or sell their houses to the Bank before building. If there are a limited number of houses and hotels available and two or more players wish to buy more than the Bank has, the houses or hotels must be sold at auction to the highest bidder.
+
+SELLING PROPERTY
+Unimproved properties, railroads and utilities (but not buildings) may be sold to any player as a private transaction for any amount the owner can get. However, no property can be sold to another player if buildings are standing on any properties of that colour-group. Any buildings so located must be sold back to the Bank before the owner can sell any property of that colour-group.
+
+Houses and Hotels may be sold back to the Bank at any time for one-half the price paid for them. All houses on one colour-group may be sold at once, or they may be sold one house at a time (one hotel equals five houses), evenly, in reverse of the manner in which they were erected.
+
+BANKRUPTCY
+You are declared bankrupt if you owe more than you can pay either to another player or to the Bank. If your debt is to another player, you must turn over to that player all that you have of value and retire from the game.
+In making this settlement, if you own houses or hotels, you must return these to the Bank in exchange for money to the extent of one-half the amount paid for them.
+This cash is given to the creditor. 
+
+Should you owe the Bank, instead of another player, more than you can pay (because of taxes or penalties) even by selling off buildings and property, you must turn over all assets to the Bank. In this case, the Bank immediately sells by auction all property so taken, except buildings. A bankrupt player must immediately retire from the game. The last player left in the game wins.
+
+three houses turned in.
+
+GOAL
+THE RICHEST PLAYER WINS!

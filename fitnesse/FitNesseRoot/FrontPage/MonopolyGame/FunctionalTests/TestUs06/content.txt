@@ -1,0 +1,57 @@
+!*> Test Setup
+
+!define TEST_SYSTEM {slim}
+
+|import|
+|nl.javadude.monopoly.fixtures|
+
+*!
+!3 ${testRequirementUs06}
+
+'''Motivation'''
+A player needs to encounter some risks to make the game less predictable
+
+'''Additional requirements'''
+There are three rules that can cause a player to get into jail
+1. If a player lands on the ''Goto Jail'' space
+2. If a player throws double thrice
+3. If a player picks a ''Goto Jail'' card from the ''Chance'' cards
+----
+!* Prepare
+
+| set user properties |
+| create user | cirilo |
+| set | account | $500 |
+| set | position | conneticut avenue |
+
+| set property status |
+| street name | conneticut avenue |
+| value | $200 |
+| houses | 0 |
+| hotels | 0 |
+| available | true |
+
+*!
+!* '''When a player throws double twice he gets another turn (with a maximum of three throws)'''
+
+| role dice decision table |
+| player | first die | second die | position? | another turn? |
+| Cirilo | 6 | 6 | Electric Company  | yes |
+| Cirilo | 2 | 2 | St. James Place   | yes |
+| Cirilo | 3 | 3 | Jail              | no  |
+
+*!
+!* '''When a user throws double thrice he has to go to jail'''
+'''Here we reuse the fixture from US01 and test it to see if a user lands in Jail'''
+
+| role dice decision table |
+| player | first die | second die | position? | another turn? |
+| Cirilo | 6 | 6 | Electric Company  | yes |
+| Cirilo | 3 | 1 | St. James Place   | no |
+| Aman   | 3 | 3 | Oriental Avenue   | yes |
+| Aman   | 2 | 6 | Virginia Avenue   | no |
+| Cirilo | 4 | 4 | Illinois Avenue   | yes |
+| Cirilo | 2 | 2 | Water Works       | yes |
+| Cirilo | 5 | 5 | Jail              | no |
+
+*!

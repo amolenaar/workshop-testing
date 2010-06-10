@@ -1,0 +1,34 @@
+!2 ${testRequirementUs02}
+
+'''Motivation: A player must be able to poses properties in order to earn money.'''
+
+'''Additional requirements:'''
+- A user must land on the property in order to buy it
+- A user must have enough money to buy a property
+- The property must be free (not owned by another player)
+----
+|Description | Testcase | Result | Remark |
+| A Property is free for sale | >TestUs0201 | | |
+| A Property is owned by another player | >TestUs0202 | ||
+| A Property is too expencive for the player | >TestUs0203 |||
+
+!* Preparation
+| set player condition |
+| player | aman |
+| set location | orientel avenue  |
+| set credit | 50.000 |
+| player | harsh |
+
+*!
+!* '''Verify propery'''
+
+|dice1|dice2|location-Unowned Property|can buy?|
+|1|2|NO|NO|
+|2|3|YES|YES|
+
+*!
+!* '''Buy property'''
+
+
+*!
+!*

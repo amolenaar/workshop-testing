@@ -1,0 +1,23 @@
+!|!-nl.javadude.monopoly.fixtures.RoleDiceActionTable-!|
+
+!define TEST_SYSTEM {fit}
+
+!| ActionFixture |
+| start | RoleDiceActionTable |
+| enter | player | Cirilo |
+| enter | first die | 1 |
+| enter | second die | 1 |
+| press | play |
+| check | position | Income Tax |
+| check | repeat | true |
+| check | jail | false |
+
+!| ActionFixture |
+| start | RoleDiceActionTable |
+| enter | player | Aman |
+| enter | first die | 5 |
+| enter | second die | 1 |
+| press | play |
+| check | position | Electric Company |
+| check | repeat | false |
+| check | jail | false |
