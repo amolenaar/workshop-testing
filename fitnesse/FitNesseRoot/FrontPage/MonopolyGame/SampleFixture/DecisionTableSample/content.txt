@@ -10,7 +10,7 @@
 | role dice decision table |
 | player | first die | second die | position? |
 | Cirilo | 1 | 1 | Community Chest |
-| Cirilo | 3 | 4 | Connecticut Avenue |
+| Cirilo | 3 | 4 | Conneticut Avenue |
 | Aman   | 5 | 1 | Oriental Avenue |
 
 *!

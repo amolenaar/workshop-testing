@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import org.apache.commons.lang.SerializationException;
+
 import nl.javadude.monopoly.domain.Board;
 import nl.javadude.monopoly.domain.Dice;
 import nl.javadude.monopoly.domain.Game;
@@ -91,7 +93,7 @@ public class CommonFixtureCode extends Fixture {
 		board = (Board) restore("board.data");
 	}
 
-	private void save(Object obj, String fileName) {
+	protected void save(Object obj, String fileName) {
 		FileOutputStream fos = null;
 		ObjectOutputStream oos = null;
 		try {
@@ -121,7 +123,7 @@ public class CommonFixtureCode extends Fixture {
 		}
 	}
 
-	private Object restore(String fileName) {
+	protected Object restore(String fileName) {
 		// Read from disk using FileInputStream
 		FileInputStream fis = null;
 		ObjectInputStream ois = null;
@@ -136,10 +138,10 @@ public class CommonFixtureCode extends Fixture {
 			return ois.readObject();
 		} catch (IOException ioe) {
 			ioe.printStackTrace();
-			throw new RuntimeException("Problem restoring object state from "
+			throw new SerializationException("Problem restoring object state from "
 					+ fileName);
 		} catch (ClassNotFoundException e) {
-			throw new RuntimeException("Problem restoring object state from "
+			throw new SerializationException("Problem restoring object state from "
 					+ fileName + "because of ClassNotFoundException");
 		} finally {
 			try {

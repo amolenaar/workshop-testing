@@ -60,7 +60,7 @@ define COMMAND_PATTERN {java -Xdebug -XrunjdWP:transport=dt_socket,server=y,susp
 | enter | first die | 5 |
 | enter | second die | 1 |
 | press | play |
-| check | position | Illinois Avenue |
+| check | position | St. Charles Place |
 | check | repeat | false |
 | check | jail | false |
 

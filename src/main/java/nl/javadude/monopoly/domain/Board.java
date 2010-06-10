@@ -24,11 +24,11 @@ public class Board implements Serializable {
 	
 	public static final Start START = new Start();
 	public static final Jail JAIL = new Jail();
-	private List<ISquare> squares = new ArrayList<ISquare>();
+	private static final List<ISquare> squares = new ArrayList<ISquare>();
 	private Stack<Card> communityChest = new Stack<Card>();
 	private Stack<Card> chance = new Stack<Card>();
 
-	public Board() {
+	{
 		add(START);
 		add(new Realty("Mediterranean Avenue", 60, 2));
 		add(new DrawCard("Community Chest", communityChest));
@@ -38,7 +38,7 @@ public class Board implements Serializable {
 		add(new Realty("Oriental Avenue", 100, 6));
 		add(new DrawCard("Chance", chance));
 		add(new Realty("Vermont Avenue", 100, 6));
-		add(new Realty("Connecticut Avenue", 120, 8));
+		add(new Realty("Conneticut Avenue", 120, 8));
 		add(JAIL);
 		add(new Realty("St. Charles Place", 140, 10));
 		add(new Utility("Electric Company"));
@@ -69,9 +69,13 @@ public class Board implements Serializable {
 		add(new Realty("Park Place", 350, 35));
 		add(new TaxSquare("Luxury Tax", 100));
 		add(new Realty("Boardwalk", 400, 50));
+
 	}
 	
-	public ISquare findLocation(String locationName) {
+	public Board() {
+	}
+	
+	public static ISquare findLocation(String locationName) {
 		for(ISquare square : squares) {
 			if (square.getName().equals(locationName)) {
 				return square;
