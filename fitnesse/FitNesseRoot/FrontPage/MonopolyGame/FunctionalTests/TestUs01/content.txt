@@ -11,5 +11,5 @@
 ----
 >Example1DecisionTable
 >Example2ActionTable
->Example3TableTable
->Example4GivWenThen
+>Example3TableTable does not yet exist
+>Example4GivWenThen does not yet exist

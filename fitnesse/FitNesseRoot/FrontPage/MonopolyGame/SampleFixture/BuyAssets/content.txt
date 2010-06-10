@@ -1,3 +1,10 @@
+!*> Setup
+!|!-nl.javadude.monopoly.fixtures.RoleDiceActionTable-!|
+
+!define TEST_SYSTEM {fit}
+
+*!
+
 | set user properties |
 | create user | cirilo |
 | set | account | $500 |

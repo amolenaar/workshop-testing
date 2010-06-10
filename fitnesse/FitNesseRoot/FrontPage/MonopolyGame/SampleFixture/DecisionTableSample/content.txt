@@ -1,4 +1,11 @@
+!*> Test Setup
 
+!define TEST_SYSTEM {slim}
+
+|import|
+|nl.javadude.monopoly.fixtures|
+
+*!
 !* '''A player can throw with two dices'''
 | role dice decision table |
 | player | first die | second die | position? |

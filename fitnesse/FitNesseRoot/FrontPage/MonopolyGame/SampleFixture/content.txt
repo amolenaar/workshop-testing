@@ -1,5 +1,5 @@
->SetUserProperties
->BuyAssets
+>SetUserProperties Does not yet exist!
+>BuyAssets  Does not yet exist!
 >ActionFixtureSample
 >DecisionTableSample
 >FitniumSample

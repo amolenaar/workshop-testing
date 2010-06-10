@@ -7,7 +7,7 @@
 Set up the browser and connect to selenium
 
 |The server is located at | localhost |
-|The server is on port | 9999 |
+|The server is on port | 4444 |
 |Using the browser | *firefox | start at | http://maps.google.com |
 |check | is selenium initialised | true |
 |set speed to |50| milliseconds |
