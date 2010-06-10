@@ -10,6 +10,8 @@ import nl.javadude.monopoly.domain.squares.Jail;
 import nl.javadude.monopoly.domain.squares.TaxSquare;
 import nl.javadude.monopoly.domain.squares.Station;
 import nl.javadude.monopoly.domain.squares.Utility;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -18,7 +20,8 @@ import java.util.Stack;
  * Representation of a monopoly board. We assume that in any game only one board
  * is used, and that any thread only deals with a single game.
  */
-public class Board {
+public class Board implements Serializable {
+	
 	public static final Start START = new Start();
 	public static final Jail JAIL = new Jail();
 	private List<ISquare> squares = new ArrayList<ISquare>();

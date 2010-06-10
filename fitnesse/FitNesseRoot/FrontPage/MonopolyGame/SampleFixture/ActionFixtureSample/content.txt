@@ -1,7 +1,9 @@
 !|!-nl.javadude.monopoly.fixtures.RoleDiceActionTable-!|
 
 !define TEST_SYSTEM {fit}
+define COMMAND_PATTERN {java -Xdebug -XrunjdWP:transport=dt_socket,server=y,suspend=y,address=1044 -cp %p %m}
 
+!* '''A player can throw with two dices'''
 !| ActionFixture |
 | start | RoleDiceActionTable |
 | enter | player | Cirilo |
@@ -12,6 +14,8 @@
 | check | repeat | true |
 | check | jail | false |
 
+*!
+!* '''Another player can throw with two dices'''
 !| ActionFixture |
 | start | RoleDiceActionTable |
 | enter | player | Aman |
@@ -21,3 +25,43 @@
 | check | position | Electric Company |
 | check | repeat | false |
 | check | jail | false |
+
+*!
+!* '''The same player can throw with two dices but because the game is not saved the result is the same'''
+!| ActionFixture |
+| start | RoleDiceActionTable |
+| enter | player | Aman |
+| enter | first die | 5 |
+| enter | second die | 1 |
+| press | play |
+| check | position | Electric Company |
+| check | repeat | false |
+| check | jail | false |
+
+*!
+!* '''A player can throw with two dices and save the game'''
+!| ActionFixture |
+| start | RoleDiceActionTable |
+| enter | player | Kris |
+| enter | first die | 5 |
+| enter | second die | 1 |
+| press | play |
+| check | position | Electric Company |
+| check | repeat | false |
+| check | jail | false |
+| press | save game |
+
+*!
+!* '''A player can throw with two dices after a saved game has been restored'''
+!| ActionFixture |
+| start | RoleDiceActionTable |
+| press | get saved game |
+| enter | player | Kris |
+| enter | first die | 5 |
+| enter | second die | 1 |
+| press | play |
+| check | position | Illinois Avenue |
+| check | repeat | false |
+| check | jail | false |
+
+*!

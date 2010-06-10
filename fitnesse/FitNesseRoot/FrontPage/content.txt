@@ -21,6 +21,7 @@
 !path fitnium2.jar
 !path ${M2_REPO}/org/seleniumhq/selenium/client-drivers/selenium-java-client-driver/1.0.1/selenium-java-client-driver-1.0.1.jar
 !path ${M2_REPO}/commons-lang/commons-lang/2.4/commons-lang-2.4.jar
+!path FitnesseSelenium.jar
 
 *!
 !note Release v20100303

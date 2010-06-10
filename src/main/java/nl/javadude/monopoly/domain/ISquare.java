@@ -1,6 +1,8 @@
 package nl.javadude.monopoly.domain;
 
-public interface ISquare {
+import java.io.Serializable;
+
+public interface ISquare extends Serializable {
 
 	String getName();
 	

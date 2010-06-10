@@ -1,5 +1,6 @@
 package nl.javadude.monopoly.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -7,7 +8,7 @@ import java.util.Random;
 /**
  * Plumbing class for the Game of Monopoly.
  */
-public class Game {
+public class Game implements Serializable {
 
 	private Board board;
 	private List<Player> players = new ArrayList<Player>();
