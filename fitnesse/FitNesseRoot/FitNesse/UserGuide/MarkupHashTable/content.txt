@@ -31,7 +31,7 @@ You can use line breaks inside them.
 
 !3 Syntax issues.
 
- * A colon, comma and closing brace simply cannot be placed in either the name or the value.  
+ * A colon, comma and closing brace simply cannot be placed in either the name or the value.
  * The comma is optional.  This is valid: !-!{name:bob dob:19521205}-!
 
 !3 CSS

@@ -1,0 +1,11 @@
+This fixture is meant to check the assets a user has gained during the game.
+It checks for a user what streets he owns and for this streets how many houses or hotels it contains.
+
+| check assets for user | cirilo |
+| street | houses | hotels |
+| connecticut avenue  | 0 | 1 |
+| Vermont Avenue | 4 | 0 |
+| Orientel Avenue | 4 | 0 |
+| park place | 0 | 0 |
+
+

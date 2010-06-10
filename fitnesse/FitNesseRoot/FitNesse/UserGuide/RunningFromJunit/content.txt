@@ -3,7 +3,7 @@ You can run FitNesse Java (Fit and Slim) tests from a developer IDE without star
  - import fitnesse.junit.JUnitHelper
  - instantiate the helper (eg in the setup method of the test class)
 {{{ JUnitHelper helper=new JUnitHelper(FITNESSE_ROOT_PATH, DIRECTORY_FOR_OUTPUT_FILES);  }}}
-FITNESSE_ROOT_PATH is the directory where the wiki pages are, the one which contains your FitNesseRoot directory. DIRECTORY_FOR_OUTPUT_FILES  where HTML test results will be stored. The test result directory will be created if required. For example, the following command will instantiate a helper for a project that contains FitNesseRoot in the base directory and store the results in the fitnesse subfolder of the system-specific temporary folder.   
+FITNESSE_ROOT_PATH is the directory where the wiki pages are, the one which contains your FitNesseRoot directory. DIRECTORY_FOR_OUTPUT_FILES  where HTML test results will be stored. The test result directory will be created if required. For example, the following command will instantiate a helper for a project that contains FitNesseRoot in the base directory and store the results in the fitnesse subfolder of the system-specific temporary folder.
 {{{ JUnitHelper helper=new JUnitHelper(".", new File(System.getProperty("java.io.tmpdir"),"fitnesse").getAbsolutePath());  }}}
  - you can now use helper.assertTestPasses(testName) or helper.assertSuitePasses(suiteName) in JUnit code to assert that a FitNesse test or suite pass. For example:
 {{{helper.assertSuitePasses("FitNesse.SuiteAcceptanceTests.SuiteSlimTests");}}} [[Here's a full example][http://github.com/unclebob/fitnesse/blob/master/src/fitnesse/junit/JUnitHelperExampleTest.java]]

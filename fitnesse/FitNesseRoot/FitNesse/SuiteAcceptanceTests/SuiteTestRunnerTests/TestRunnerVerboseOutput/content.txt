@@ -7,7 +7,7 @@ When no other options are supplied, the TestRunner will print simple messages to
 !|scenario      |Test Runner Output|args     |     |pageName||output|
 |output for page|@pageName         |with args|@args|matches |@output|
 |show           |output                                             |
- 
+
 !|Test Runner Output                                                                                                                 |
 |args|page name               |output                                                                                                |
 |-v  |SuiteFodder.TestPassing |Test Runner for Root Path: TestPassing\n  Page:TestPassing right:1, wrong:0, ignored:0, exceptions:0  |

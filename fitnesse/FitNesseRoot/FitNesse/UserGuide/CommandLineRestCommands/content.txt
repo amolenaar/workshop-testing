@@ -2,7 +2,7 @@ You can run any REST command (See RestfulServices) from the command line by usin
 
 |!style_code(java -jar fitnesse.jar -c <rest-command>)|
 
-This starts up fitnesse, runs the command, emits the output to standard out, and then exits.  
+This starts up fitnesse, runs the command, emits the output to standard out, and then exits.
 
 Most often you will use this to run tests and/or suites from the command line as follows:
 

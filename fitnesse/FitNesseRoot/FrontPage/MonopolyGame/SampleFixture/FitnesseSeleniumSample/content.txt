@@ -1,0 +1,16 @@
+!*> Test Setup
+
+!define TEST_SYSTEM {slim}
+
+*!
+
+| script |
+| start | selenium driver |
+| start browser | firefox | with selenium rc | localhost | on port | 4444 | point at | !-http://maps.google.com-! |
+| open | / |
+| click | q_d |
+| type in | q_d | text | vermont avenue, united states |
+| click | q-sub |
+| click | mtgt_A.1000 |
+| ensure | text is present | Vermont Ave |
+| shutdown browser |

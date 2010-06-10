@@ -1,7 +1,7 @@
 !2 Debugging with a local wiki site
 
-To debug fixture execution when wiki pages are accessible over a local file system, see RunningFromJunit 
- 
+To debug fixture execution when wiki pages are accessible over a local file system, see RunningFromJunit
+
 !2 Debugging with a remote wiki site
 
 Fixture code of a remote FitNesse wiki site can be debugged using the remote debugger to connect to the slim executor or fit client.

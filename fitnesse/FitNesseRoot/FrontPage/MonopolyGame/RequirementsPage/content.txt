@@ -37,7 +37,7 @@ Whenever you land on an unowned property you may buy that property from the Bank
 PAYING RENT
 When you land on a property that is owned by another player, the owner collects rent from you in accordance with the list printed on its Title Deed card.
 
-It is an advantage to hold all the Title Deed cards in a color-group (i.e., Boardwalk and Park Place, or Connecticut, Vermont and Oriental Avenues) because the owner may then charge double rent for unimproved properties in that colour-group. It is even more advantageous to have houses or hotels on properties because rents are much higher than for unimproved properties. 
+It is an advantage to hold all the Title Deed cards in a color-group (i.e., Boardwalk and Park Place, or Connecticut, Vermont and Oriental Avenues) because the owner may then charge double rent for unimproved properties in that colour-group. It is even more advantageous to have houses or hotels on properties because rents are much higher than for unimproved properties.
 
 CHANCE AND COMMUNITY CHEST
 When you land on either of these spaces, take the top card from the deck indicated, follow the instructions and return the card face down to the bottom of the deck. The “Get Out of Jail Free” card is held until used and then returned to the bottom of the deck. If the player who draws it does not wish to use it, then they may sell it, at any time, to another player at a price agreeable to both.
@@ -88,7 +88,7 @@ Houses and Hotels may be sold back to the Bank at any time for one-half the pric
 BANKRUPTCY
 You are declared bankrupt if you owe more than you can pay either to another player or to the Bank. If your debt is to another player, you must turn over to that player all that you have of value and retire from the game.
 In making this settlement, if you own houses or hotels, you must return these to the Bank in exchange for money to the extent of one-half the amount paid for them.
-This cash is given to the creditor. 
+This cash is given to the creditor.
 
 Should you owe the Bank, instead of another player, more than you can pay (because of taxes or penalties) even by selling off buildings and property, you must turn over all assets to the Bank. In this case, the Bank immediately sells by auction all property so taken, except buildings. A bankrupt player must immediately retire from the game. The last player left in the game wins.
 
