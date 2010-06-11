@@ -44,4 +44,8 @@ public abstract class AbstractOwnableSquare extends AbstractSquare implements IO
 	public boolean canBuy() {
 		return isUnowned();
 	}
+	
+	public Player getOwner() {
+		return owner;
+	}
 }

@@ -1,13 +1,14 @@
 '''Working Samples:'''
 >ActionFixtureSample includes saving and restoring a game
 >DecisionTableSample
+>SetUserProperties 
+>CheckUserProperties
 >FitniumSample
 >FitnesseSeleniumSample (!-FitnesseSelenium-! source code not included in project)
 
 '''Priority 1 still to be made:'''
->SetUserProperties 
+
 >SetPropertyAttributesSample Does not yet exist!
->CheckUserProperties Does not yet exist!
 >CheckPropertyAttributes Does not yet exist!
 >CheckUserAssets Does not yet exist!
 >BuyAssets  Does not yet exist!

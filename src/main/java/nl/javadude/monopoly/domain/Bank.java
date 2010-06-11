@@ -11,18 +11,14 @@ public class Bank extends Player {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Bank.class);
 	public static final Bank BANK = new Bank();
 
-	public Bank() {
+	private Bank() {
 		super("BANK");
+		setMoney(1500000);
 	}
 
 	@Override
 	public ISquare getCurrentPosition() {
 		return null;
-	}
-
-	@Override
-	public long getMoney() {
-		return Long.MAX_VALUE;
 	}
 
 	@Override

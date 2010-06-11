@@ -26,15 +26,4 @@ public class SetUserPropertiesFixture extends CommonFixtureCode {
 		}
 	}
 	
-	public void getUser(String name) {
-		user = (Player) restore(name+".data");
-	}
-	
-	public long getBalance() {
-		return user.getMoney();
-	}
-	
-	public String getPosition() {
-		return user.getCurrentPosition().getName();
-	}
 }

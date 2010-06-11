@@ -11,7 +11,6 @@ public class Player implements Serializable {
 	private String name;
 	private TurnState turnState;
 	private ISquare currentPosition;
-	private Board board;
 	private long money;
 	private List<IOwnable> possessions = new ArrayList<IOwnable>();
 
@@ -28,10 +27,6 @@ public class Player implements Serializable {
 		return currentPosition;
 	}
 
-	public void setBoard(Board board) {
-		this.board = board;
-	}
-
 	public void pay(long amount, Player toPlayer) {
 		toPlayer.receiveMoney(amount);
 	}
@@ -43,7 +38,7 @@ public class Player implements Serializable {
 	public long getMoney() {
 		return money;
 	}
-	
+
 	public void setMoney(long money) {
 		this.money = money;
 	}
@@ -60,26 +55,41 @@ public class Player implements Serializable {
 		return turnState == TurnState.JAILED;
 	}
 
-	public void buy() {
+	public boolean buy() {
 		if (currentPosition instanceof IOwnable) {
 			IOwnable ownable = (IOwnable) currentPosition;
-			pay(ownable.getCost(), Bank.BANK);
-			ownable.setOwner(this);
+			if (ownable.canBuy()) {
+				pay(ownable.getCost(), Bank.BANK);
+				ownable.setOwner(this);
+				addPossession(ownable);
+				return true;
+			}
 		}
+		return false;
 	}
 
 	public void move() {
 		Dice dice = Dice.getInstance();
 		dice.roll();
 		move(dice);
+		payRent();
 	}
 
+	private void payRent() {
+		if (currentPosition instanceof IOwnable) {
+			IOwnable ownable = (IOwnable) currentPosition;
+			if (!ownable.isUnowned()) {
+				pay(ownable.getRent(), ownable.getOwner());
+			}
+		}		
+	}
+	
 	public void move(Dice dice) {
 		turnState = turnState.transition(this);
 		if (isJailed()) {
 			currentPosition = Board.JAIL;
 		} else {
-			board.move(this, dice.view());
+			Board.move(this, dice.view());
 		}
 	}
 
@@ -88,7 +98,8 @@ public class Player implements Serializable {
 		if (obj == null || !(obj instanceof Player)) {
 			return false;
 		}
-		return true;
+		Player that = (Player) obj;
+		return (that.getName() != null && that.getName().equals(getName()));
 	}
 
 	public String getName() {
@@ -106,4 +117,18 @@ public class Player implements Serializable {
 	public void forceTurnFinish() {
 		turnState = TurnState.END_TURN;
 	}
+	
+	public boolean owns(String name) {
+		ISquare sq = Board.findLocation(name);
+		if (sq instanceof IOwnable) {
+			IOwnable ownable = (IOwnable) sq;
+			if (!ownable.isUnowned()) {
+				Player owner = ownable.getOwner();
+				return this.equals(owner);
+			}
+		}
+		return false;
+	}
+	
+	
 }

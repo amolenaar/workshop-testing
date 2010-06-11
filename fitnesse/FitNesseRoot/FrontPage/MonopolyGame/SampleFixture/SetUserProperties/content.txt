@@ -2,7 +2,6 @@ This fixture is meant to declare a user and set the properties for for this user
 Whats his name, position and account balance.
 !|!-nl.javadude.monopoly.fixtures.SetUserPropertiesFixture-!|
 
-!define TEST_SYSTEM {fit}
 !| ActionFixture |
 | start | SetUserPropertiesFixture |
 | enter | create user | cirilo |
@@ -10,10 +9,10 @@ Whats his name, position and account balance.
 | enter | set position | Conneticut Avenue |
 
 !| ActionFixture |
-| start | SetUserPropertiesFixture |
+| start | CheckUserPropertiesFixture |
 | enter | get user | cirilo |
-| check | get balance  | 500 |
-| check | get position | Conneticut Avenue |
+| check | balance  | 500 |
+| check | position | Conneticut Avenue |
 
 
 

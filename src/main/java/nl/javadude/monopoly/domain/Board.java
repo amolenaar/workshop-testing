@@ -25,8 +25,8 @@ public class Board implements Serializable {
 	public static final Start START = new Start();
 	public static final Jail JAIL = new Jail();
 	private static final List<ISquare> squares = new ArrayList<ISquare>();
-	private Stack<Card> communityChest = new Stack<Card>();
-	private Stack<Card> chance = new Stack<Card>();
+	private static Stack<Card> communityChest = new Stack<Card>();
+	private static Stack<Card> chance = new Stack<Card>();
 
 	{
 		add(START);
@@ -72,9 +72,6 @@ public class Board implements Serializable {
 
 	}
 	
-	public Board() {
-	}
-	
 	public static ISquare findLocation(String locationName) {
 		for(ISquare square : squares) {
 			if (square.getName().equals(locationName)) {
@@ -84,16 +81,16 @@ public class Board implements Serializable {
 		return null;
 	}
 
-	void add(AbstractSquare square) {
+	private static void add(AbstractSquare square) {
 		squares.add(square);
 	}
 
-	public void move(Player player, int roll) {
+	public static void move(Player player, int roll) {
 		ISquare newSquare = squares.get(calculateNewPosition(player, roll));
 		player.setCurrentPosition(newSquare);
 	}
 
-	private int calculateNewPosition(Player player, int roll) {
+	private static int calculateNewPosition(Player player, int roll) {
 		int oldPosition = squares.indexOf(player.getCurrentPosition());
 		int sum = oldPosition + roll;
 		if (sum >= squares.size()) {

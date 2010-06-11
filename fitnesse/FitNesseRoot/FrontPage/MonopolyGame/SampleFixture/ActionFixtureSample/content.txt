@@ -1,6 +1,7 @@
 !|!-nl.javadude.monopoly.fixtures.RoleDiceActionTable-!|
 
 !define TEST_SYSTEM {fit}
+
 define COMMAND_PATTERN {java -Xdebug -XrunjdWP:transport=dt_socket,server=y,suspend=y,address=1044 -cp %p %m}
 
 !* '''A player can throw with two dices'''

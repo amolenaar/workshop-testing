@@ -10,13 +10,11 @@ import java.util.Random;
  */
 public class Game implements Serializable {
 
-	private Board board;
 	private List<Player> players = new ArrayList<Player>();
 	protected Player currentPlayer;
 	private int playerPosition;
 
 	public Game() {
-		board = new Board();
 	}
 
 	public void add(Player player) {
@@ -24,7 +22,6 @@ public class Game implements Serializable {
 		// Add the base money to the player.
 		Bank.BANK.pay(1500, player);
 		player.setCurrentPosition(Board.START);
-		player.setBoard(board);
 	}
 	
 	/**

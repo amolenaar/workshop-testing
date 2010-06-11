@@ -22,3 +22,4 @@ Lets try to login
 | click button | q-sub |
 | wait For Page To Load For | 5 | seconds |
 | write to debug | test complete |
+| close the browser |

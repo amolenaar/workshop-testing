@@ -14,9 +14,9 @@ import nl.javadude.monopoly.domain.Player;
 
 import org.apache.commons.lang.SerializationException;
 
-import fit.Fixture;
+import fitlibrary.DoFixture;
 
-public class CommonFixtureCode extends Fixture {
+public class CommonDoFixtureCode extends DoFixture {
 
 	private int die1;
 	private int die2;
