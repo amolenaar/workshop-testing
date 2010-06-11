@@ -5,6 +5,7 @@
 >CheckUserProperties
 >FitniumSample
 >FitnesseSeleniumSample (!-FitnesseSelenium-! source code not included in project)
+>GameFixture
 
 '''Priority 1 still to be made:'''
 

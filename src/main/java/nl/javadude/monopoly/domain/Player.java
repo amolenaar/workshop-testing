@@ -17,6 +17,9 @@ public class Player implements Serializable {
 	public Player(String name) {
 		this.name = name;
 		turnState = TurnState.END_TURN;
+		// Add the base money to the player.
+        //Bank.BANK.pay(1500, this);
+		setCurrentPosition(Board.START);
 	}
 
 	public void setCurrentPosition(ISquare currentPosition) {
@@ -89,7 +92,7 @@ public class Player implements Serializable {
 		if (isJailed()) {
 			currentPosition = Board.JAIL;
 		} else {
-			Board.move(this, dice.view());
+			Board.BOARD.move(this, dice.view());
 		}
 	}
 
@@ -119,7 +122,7 @@ public class Player implements Serializable {
 	}
 	
 	public boolean owns(String name) {
-		ISquare sq = Board.findLocation(name);
+		ISquare sq = Board.BOARD.findLocation(name);
 		if (sq instanceof IOwnable) {
 			IOwnable ownable = (IOwnable) sq;
 			if (!ownable.isUnowned()) {

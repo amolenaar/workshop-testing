@@ -19,9 +19,6 @@ public class Game implements Serializable {
 
 	public void add(Player player) {
 		players.add(player);
-		// Add the base money to the player.
-		Bank.BANK.pay(1500, player);
-		player.setCurrentPosition(Board.START);
 	}
 	
 	/**

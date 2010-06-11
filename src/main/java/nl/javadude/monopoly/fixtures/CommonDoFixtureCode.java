@@ -21,11 +21,8 @@ public class CommonDoFixtureCode extends DoFixture {
 	private int die1;
 	private int die2;
 
-	private Game game = new Game();
-
-	private Board board = new Board();
-
-	private Player player;
+	protected Game game = new Game();
+	protected Player player;
 
 	public void setPlayer(String name) {
 		addPlayerIfNotYetInGame(name);
@@ -59,7 +56,6 @@ public class CommonDoFixtureCode extends DoFixture {
 	}
 
 	public String getNewPosition() {
-		doPlayAction();
 		return player.getCurrentPosition().getName();
 	}
 
@@ -72,7 +68,7 @@ public class CommonDoFixtureCode extends DoFixture {
 	}
 
 	public void setLocation(String locationName) {
-		ISquare newLocation = board.findLocation(locationName);
+		ISquare newLocation = Board.BOARD.findLocation(locationName);
 		player.setCurrentPosition(newLocation);
 	}
 
@@ -85,13 +81,11 @@ public class CommonDoFixtureCode extends DoFixture {
 	}
 
 	public void saveGame() {
-		save(game, "game.data");
-		save(board, "board.data");
+		save(game, constructFileName("game"));
 	}
 
 	public void getSavedGame() {
-		game = (Game) restore("game.data");
-		board = (Board) restore("board.data");
+		game = (Game) restore(constructFileName("game"));
 	}
 
 	protected void save(Object obj, String fileName) {
@@ -156,5 +150,9 @@ public class CommonDoFixtureCode extends DoFixture {
 				// ignore
 			}
 		}
+	}
+	
+	protected String constructFileName(String name) {
+		return name+".data";
 	}
 }

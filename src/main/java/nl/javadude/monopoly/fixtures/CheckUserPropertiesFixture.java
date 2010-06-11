@@ -7,7 +7,7 @@ public class CheckUserPropertiesFixture extends CommonDoFixtureCode {
 	private Player user;
 
 	public void getUser(String name) {
-		user = (Player) restore(name + ".data");
+		user = (Player) restore(constructFileName(name));
 	}
 
 	public long balance() {

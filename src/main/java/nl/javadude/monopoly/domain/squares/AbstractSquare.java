@@ -24,4 +24,15 @@ public abstract class AbstractSquare implements ISquare {
 	public boolean canBuy() {
 		return false;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null || !(obj instanceof AbstractSquare)) {
+			return false;
+		}
+		AbstractSquare sq = (AbstractSquare) obj;
+		return (sq.getName() != null && sq.getName().equals(getName()));
+	}
+	
+	
 }

@@ -23,7 +23,7 @@ public class CommonFixtureCode extends Fixture {
 
 	private Game game = new Game();
 
-	private Board board = new Board();
+	private Board board = Board.BOARD;
 
 	private Player player;
 
