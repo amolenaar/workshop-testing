@@ -53,8 +53,11 @@ public class GameFixture extends CommonDoFixtureCode {
 	}
 	
 	public boolean buy() {
-		return player.buy();
-		
+		return player.buy();	
+	}
+	
+	public long budget() {
+		return player.getMoney();
 	}
 
 

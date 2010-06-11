@@ -89,6 +89,9 @@ public class Board implements Serializable {
 	public void move(Player player, int roll) {
 		ISquare newSquare = squares.get(calculateNewPosition(player, roll));
 		player.setCurrentPosition(newSquare);
+		if (newSquare instanceof IAutomatic) {
+		   ((IAutomatic) newSquare).execute(player);
+		}
 	}
 
 	private int calculateNewPosition(Player player, int roll) {

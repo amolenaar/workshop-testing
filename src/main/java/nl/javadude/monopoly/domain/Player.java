@@ -7,7 +7,7 @@ import java.util.List;
 /**
  *
  */
-public class Player implements Serializable {
+public class Player implements Serializable, MoneyExchanger {
 	private String name;
 	private TurnState turnState;
 	private ISquare currentPosition;
@@ -18,7 +18,7 @@ public class Player implements Serializable {
 		this.name = name;
 		turnState = TurnState.END_TURN;
 		// Add the base money to the player.
-        //Bank.BANK.pay(1500, this);
+        Bank.BANK.pay(1500, this);
 		setCurrentPosition(Board.START);
 	}
 
@@ -30,8 +30,10 @@ public class Player implements Serializable {
 		return currentPosition;
 	}
 
-	public void pay(long amount, Player toPlayer) {
+	public void pay(long amount, MoneyExchanger toPlayer) {
 		toPlayer.receiveMoney(amount);
+		// TODO payed money needs to be withdrawn also!!
+		//money -= amount;
 	}
 
 	public void receiveMoney(long amount) {
