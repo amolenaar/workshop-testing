@@ -2,15 +2,22 @@
 
 !define TEST_SYSTEM {slim}
 
+|Import|
+|com.xebia.fitnesse.selenium|
+
+
+
 *!
 
 | script |
 | start | selenium driver |
 | start browser | firefox | with selenium rc | localhost | on port | 4444 | point at | !-http://maps.google.com-! |
 | open | / |
-| click | q_d |
-| type in | q_d | text | vermont avenue, united states |
+| type in | q_d | text | Vermont Avenue |
 | click | q-sub |
+| wait for text present | Vermont Ave, New York, NY 11207 |
+| wait for text present | Vermont Ave |
+| click | //div[@id='refsec']/div[5]/a/b |
 | click | mtgt_A.1000 |
 | ensure | text is present | Vermont Ave |
 | shutdown browser |
