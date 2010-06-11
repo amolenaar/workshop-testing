@@ -20,7 +20,7 @@ public class DrawCard extends AbstractSquare implements IAutomatic {
 	}
 
 	public void execute(Player player) {
-		throw new UnsupportedOperationException("Don't know how to draw card");
+		//throw new UnsupportedOperationException("Don't know how to draw card");
 	}
 	
 	@Override
