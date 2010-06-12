@@ -3,7 +3,7 @@
 See http://code.google.com/p/givwenzen/ for more information
 
 |script|
-| given | a Player ''Aman'' starts at position ''Go'' |
+| given | Player ''Aman'' starts at position ''Go'' |
 | when | throwing ''1'' and ''1'' with the dice  |
 | and  | throwing ''4'' and ''3'' with the dice |
 | then | the Players position is ''Connecticut Avenue'' |

@@ -2,12 +2,8 @@
 
 !define TEST_SYSTEM {slim}
 
-
-!define SPEEDLIMIT {5000}
-
 |Import|
 |com.xebia.fitnesse.selenium|
-
 
 *!
 
@@ -15,13 +11,13 @@
 | script |
 | start | selenium driver |
 | start browser | firefox | with selenium rc | localhost | on port | 4444 | point at | !-http://maps.google.com-! |
+| speed limit | 50 |
 | open | / |
 | type in | q_d | text | Vermont Avenue |
 | click | q-sub |
 | wait for text present | Vermont Ave, New York, NY 11207 |
 | wait for text present | Vermont Ave |
 | click | //div[@id='refsec']/div[5]/a/b |
-| pause | 5000 |
 | click | mtgt_A.1000 |
 | ensure | text is present | Vermont Ave |
 | shutdown browser |
