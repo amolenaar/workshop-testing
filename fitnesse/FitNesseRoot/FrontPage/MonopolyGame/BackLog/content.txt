@@ -2,18 +2,30 @@
 !3 User Stories
 '''Format: As a ... I can ... So that ...'''
 
-| '''Description'''| Priority |
-| ${testRequirementUs01} | 1 |
-| ${testRequirementUs08} | 1 |
-| ${testRequirementUs09} | 1 |
-| ${testRequirementUs10} | 1 |
-| ${testRequirementUs02} | 2 |
-| ${testRequirementUs03} | 2 |
-| ${testRequirementUs04} | 2 |
-| ${testRequirementUs05} | 2 |
-| ${testRequirementUs06} | 3 |
-| ${testRequirementUs07} | 3 |
-
+|  comment |
+|'''Description'''|'''Priority'''|
+|${testRequirementUs01}|1|
+||See section 5.2.6 of the requirements for more details|
+|${testRequirementUs08}|1|
+|See sections 5.2.1, 5.2.2 and 5.2.6 of the requirements for more details|
+|${testRequirementUs09}|1|
+|See section 5.2.8 of the requirements for more details|
+|${testRequirementUs10}|1|
+|See sections 5.2.8, 5.2.9 and 5.2.18 of the requirements for more details|
+|${testRequirementUs02}|2|
+|See sections 5.2.5 and 5.2.8 of the requirements for more details|
+|${testRequirementUs03}|2|
+|See sections 5.2.15 and 5.2.16 of the requirements for more details|
+|${testRequirementUs04}|2|
+|See section 5.2.9 of the requirements for more details|
+|${testRequirementUs05}|2|
+|See section 5.2.9 of the requirements for more details|
+|${testRequirementUs06}|3|
+|See section 5.2.12 of the requirements for more details|
+|${testRequirementUs07}|3|
+|See section 5.2.13 of the requirements for more details|
+|${testRequirementUs11}|3|
+|See section 5.2.7 of the requirements for more details|
 
 | !3 SPRINT 1 |
 | ${testRequirementUs01} |
@@ -23,3 +35,6 @@
 | ${testRequirementUs09} |
 | ${testRequirementUs10} |
 etc..
+
+
+

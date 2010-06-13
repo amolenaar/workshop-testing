@@ -7,16 +7,13 @@
 >FitnesseSeleniumSample
 >GameFixture
 
-'''Priority 1 still to be made:'''
+'''Still to be made:'''
 
 >SetPropertyAttributesSample Does not yet exist!
 >CheckPropertyAttributes Does not yet exist!
 >CheckUserAssets Does not yet exist!
 >BuyAssets  Does not yet exist!
-
-'''Priority 2 still to be made:'''
 >GivWenThenSample Does not yet exist
 >TableTableSample Does not yet exist
-
+>SetupFixtureSample Does not yet exist
 >PositionRowFixtureSample Does not yet exist
-

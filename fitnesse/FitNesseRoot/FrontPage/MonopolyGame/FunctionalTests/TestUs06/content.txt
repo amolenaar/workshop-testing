@@ -17,21 +17,6 @@ There are three rules that can cause a player to get into jail
 2. If a player throws double thrice
 3. If a player picks a ''Goto Jail'' card from the ''Chance'' cards
 ----
-!* Prepare
-
-| set user properties |
-| create user | cirilo |
-| set | account | $500 |
-| set | position | conneticut avenue |
-
-| set property status |
-| street name | conneticut avenue |
-| value | $200 |
-| houses | 0 |
-| hotels | 0 |
-| available | true |
-
-*!
 !* '''When a player throws double twice he gets another turn (with a maximum of three throws)'''
 
 | role dice decision table |

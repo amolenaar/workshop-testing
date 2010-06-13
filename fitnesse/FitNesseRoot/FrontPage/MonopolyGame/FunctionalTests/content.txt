@@ -3,7 +3,7 @@
 | '''Description''' | '''Testcase''' | '''Status''' | '''Remark''' |
 | ${testRequirementUs01} | >TestUs01 | OK | Several fixture examples |
 | ${testRequirementUs06} | >TestUs06 | OK | Reuse of the column fixture |
-| ${testRequirementUs08} | >TestUs08 | OK | Example of a row or query fixture |
+| ${testRequirementUs08} | >TestUs08 | OK |  |
 | ${testRequirementUs02} | >TestUs02 | WIP |  |
 | ${testRequirementUs09} | >TestUs09 | WIP |  |
 | ${testRequirementUs10} | >TestUs10 | WIP |  |

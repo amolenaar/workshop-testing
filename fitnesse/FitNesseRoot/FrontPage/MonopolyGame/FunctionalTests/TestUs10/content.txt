@@ -1,11 +1,7 @@
-| check properties for user| cirilo |
-| check  | account | $500 |
-| check  | position | conneticut avenue |
+!2 ${testRequirementUs10}
 
-| check assets for user | cirilo |
-| street | houses | hotels |
-| connecticut avenue  | 0 | 1 |
-| Vermont Avenue | 4 | 0 |
-| Orientel Avenue | 4 | 0 |
-| park place | 0 | 0 |
+'''Motivation: '''
 
+'''Additional requirements:'''
+-
+----

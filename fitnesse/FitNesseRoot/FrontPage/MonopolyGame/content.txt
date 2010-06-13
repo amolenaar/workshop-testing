@@ -1,5 +1,12 @@
 !2 Monopoly project
 
+!img http://files/images/mr-monopoly.jpg
+
+>RequirementsPage
+>BackLog
+>FunctionalTests
+>SampleFixture
+
 !*> Used variables
 
 !define testRequirementUs01 {'''US01 As a Player I can roll the dice so that my token can move to a new position'''}
@@ -12,11 +19,6 @@
 !define testRequirementUs08 {'''US08 As a Player I know the position of other players in order to determine a strategy'''}
 !define testRequirementUs09 {'''US09 As a Player I can view the status of an asset in order to determine if I want to buy'''}
 !define testRequirementUs10 {'''US10 As a Player I can view my possessions in order to determine a strategy'''}
+!define testRequirementUs11 {'''US11 As a Player I receive salary when passing or landing on GO'''}
 
 *!
->RequirementsPage
->BackLog
->FunctionalTests
->SetUpTemp
->SampleFixture
-

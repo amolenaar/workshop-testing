@@ -1,7 +1,8 @@
 !1 Welcome to [[FitNesse][FitNesse.FitNesse]]!
 !3 ''The fully integrated stand-alone acceptance testing framework and wiki.''
 
->MonopolyGame
+!3 Click on the Image to goto the Monopoly project
+[[!img http://files/images/mr-monopoly2.jpg][>MonopolyGame]]
 
 | '''To Learn More...'''|
 | [[A One-Minute Description][FitNesse.UserGuide.OneMinuteDescription]]|''What is [[FitNesse][FitNesse.FitNesse]]? Start here.''|
