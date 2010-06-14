@@ -6,6 +6,10 @@
 >BackLog
 >FunctionalTests
 >SampleFixture
+>ExercisesTeam01
+>ExercisesTeam02
+>ExercisesTeam03
+>ExercisesTeam04
 
 !*> Used variables
 

@@ -1,0 +1,25 @@
+!*> Test Setup
+
+!define TEST_SYSTEM {slim}
+
+|import|
+|nl.javadude.monopoly.fixtures|
+
+*!
+
+!3 ${testRequirementUs01}
+!* '''A Player can move his token forward the sum of both dices'''
+| role dice decision table |
+| player | first die | second die | old position? | position? |
+| Cirilo | 5 | 6 | GO                    | St. Charles Place |
+| Aman   | 2 | 4 | GO                    | Oriental Avenue |
+| Cirilo | 2 | 6 | St. Charles Place     | New York Avenue |
+| Aman   | 6 | 1 | Oriental Avenue       | States Avenue |
+| Cirilo | 4 | 3 | New York Avenue       | Atlantic Avenue |
+| Aman   | 5 | 2 | States Avenue         | Free Parking |
+| Cirilo | 2 | 4 | Atlantic Avenue       | North Carolina Avenue |
+| Aman   | 6 | 1 | Free Parking          | Ventnor Avenue |
+| Cirilo | 5 | 6 | North Carolina Avenue | Baltic Avenue |
+| Aman   | 6 | 1 | Ventnor Avenue        | Pennsylvania Avenue |
+
+*!

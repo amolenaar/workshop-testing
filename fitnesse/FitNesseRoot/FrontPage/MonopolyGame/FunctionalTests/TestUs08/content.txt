@@ -1,10 +1,46 @@
+!*> Setup
+
+!|!-nl.javadude.monopoly.fixtures.RoleDiceActionTable-!|
+
+!define TEST_SYSTEM {fit}
+
+*!
 !3 ${testRequirementUs08}
 
-All players should be visible to all players at all time during the game.
-
-Context:
+Motivation:
 - A player collects rent when other players land on his property and therefor he needs to know when other players visit his property.
 - A player might want to change his strategy if other players are about to land on his property.
 
+All players should be visible to all players at all time during the game.
 ----
+!* '''A player can throw with two dices'''
+!| ActionFixture |
+| start | RoleDiceActionTable |
+| enter | player | Cirilo |
+| enter | first die | 1 |
+| enter | second die | 1 |
+| press | play |
+| enter | player | Aman |
+| enter | first die | 5 |
+| enter | second die | 1 |
+| press | play |
+| enter | player | Kris |
+| enter | first die | 5 |
+| enter | second die | 1 |
+| press | play |
+| enter | player | Cirilo |
+| enter | first die | 1 |
+| enter | second die | 1 |
+| press | play |
+| enter | player | Aman |
+| enter | first die | 5 |
+| enter | second die | 1 |
+| press | play |
+| enter | player | Cirilo |
+| check | position | Jail |
+| enter | player | Aman |
+| check | position | Tennessee Avenue |
+| enter | player | Kris |
+| check | position | Electric Company |
 
+*!

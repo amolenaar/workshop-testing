@@ -1,6 +1,10 @@
+!*> Setup
+!|!-nl.javadude.monopoly.fixtures.SetUserPropertiesFixture-!|
+
+*!
+
 This fixture is meant to declare a user and set the properties for for this user:
 Whats his name, position and account balance.
-!|!-nl.javadude.monopoly.fixtures.SetUserPropertiesFixture-!|
 
 !| ActionFixture |
 | start | SetUserPropertiesFixture |

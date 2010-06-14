@@ -2,8 +2,9 @@
 
 | '''Description''' | '''Testcase''' | '''Status''' | '''Remark''' |
 | ${testRequirementUs01} | >TestUs01 | OK | Several fixture examples |
-| ${testRequirementUs06} | >TestUs06 | OK | Reuse of the column fixture |
+| ${testRequirementUs06} | >TestUs06 | NOK | Reuse of the column fixture |
 | ${testRequirementUs08} | >TestUs08 | OK |  |
-| ${testRequirementUs02} | >TestUs02 | WIP |  |
+| ${testRequirementUs02} | >TestUs02 | NOK | ISSUE |
 | ${testRequirementUs09} | >TestUs09 | WIP |  |
 | ${testRequirementUs10} | >TestUs10 | WIP |  |
+| ${testRequirementUs11} | >TestUs11 | WIP |  |

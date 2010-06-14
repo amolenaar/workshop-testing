@@ -1,0 +1,40 @@
+!*> Setup
+!|!-nl.javadude.monopoly.fixtures.RoleDiceActionTable-!|
+
+!define TEST_SYSTEM {fit}
+
+*!
+!3 ${testRequirementUs06}
+'''Reuse of the Action Fixture from US01, adding the ''jail'' check'''
+!* Cirilo gets the first turn and lands in Jail after throwing doubles thrice.
+
+!| ActionFixture |
+| start | RoleDiceActionTable |
+| enter | player | Cirilo |
+| enter | first die | 1 |
+| enter | second die | 1 |
+| press | play |
+| check | jail | false |
+| enter | first die | 2 |
+| enter | second die | 2 |
+| press | play |
+| check | jail | false |
+| enter | first die | 3 |
+| enter | second die | 3 |
+| press | play |
+| check | repeat | false |
+| check | jail | true |
+| check | position | Jail |
+
+*!
+!* Aman does not land in Jail after one none-double throw (i.e. Jail=false)
+!| ActionFixture |
+| start | RoleDiceActionTable |
+| enter | player | Aman |
+| enter | first die | 5 |
+| enter | second die | 1 |
+| press | play |
+| check | jail | false |
+| check | position | Electric Company |
+
+*!

@@ -1,14 +1,11 @@
 '''Working Samples:'''
 >ActionFixtureSample includes saving and restoring a game
 >DecisionTableSample
->SetUserProperties 
+>SetUserProperties
 >CheckUserProperties
->FitniumSample
->FitnesseSeleniumSample
 >GameFixture
 
-'''Still to be made:'''
-
+'''Conceptual Samples:'''
 >SetPropertyAttributesSample Does not yet exist!
 >CheckPropertyAttributes Does not yet exist!
 >CheckUserAssets Does not yet exist!
@@ -17,3 +14,9 @@
 >TableTableSample Does not yet exist
 >SetupFixtureSample Does not yet exist
 >PositionRowFixtureSample Does not yet exist
+
+'''Testing the UI Samples'''
+>FitniumSample
+>FitnesseSeleniumSample
+
+
