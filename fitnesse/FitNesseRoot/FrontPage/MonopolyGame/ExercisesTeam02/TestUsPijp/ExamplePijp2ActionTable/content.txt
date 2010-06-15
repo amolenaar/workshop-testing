@@ -1,23 +1,50 @@
-!contents -R2 -g -p -f -h
-!*> Setup
-!|!-nl.javadude.monopoly.fixtures.RoleDiceActionTable-!|
+!*> Test Setup
+!define TEST_RUNNER {fitlibrary.suite.FitLibraryServer}
+define COMMAND_PATTERN {java -Xdebug -XrunjdWP:transport=dt_socket,server=y,suspend=y,address=1044 -cp %p %m}
 
-!define TEST_SYSTEM {fit}
+!|!-nl.javadude.monopoly.fixtures.SetUpUserFixture-!|
 
-*!
-!3 ${testRequirementUsPijp}
-!* Example 2: Action table
+| create user | user_1|
+| set balance  | 500 |
+| set position | Boardwalk |
 
-!| ActionFixture |
-| start | RoleDiceActionTable |
-| enter | player | Pied_Pijper |
-| check | position | GO |
-| enter | first die | 6 |
-| enter | second die | 4 |
-| check | position | Jail |
-| enter | player | Pied_Pijper |
-| enter | first die | 1 |
-| enter | second die | 2 |
-| check | position | States Avenue|
+| create user | user_2|
+| set balance  | 500 |
+| set position | Boardwalk |
+
+| create user | user_3|
+| set balance  | 200|
+| set position | Boardwalk |
 
 *!
+
+|!-nl.javadude.monopoly.fixtures.GameFixture-!|
+| start game with players | user_1, user_2, user_3 |
+| player | user_3|
+| check | position | Boardwalk |
+| check | buy | false|
+| check | owns street | Boardwalk | false |
+
+|!-nl.javadude.monopoly.fixtures.GameFixture-!|
+| start game with players | user_1, user_2, user_3 |
+| player | user_1 |
+| check | position | Boardwalk |
+| check | buy | true |
+| check | owns street | Boardwalk | true |
+| check | buy | false |
+| check | owns street | Boardwalk | true |
+| first die | 4 |
+| second die | 1 |
+| play |
+| check | position | Income Tax| 
+| check | buy | false |
+
+
+|!-nl.javadude.monopoly.fixtures.GameFixture-!|
+| start game with players | user_1, user_2, user_3 |
+| player | user_1|
+| check | position | Boardwalk |
+| check | buy | true|
+| check | buy | false|
+| player | user_2|
+| check | buy | false|
