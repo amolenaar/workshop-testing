@@ -1,24 +1,25 @@
-!3 ${testRequirementUs01}
+!*> Test Setup
 
-'''Check to see if the sum of both dices is correctly calculated'''
+!define TEST_SYSTEM {slim}
 
-!* '''Example 3: Table table'''
-| count dice table table|
-| 1 | 2 | 3 | 3 | 4 | 4 | 3 | 6 |
-|   | 3 | | 6 | | 8 | | 9 |
+|import|
+|nl.javadude.monopoly.fixtures|
+
+
+
+*!
+!* '''A Player can move his token forward the sum of both dices'''
+| role dice decision table |
+| player | first die | second die | old position? | position? |
+| Cirilo |1         |1         |GO             |Community Chest |
+| Aman   |2         |1         |GO             |Baltic Avenue   |
+| Losseni|3         |1         |GO             |Income Tax      |
+| Marjan |4         |1         |GO             |Reading Railroad|
 
 !* '''Example 4:Your next position according to dice values'''
-!* '''this is not a full test for coming out of jail'''
-|Die value1| Die value2| actual position|next position|
-|1|1|GO|CommunityChest|
-|2|1|GO|BalticAvenue|
-|3|1|GO|IncomeTAax|
-|4|1|GO|ReadingRailroad|
-|2|2|InJail|VirginiaAvenue|
-|3|3|Injail|StJamesPlace|
-|7|
-|8|
-|9|
-|10|
-|11|
-|12|
+
+|Die value1|Die value2|actual position|next position   |
+|1         |1         |GO             |Community Chest |
+|2         |1         |GO             |Baltic Avenue   |
+|3         |1         |GO             |Income Tax      |
+|4         |1         |GO             |Reading Railroad|
