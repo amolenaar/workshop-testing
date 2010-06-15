@@ -1,18 +1,44 @@
 !*> Test Setup
+!define TEST_RUNNER {fitlibrary.suite.FitLibraryServer}
+define COMMAND_PATTERN {java -Xdebug -XrunjdWP:transport=dt_socket,server=y,suspend=y,address=1044 -cp %p %m}
 
-!define TEST_SYSTEM {slim}
+!|!-nl.javadude.monopoly.fixtures.SetUpUserFixture-!|
 
-|import|
-|nl.javadude.monopoly.fixtures|
+| create user | Luis|
+| set position | Baltic Avenue |
+| create user | Jatinder|
+| set position | Pacific Avenue |
+| create user | Janet|
+| set position | Atlantic Avenue |
+
+
+|!-nl.javadude.monopoly.fixtures.GameFixture-!|
+| start game with players | Luis, Jatinder |
+| player | Luis |
+| first die | 4 |
+| second die | 6 |
+| play |
+| check | position | States Avenue |
+
+
+|!-nl.javadude.monopoly.fixtures.GameFixture-!|
+| start game with players | Luis, Jatinder, Janet |
+| player | Jatinder |
+| first die | 6 |
+| second die | 6 |
+| play |
+| check | position | Baltic Avenue |
+
+|!-nl.javadude.monopoly.fixtures.GameFixture-!|
+| start game with players | Luis, Jatinder, Janet |
+| player | Janet|
+| first die | 3 |
+| second die | 1 |
+| play |
+| check | position | Police Agent / Go To Jail |
 
 *!
-!3 ${testRequirementUs08}
-As a Player I know the position of other players in order to determine a strategy.
-!* '''A player can throw with two dices'''
-| role dice decision table |
-| Player 1 Position | Player 2 Position | Turn |  Sum of Dice | New Position Player 1 |  New Position Player 2 |
-| Baltic Avenue | Pacific Avenue | Player 1 | 10 | States Avenue | Pacific Avenue | 
-| Baltic Avenue | Pacific Avenue | Player 2 | 12 | Baltic Avenue | Baltic Avenue | 
-| BAD Rail road | Pacific Avenue | Player 1 | 5 | Jail | Pacific Avenue | 
 
-*!
+
+
+
