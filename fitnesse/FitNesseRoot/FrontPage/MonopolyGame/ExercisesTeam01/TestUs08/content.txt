@@ -8,3 +8,5 @@ Context:
 
 ----
 
+>table08
+| property | players |position|rent|

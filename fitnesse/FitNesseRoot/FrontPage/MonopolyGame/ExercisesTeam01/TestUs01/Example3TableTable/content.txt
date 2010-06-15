@@ -7,4 +7,18 @@
 | 1 | 2 | 3 | 3 | 4 | 4 | 3 | 6 |
 |   | 3 | | 6 | | 8 | | 9 |
 
-*!
+!* '''Example 4:Your next position according to dice values'''
+!* '''this is not a full test for coming out of jail'''
+|Die value1| Die value2| actual position|next position|
+|1|1|GO|CommunityChest|
+|2|1|GO|BalticAvenue|
+|3|1|GO|IncomeTAax|
+|4|1|GO|ReadingRailroad|
+|2|2|InJail|VirginiaAvenue|
+|3|3|Injail|StJamesPlace|
+|7|
+|8|
+|9|
+|10|
+|11|
+|12|
