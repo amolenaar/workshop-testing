@@ -1,12 +1,11 @@
 
-!3 ${testRequirementUs11}
-!* '''Example 4: !-PlayerLandsBefore-! using the script fixture'''
+!3 Move and check balance
 
-|script|
-| given | Player ''Aman'' starts at position ''Pensylvana Avenue'' |
-| and  | account balance is 100 |
-| and  | ''Park Place'' is not owned |
-| when | throwing ''1'' and ''2'' with the dice  |
-| then | the player account balance is 100 |
-
-*!
+|!-nl.javadude.monopoly.fixtures.GameFixture-!|
+| start game with players | cirilo |
+| player | cirilo |
+| first die | 1 |
+| second die | 1 |
+| play |
+| check | position | Community Chest |
+| check | budget| 500 |

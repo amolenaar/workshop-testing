@@ -1,5 +1,18 @@
 !2 ${testRequirementUs11}
 
+!*> Test Setup
+!define TEST_RUNNER {fitlibrary.suite.FitLibraryServer}
+define COMMAND_PATTERN {java -Xdebug -XrunjdWP:transport=dt_socket,server=y,suspend=y,address=1044 -cp %p %m}
+
+!|!-nl.javadude.monopoly.fixtures.SetUpUserFixture-!|
+
+| create user | cirilo |
+| set balance  | 500 |
+| set position | Pacific Avenue |
+
+*!
+
+
 '''Motivation: '''
 Players need money to play.
 
