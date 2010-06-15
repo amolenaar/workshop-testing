@@ -4,12 +4,7 @@
 
 >RequirementsPage
 >BackLog
->FunctionalTests
->SampleFixture
->ExercisesTeam01
 >ExercisesTeam02
->ExercisesTeam03
->ExercisesTeam04
 
 !*> Used variables
 
@@ -24,5 +19,5 @@
 !define testRequirementUs09 {'''US09 As a Player I can view the status of an asset in order to determine if I want to buy'''}
 !define testRequirementUs10 {'''US10 As a Player I can view my possessions in order to determine a strategy'''}
 !define testRequirementUs11 {'''US11 As a Player I receive salary when passing or landing on GO'''}
-
+!define testRequirementUsPijp {'''USPijp As a Player I can pijp'''}
 *!

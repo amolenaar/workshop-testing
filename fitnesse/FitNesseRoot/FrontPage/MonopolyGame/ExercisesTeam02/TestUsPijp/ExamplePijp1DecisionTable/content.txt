@@ -1,0 +1,18 @@
+!*> Test Setup
+
+!define TEST_SYSTEM {slim}
+
+|import|
+|nl.javadude.monopoly.fixtures|
+
+*!
+!3 ${testRequirementUsPijp}
+Throw 2 dices to leave JAIL
+!* '''A player can throw with two dices'''
+| role dice decision table |
+| player | first die | second die | position? |
+| Pied_Pijper | 6 | 4 | Jail |
+| Pied_Pijper | 1 | 2 | Jail |
+
+
+*!

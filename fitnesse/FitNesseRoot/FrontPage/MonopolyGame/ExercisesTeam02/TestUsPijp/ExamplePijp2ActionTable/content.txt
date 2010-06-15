@@ -1,0 +1,23 @@
+!contents -R2 -g -p -f -h
+!*> Setup
+!|!-nl.javadude.monopoly.fixtures.RoleDiceActionTable-!|
+
+!define TEST_SYSTEM {fit}
+
+*!
+!3 ${testRequirementUsPijp}
+!* Example 2: Action table
+
+!| ActionFixture |
+| start | RoleDiceActionTable |
+| enter | player | Pied_Pijper |
+| check | position | GO |
+| enter | first die | 6 |
+| enter | second die | 4 |
+| check | position | Jail |
+| enter | player | Pied_Pijper |
+| enter | first die | 1 |
+| enter | second die | 2 |
+| check | position | States Avenue|
+
+*!
