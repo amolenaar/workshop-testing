@@ -1,0 +1,11 @@
+!3 ${testRequirementUs11}
+!* '''Example 4: !-PlayerLandsAfter-! using the script fixture'''
+
+|script|
+| given | Player ''Aman'' starts at position ''Pensylvana Avenue'' |
+| and  | account balance is 100 |
+| and  | ''Baltic Avenue'' is not owned |
+| when | throwing ''4'' and ''5'' with the dice  |
+| then | the player account balance is 20100 |
+
+*!

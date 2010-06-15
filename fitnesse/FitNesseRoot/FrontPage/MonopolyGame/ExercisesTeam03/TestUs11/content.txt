@@ -1,7 +1,14 @@
 !2 ${testRequirementUs11}
 
 '''Motivation: '''
+Players need money to play.
+
+'''Main requieremnt'''
+Player needs to land or pass "Go" field.
 
 '''Additional requirements:'''
--
+- 
 ----
+>PlayerLandsBefore
+>PlayerLandsOnGo
+>PlayerLandsAfter
