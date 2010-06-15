@@ -1,5 +1,3 @@
-!2 ${testRequirementUs11}
-
 !*> Test Setup
 !define TEST_RUNNER {fitlibrary.suite.FitLibraryServer}
 define COMMAND_PATTERN {java -Xdebug -XrunjdWP:transport=dt_socket,server=y,suspend=y,address=1044 -cp %p %m}
@@ -11,18 +9,3 @@ define COMMAND_PATTERN {java -Xdebug -XrunjdWP:transport=dt_socket,server=y,susp
 | set position | Pacific Avenue |
 
 *!
-
-
-'''Motivation: '''
-Players need money to play.
-
-'''Main requieremnt'''
-Player needs to land or pass "Go" field.
-
-'''Additional requirements:'''
-- 
-----
->SetUp
->PlayerLandsBefore
->PlayerLandsOnGo
->PlayerLandsAfter
