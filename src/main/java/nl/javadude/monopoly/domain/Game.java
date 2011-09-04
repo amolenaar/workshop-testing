@@ -30,6 +30,10 @@ public class Game implements Serializable {
 		currentPlayer.startTurn();
 	}
 
+	public List<Player> getPlayers() {
+		return new ArrayList<Player>(players);
+	}
+	
 	public Player getCurrentPlayer() {
 		if (currentPlayer.finishedTurn()) {
 			nextPlayer();

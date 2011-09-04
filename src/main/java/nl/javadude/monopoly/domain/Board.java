@@ -1,20 +1,20 @@
 package nl.javadude.monopoly.domain;
 
-import nl.javadude.monopoly.domain.squares.Start;
-import nl.javadude.monopoly.domain.squares.AbstractSquare;
-import nl.javadude.monopoly.domain.squares.PoliceAgent;
-import nl.javadude.monopoly.domain.squares.Realty;
-import nl.javadude.monopoly.domain.squares.DrawCard;
-import nl.javadude.monopoly.domain.squares.FreeParking;
-import nl.javadude.monopoly.domain.squares.Jail;
-import nl.javadude.monopoly.domain.squares.TaxSquare;
-import nl.javadude.monopoly.domain.squares.Station;
-import nl.javadude.monopoly.domain.squares.Utility;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
+
+import nl.javadude.monopoly.domain.squares.AbstractSquare;
+import nl.javadude.monopoly.domain.squares.DrawCard;
+import nl.javadude.monopoly.domain.squares.FreeParking;
+import nl.javadude.monopoly.domain.squares.Jail;
+import nl.javadude.monopoly.domain.squares.PoliceAgent;
+import nl.javadude.monopoly.domain.squares.Realty;
+import nl.javadude.monopoly.domain.squares.Start;
+import nl.javadude.monopoly.domain.squares.Station;
+import nl.javadude.monopoly.domain.squares.TaxSquare;
+import nl.javadude.monopoly.domain.squares.Utility;
 
 /**
  * Representation of a monopoly board. We assume that in any game only one board
@@ -24,10 +24,12 @@ public class Board implements Serializable {
 	
 	public static final Start START = new Start();
 	public static final Jail JAIL = new Jail();
-	private static final List<ISquare> squares = new ArrayList<ISquare>();
-	private static Stack<Card> communityChest = new Stack<Card>();
-	private static Stack<Card> chance = new Stack<Card>();
+
     public static final Board BOARD = new Board();
+
+	private final List<ISquare> squares = new ArrayList<ISquare>();
+	private Stack<Card> communityChest = new Stack<Card>();
+	private Stack<Card> chance = new Stack<Card>();
     
 	private Board() {
 		add(START);
@@ -103,5 +105,9 @@ public class Board implements Serializable {
 		} else {
 			return sum;
 		}
+	}
+	
+	public List<ISquare> getSquares() {
+		return new ArrayList<ISquare>(squares);
 	}
 }
