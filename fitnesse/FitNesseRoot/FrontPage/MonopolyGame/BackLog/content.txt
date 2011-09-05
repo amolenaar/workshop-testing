@@ -5,7 +5,7 @@
 |  comment |
 |'''Description'''|'''Priority'''|
 |${testRequirementUs01}|1|
-||See section 5.2.6 of the requirements for more details|
+|See section 5.2.6 of the requirements for more details|
 |${testRequirementUs08}|1|
 |See sections 5.2.1, 5.2.2 and 5.2.6 of the requirements for more details|
 |${testRequirementUs09}|1|
