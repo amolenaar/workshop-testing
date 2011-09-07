@@ -55,15 +55,24 @@ public class Resources {
     
     
     
-    @GET
-    @Path("/newgame")
-    @Produces("text/plain")
-    public String newGame() {
-    	request.getSession().setAttribute("game", new Game());
-    	return "";
+    //@GET
+    //@Path("/newgame")
+    //@Produces("text/plain")
+    private Game newGame() {
+    	Game game = new Game();
+    	request.getSession().setAttribute("game", game);
+    	return game;
     }
-    
-    @GET
+
+    private Game game() {
+    	Game game = (Game) request.getSession().getAttribute("game");
+    	if (game == null) {
+    		return newGame();
+    	}
+    	return game;
+    }
+
+    @POST
     @Path("/startgame")
     @Produces("text/plain")
     public String startGame() {
@@ -71,9 +80,6 @@ public class Resources {
     	return "";
     }
     
-    private Game game() {
-    	return (Game) request.getSession().getAttribute("game");
-    }
     
     @GET
     @Path("/board")
@@ -83,7 +89,7 @@ public class Resources {
     }
     
     @POST
-    @Path("/player/{name}")
+    @Path("/player")
     public void newPlayer(@FormParam("name") final String name) {
     	game().add(new Player(name));
     }
@@ -95,7 +101,7 @@ public class Resources {
     }
 
     @GET
-    @Path("/player/list")
+    @Path("/players")
     public String playerList() {
     	return new Gson().toJson(game().getPlayers());
     }

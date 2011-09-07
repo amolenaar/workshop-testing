@@ -1,0 +1,40 @@
+
+#players {
+    left: 200px;
+    position: absolute;
+    top: 200px;
+}
+
+.square {
+	position: absolute;
+	background-color: #CFECE8;
+    border: solid gray 1px;
+    font-family: sans-serif;
+    overflow: hidden;
+    font-size: 10pt;
+    text-align: center;
+}
+
+.square span {
+	display: block;
+	padding-top: 1em;
+}
+
+.player {
+	float: left;
+ 	height: 20px;
+    margin: 3px;
+    width: 20px;
+}
+
+.player.selected {
+	border: 2px solid white;
+    margin: 1px;
+}
+
+/*
+.top span, .bottom span {
+	-webkit-transform: rotate(-90deg); 
+	-moz-transform: rotate(-90deg);
+}
+*/

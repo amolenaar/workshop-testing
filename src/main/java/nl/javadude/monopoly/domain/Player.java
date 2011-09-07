@@ -30,6 +30,10 @@ public class Player implements Serializable, MoneyExchanger {
 		return currentPosition;
 	}
 
+	public int getPlaceOnBoard() {
+		return Board.BOARD.getSquares().indexOf(currentPosition);
+	}
+	
 	public void pay(long amount, MoneyExchanger toPlayer) {
 		toPlayer.receiveMoney(amount);
 		// TODO payed money needs to be withdrawn also!!
