@@ -14,9 +14,11 @@ public class Utility extends AbstractOwnableSquare {
 
 	public long getRent() {
 		int utilities = 0;
-		for (IOwnable ownable : owner.getPossessions()) {
-			if (ownable instanceof Utility) {
-				utilities++;
+		if (!isUnowned()) {
+			for (IOwnable ownable : owner.getPossessions()) {
+				if (ownable instanceof Utility) {
+					utilities++;
+				}
 			}
 		}
 		return utilities > 1 ? Dice.getInstance().view() * 2 : Dice.getInstance().view() * 6;

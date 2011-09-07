@@ -1,20 +1,24 @@
 package nl.javadude.monopoly.resources;
 
 import java.io.InputStream;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 
 import nl.javadude.monopoly.domain.Board;
+import nl.javadude.monopoly.domain.Dice;
 import nl.javadude.monopoly.domain.Game;
 import nl.javadude.monopoly.domain.Player;
 
-import com.google.gson.Gson;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 // The Java class will be hosted at the URI path "/helloworld"
 @Path("/")
@@ -25,6 +29,9 @@ public class Resources {
 	
 	@Context
 	HttpServletRequest request;
+
+
+	private Player currentPlayer;
 	
     @GET
     public InputStream getIndexHtml() {
@@ -80,12 +87,11 @@ public class Resources {
     	return "";
     }
     
-    
     @GET
     @Path("/board")
     @Produces(JSON)
     public String board() {
-    	return new Gson().toJson(Board.BOARD.getSquares());
+    	return toJson(Board.BOARD.getSquares());
     }
     
     @POST
@@ -97,18 +103,41 @@ public class Resources {
     @GET
     @Path("/player")
     public String player() {
-    	return new Gson().toJson(game().getCurrentPlayer());
+    	return toJson(game().getCurrentPlayer());
     }
 
     @GET
     @Path("/players")
     public String playerList() {
-    	return new Gson().toJson(game().getPlayers());
+    	return toJson(game().getPlayers());
     }
 
     @POST
-    @Path("/rolldice/{d1}{d2}")
-    public String rollDice(@FormParam("d1") final String dice1, final String dice2) {
-    	return "";
+    @Path("/rolldice/{d1}/{d2}")
+    public String rollDice(@PathParam("d1") final int d1, @PathParam("d2") final int d2) {
+    	Dice dice = Dice.INSTANCE;
+    	dice.setDiceValues(d1, d2);
+    	game().getCurrentPlayer().move(dice);
+    	return player();
     }
+    
+    @POST
+    @Path("/buy")
+    public String buy() {
+    	return currentPlayer.toString();
+    }
+    @SuppressWarnings("rawtypes")
+	private static String toJson(List o) {
+		JSONArray a = new JSONArray();
+		for (Object e: (List) o) {
+			System.out.println(e);
+			a.put(new JSONObject(e, true));
+		}
+		return a.toString();
+    }
+    
+    private static String toJson(Object o) {
+    	return new JSONObject(o, true).toString();
+    }
+
 }

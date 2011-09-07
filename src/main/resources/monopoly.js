@@ -21,7 +21,7 @@ $(document).ready(function() {
 		$.getJSON("board", function(data) {
 			var board = $("#board");
 			var x=100, y=100;
-	
+			console.log('board', data);
 			$.each(data, function(key, val) {
 				var s = $('<div id="square' + key + '" class="square"><span>' + val.name + '</span></div>')
 				squareMap[val.name] = '#square' + key;
@@ -74,12 +74,23 @@ $(document).ready(function() {
 	function get_players() {
 		var ul = $('#players>ul');
 		ul.empty();
-		with_players(function(player) {
-			console.log(player);
-			ul.append('<li>' + player.name + '</li>');
+		with_players(function(player, key) {
+			ul.append('<li style="color:' + COLORS[key % COLORS.length] + '">' + player.name + ': money: ' + player.money+ '; possessions: ' + player.possessions + '</li>');
 		});
 	}
 
+	function place_players() {
+		$('.player').remove();
+		// Create elements for all players (with color?) Place them in the element with the name.
+		with_players(function(player, key) {
+			//console.log($(".square:has(span:contains('" + player.currentPosition.name + "'))"))
+			var p = $('<div id="player' + key + '" class="player"></div>');
+			p.css('background-color', COLORS[key % COLORS.length]);
+			console.log('place on board', player, p);
+			$('#square' + (player.currentPosition.position || 0)).append(p);
+		});
+	}
+	
 	//////// Set up:
 	
 	build_board();
@@ -110,17 +121,11 @@ $(document).ready(function() {
 		// No new players can be added
 		$('#players>form').hide();
 		$('dice').show();
-		// Create elements for all players (with color?) Place them in the element with the name.
-		with_players(function(player, key) {
-			//console.log($(".square:has(span:contains('" + player.currentPosition.name + "'))"))
-			var p = $('<div id="player' + key+ '" class="player"></div>');
-			p.css('background-color', COLORS[key % COLORS.length]);
-			console.log('place on board', p, player.placeOnBoard || 0);
-			$('#square' + (player.placeOnBoard || 0)).append(p);
-		});
 
+		place_players();
+		get_players();
 		$.post("startgame", function() {
-			$.getJSON("player/current", function(player) {
+			$.getJSON("player", function(player) {
 				console.log('current player', player);
 			});
 		});
@@ -128,16 +133,22 @@ $(document).ready(function() {
 	});
 	
 	// Roll dice
+	// move player
 	$('button[name=roll]').click(function() {
-		// send dice to backend
+		$.post('rolldice/' + $('input[name=d1]').val() + '/' + $('input[name=d2]').val(), function(data) {
+			place_players();
+		});
 		return false;
 	});
 	
 	// TODO: button for buy
-	$('button[name=finishTurn]').click(function() {
+	$('button[name=buy]').click(function() {
+		$.post('buy', function(data) {
+			console.log(data);
+		});
+		return false;
 		return false;
 	});
-	// move player
 	
 	// buy realty?
 	// pay rent?

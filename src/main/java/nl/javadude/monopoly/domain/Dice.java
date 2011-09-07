@@ -8,7 +8,7 @@ public class Dice {
 	private int die2;
 	private Random generator = new Random();
 
-	private static final Dice INSTANCE = new Dice();
+	public static final Dice INSTANCE = new Dice();
 
 	// Private constructor prevents instantiation from other classes
 	private Dice() {

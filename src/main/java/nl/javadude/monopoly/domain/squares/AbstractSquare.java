@@ -1,5 +1,6 @@
 package nl.javadude.monopoly.domain.squares;
 
+import nl.javadude.monopoly.domain.Board;
 import nl.javadude.monopoly.domain.ISquare;
 
 /**
@@ -12,6 +13,10 @@ public abstract class AbstractSquare implements ISquare {
 		this.name = name;
 	}
 
+	public int getPosition() {
+		return Board.BOARD.getSquares().indexOf(this);
+	}
+	
 	public String getName() {
 		return name;
 	}
