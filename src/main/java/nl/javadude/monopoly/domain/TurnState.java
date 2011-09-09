@@ -13,7 +13,7 @@ public enum TurnState {
 			if (Dice.getInstance().isSameEyes()) {
 				return ROLLED_SAME_ONCE;
 			}
-			return END_TURN;
+			return TURN_ACTION;
 		}
 	},
 	ROLLED_SAME_ONCE {
@@ -22,7 +22,7 @@ public enum TurnState {
 			if (Dice.getInstance().isSameEyes()) {
 				return ROLLED_SAME_TWICE;
 			}
-			return END_TURN;
+			return TURN_ACTION;
 		}
 	},
 	ROLLED_SAME_TWICE {
@@ -31,6 +31,13 @@ public enum TurnState {
 			if (Dice.getInstance().isSameEyes()) {
 				return JAILED;
 			}
+			return TURN_ACTION;
+		}
+	},
+	// perform actions like taking cards and buying realty
+	TURN_ACTION {
+		@Override
+		public TurnState transition(Player player) {
 			return END_TURN;
 		}
 	},

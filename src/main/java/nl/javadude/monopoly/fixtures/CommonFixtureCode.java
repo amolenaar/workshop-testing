@@ -64,7 +64,11 @@ public class CommonFixtureCode extends Fixture {
 	}
 
 	public boolean allowedAnotherTurn() {
-		return !(player.finishedTurn() || player.isJailed());
+		return !(player.isFinishedTurn() || player.isJailed());
+	}
+
+	public boolean allowedAnotherRoll() {
+		return player.isRollAllowed();
 	}
 
 	public boolean isInJail() {

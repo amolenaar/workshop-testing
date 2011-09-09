@@ -21,9 +21,17 @@ public class CommonDoFixtureCode extends DoFixture {
 	private int die1;
 	private int die2;
 
-	protected Game game = new Game();
+	protected Game game;
 	protected Player player;
 
+	public CommonDoFixtureCode() {
+		newGame();
+	}
+	
+	public void newGame() {
+		game = new Game();
+	}
+	
 	public void setPlayer(String name) {
 		addPlayerIfNotYetInGame(name);
 		player = game.findPlayer(name);
@@ -60,7 +68,7 @@ public class CommonDoFixtureCode extends DoFixture {
 	}
 
 	public boolean allowedAnotherTurn() {
-		return !(player.finishedTurn() || player.isJailed());
+		return !(player.isFinishedTurn() || player.isJailed());
 	}
 
 	public boolean isInJail() {

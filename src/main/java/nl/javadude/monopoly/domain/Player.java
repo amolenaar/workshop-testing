@@ -60,8 +60,12 @@ public class Player implements Serializable, MoneyExchanger {
 		return turnState == TurnState.JAILED;
 	}
 
+	public boolean isTurnAction() {
+		return turnState == TurnState.TURN_ACTION;
+	}
+	
 	public boolean buy() {
-		if (currentPosition instanceof IOwnable) {
+		if (isTurnAction() && currentPosition instanceof IOwnable) {
 			IOwnable ownable = (IOwnable) currentPosition;
 			if (ownable.canBuy()) {
 				pay(ownable.getCost(), Bank.BANK);
@@ -115,10 +119,16 @@ public class Player implements Serializable, MoneyExchanger {
 		turnState = TurnState.START_TURN;
 	}
 
-	public boolean finishedTurn() {
+	public boolean isFinishedTurn() {
 		return turnState == TurnState.END_TURN;
 	}
 
+	public boolean isRollAllowed() {
+		return turnState == TurnState.START_TURN 
+				|| turnState == TurnState.ROLLED_SAME_ONCE
+				|| turnState == TurnState.ROLLED_SAME_TWICE;
+	}
+	
 	public void forceTurnFinish() {
 		turnState = TurnState.END_TURN;
 	}

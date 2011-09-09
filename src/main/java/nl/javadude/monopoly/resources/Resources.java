@@ -30,9 +30,6 @@ public class Resources {
 	@Context
 	HttpServletRequest request;
 
-
-	private Player currentPlayer;
-	
     @GET
     public InputStream getIndexHtml() {
     	return getClass().getClassLoader().getResourceAsStream("index.html");
@@ -117,20 +114,21 @@ public class Resources {
     public String rollDice(@PathParam("d1") final int d1, @PathParam("d2") final int d2) {
     	Dice dice = Dice.INSTANCE;
     	dice.setDiceValues(d1, d2);
+    	String player = player();
     	game().getCurrentPlayer().move(dice);
     	return player();
     }
     
     @POST
-    @Path("/buy")
-    public String buy() {
-    	return currentPlayer.toString();
+    @Path("/player/{name}/buy")
+    public String buy(@PathParam("name") final String name) {
+    	return toJson(game().findPlayer(name).buy());
     }
+    
     @SuppressWarnings("rawtypes")
 	private static String toJson(List o) {
 		JSONArray a = new JSONArray();
 		for (Object e: (List) o) {
-			System.out.println(e);
 			a.put(new JSONObject(e, true));
 		}
 		return a.toString();

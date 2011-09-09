@@ -35,19 +35,17 @@ public class Game implements Serializable {
 	}
 	
 	public Player getCurrentPlayer() {
-		if (currentPlayer.finishedTurn()) {
-			nextPlayer();
-		}
 		return currentPlayer;
 	}
 
 	public void setCurrentPlayer(Player player) {
-		if (player.finishedTurn()) player.startTurn();
+		if (player.isFinishedTurn()) player.startTurn();
 		currentPlayer = player;
 	}
 
-	void nextPlayer() {
+	public void nextPlayer() {
 		playerPosition = ++playerPosition % players.size();
+		currentPlayer.forceTurnFinish();
 		currentPlayer = players.get(playerPosition);
 		currentPlayer.startTurn();
 	}

@@ -7,7 +7,7 @@ W=60;
 
 $(document).ready(function() {
 	
-	var squareMap = {};
+	var current_player;
 	
 	function height(index) {
 		return (index <= 10 || (index >= 20 && index <= 30)) ? H : W;
@@ -24,7 +24,6 @@ $(document).ready(function() {
 			console.log('board', data);
 			$.each(data, function(key, val) {
 				var s = $('<div id="square' + key + '" class="square"><span>' + val.name + '</span></div>')
-				squareMap[val.name] = '#square' + key;
 				var w = width(key), h = height(key);
 				s.css({ 'width': w - 2, 'height': h - 2, 'left': x, 'top': y});
 				if (key < 10) {
@@ -84,13 +83,22 @@ $(document).ready(function() {
 		// Create elements for all players (with color?) Place them in the element with the name.
 		with_players(function(player, key) {
 			//console.log($(".square:has(span:contains('" + player.currentPosition.name + "'))"))
-			var p = $('<div id="player' + key + '" class="player"></div>');
+			var p = $('<div id="player' + key + '" class="player" rel="' + player.name + '"></div>');
 			p.css('background-color', COLORS[key % COLORS.length]);
+			if (player.name == current_player.name) {
+				p.addClass('selected');
+			}
 			console.log('place on board', player, p);
 			$('#square' + (player.currentPosition.position || 0)).append(p);
 		});
 	}
 	
+	function next_turn() {
+		$.getJSON("player/next", function(player) {
+			current_player = player;
+		});
+	}
+
 	//////// Set up:
 	
 	build_board();
@@ -125,9 +133,7 @@ $(document).ready(function() {
 		place_players();
 		get_players();
 		$.post("startgame", function() {
-			$.getJSON("player", function(player) {
-				console.log('current player', player);
-			});
+			next_turn();
 		});
 		return false;
 	});
@@ -143,13 +149,11 @@ $(document).ready(function() {
 	
 	// TODO: button for buy
 	$('button[name=buy]').click(function() {
-		$.post('buy', function(data) {
+		console.log('Buy for', $('.player[rel="' + current_player.name + '"]'))
+		$.post('player/' + current_player.name + '/buy', function(data) {
 			console.log(data);
 		});
 		return false;
-		return false;
 	});
 	
-	// buy realty?
-	// pay rent?
 });
