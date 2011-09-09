@@ -9,7 +9,7 @@
 !3 ${testRequirementUs01}
 Each player can throw two dices and move to a new position. This fixture checks the player lands on the correct position by the sum of the dices.
 !* '''A player can throw with two dices'''
-| role dice decision table |
+| roll dice decision table |
 | player | first die | second die | position? |
 | Cirilo | 1 | 1 | Community Chest |
 | Cirilo | 3 | 4 | Conneticut Avenue |

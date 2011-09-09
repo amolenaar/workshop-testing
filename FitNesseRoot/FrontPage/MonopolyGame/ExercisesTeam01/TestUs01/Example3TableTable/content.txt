@@ -9,7 +9,7 @@
 
 *!
 !* '''A Player can move his token forward the sum of both dices'''
-| role dice decision table |
+| roll dice decision table |
 | player | first die | second die | old position? | position? |
 | Cirilo |1         |1         |GO             |Community Chest |
 | Aman   |2         |1         |GO             |Baltic Avenue   |

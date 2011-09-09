@@ -11,8 +11,8 @@
 '''Player throws multiple rounds until reaching the sum of 30 which corresponds with ''Goto Jail'' and as a result lands in Jail'''
 
 !* '''When a user throws double thrice he has to go to jail'''
-| role dice decision table |
-| player | first die | second die | position? | another turn? |
+| roll dice decision table |
+| player | first die | second die | position? | another roll? |
 | Cirilo | 6 | 6 | Electric Company  | yes |
 | Cirilo | 3 | 1 | St. James Place   | no |
 | Aman   | 3 | 3 | Oriental Avenue   | yes |

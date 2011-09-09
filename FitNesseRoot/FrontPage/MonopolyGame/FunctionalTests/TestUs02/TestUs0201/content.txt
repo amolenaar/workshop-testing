@@ -3,6 +3,7 @@
 define COMMAND_PATTERN {java -Xdebug -XrunjdWP:transport=dt_socket,server=y,suspend=y,address=1044 -cp %p %m}
 
 !|!-nl.javadude.monopoly.fixtures.SetUpUserFixture-!|
+| new game |
 
 *!
 !2 ${testRequirementUs02}

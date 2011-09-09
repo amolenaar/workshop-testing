@@ -10,8 +10,8 @@
 '''When a player throws double he gets another turn, after three times throwing doubles he lands in Jail'''
 
 !* Player throws double thrice and lands in Jial
-| role dice decision table |
-| player | first die | second die | position? | another turn? |
+| roll dice decision table |
+| player | first die | second die | position? | another roll? |
 | Cirilo | 6 | 6 | Electric Company  | yes |
 | Cirilo | 2 | 2 | St. James Place   | yes |
 | Cirilo | 3 | 3 | Jail              | no  |

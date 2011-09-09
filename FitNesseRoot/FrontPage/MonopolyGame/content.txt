@@ -1,5 +1,7 @@
 !2 Monopoly project
 
+!contents
+
 !img http://files/images/mr-monopoly.jpg
 
 >RequirementsPage

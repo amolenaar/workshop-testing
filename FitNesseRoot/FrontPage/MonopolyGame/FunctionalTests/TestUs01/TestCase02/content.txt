@@ -10,16 +10,16 @@
 !3 ${testRequirementUs01}
 
 !* '''When a player throws double he gets another turn (with a maximum of three throws)'''
-| role dice decision table |
-| player | first die | second die | position? | another turn? |
+| roll dice decision table |
+| player | first die | second die | position? | another roll? |
 | Cirilo | 6 | 6 | Electric Company  | yes |
 | Cirilo | 2 | 2 | St. James Place   | yes |
 | Cirilo | 3 | 2 | Kentucky Avenue   | no  |
 
 *!
 !* '''When a user throws double thrice he has to go to jail'''
-| role dice decision table |
-| player | first die | second die | position? | another turn? |
+| roll dice decision table |
+| player | first die | second die | position? | another roll? |
 | Cirilo | 6 | 6 | Electric Company  | yes |
 | Cirilo | 3 | 1 | St. James Place   | no |
 | Aman   | 3 | 3 | Oriental Avenue   | yes |

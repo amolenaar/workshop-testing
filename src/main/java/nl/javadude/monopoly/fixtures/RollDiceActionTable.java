@@ -1,7 +1,7 @@
 package nl.javadude.monopoly.fixtures;
 
 
-public class RoleDiceActionTable extends CommonFixtureCode {
+public class RollDiceActionTable extends CommonFixtureCode {
 	
 	public void player(String name) {
 		super.setPlayer(name);

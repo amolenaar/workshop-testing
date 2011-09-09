@@ -9,7 +9,7 @@
 
 !3 ${testRequirementUs01}
 !* '''A Player can move his token forward the sum of both dices'''
-| role dice decision table |
+| roll dice decision table |
 | player | first die | second die | old position? | position? |
 | Cirilo | 5 | 6 | GO                    | St. Charles Place |
 | Aman   | 2 | 4 | GO                    | Oriental Avenue |

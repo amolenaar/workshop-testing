@@ -1,5 +1,5 @@
 !*> Setup
-!|!-nl.javadude.monopoly.fixtures.RoleDiceActionTable-!|
+!|!-nl.javadude.monopoly.fixtures.RollDiceActionTable-!|
 
 !define TEST_SYSTEM {fit}
 
@@ -8,7 +8,7 @@
 !* Example 2: Action table
 
 !| ActionFixture |
-| start | RoleDiceActionTable |
+| start | RollDiceActionTable |
 | enter | player | Cirilo |
 | enter | first die | 1 |
 | enter | second die | 1 |
@@ -27,7 +27,7 @@
 | check | repeat | false |
 
 !| ActionFixture |
-| start | RoleDiceActionTable |
+| start | RollDiceActionTable |
 | enter | player | Aman |
 | enter | first die | 5 |
 | enter | second die | 1 |

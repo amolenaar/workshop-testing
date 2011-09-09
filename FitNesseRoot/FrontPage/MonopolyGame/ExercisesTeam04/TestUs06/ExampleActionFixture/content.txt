@@ -1,5 +1,5 @@
 !*> Setup
-!|!-nl.javadude.monopoly.fixtures.RoleDiceActionTable-!|
+!|!-nl.javadude.monopoly.fixtures.RollDiceActionTable-!|
 
 !define TEST_SYSTEM {fit}
 
@@ -9,7 +9,7 @@
 !* Cirilo gets the first turn and lands in Jail after throwing doubles thrice.
 
 !| ActionFixture |
-| start | RoleDiceActionTable |
+| start | RollDiceActionTable |
 | enter | player | Cirilo |
 | enter | first die | 1 |
 | enter | second die | 1 |
@@ -29,7 +29,7 @@
 *!
 !* Aman does not land in Jail after one none-double throw (i.e. Jail=false)
 !| ActionFixture |
-| start | RoleDiceActionTable |
+| start | RollDiceActionTable |
 | enter | player | Aman |
 | enter | first die | 5 |
 | enter | second die | 1 |

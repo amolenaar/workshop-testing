@@ -1,5 +1,5 @@
 !*> Setup
-!|!-nl.javadude.monopoly.fixtures.RoleDiceActionTable-!|
+!|!-nl.javadude.monopoly.fixtures.RollDiceActionTable-!|
 
 !define TEST_SYSTEM {fit}
 

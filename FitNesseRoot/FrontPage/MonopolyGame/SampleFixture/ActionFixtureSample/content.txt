@@ -1,6 +1,6 @@
 !*> Setup
 
-!|!-nl.javadude.monopoly.fixtures.RoleDiceActionTable-!|
+!|!-nl.javadude.monopoly.fixtures.RollDiceActionTable-!|
 
 !define TEST_SYSTEM {fit}
 
@@ -9,7 +9,7 @@ define COMMAND_PATTERN {java -Xdebug -XrunjdWP:transport=dt_socket,server=y,susp
 *!
 !* '''A player can throw with two dices'''
 !| ActionFixture |
-| start | RoleDiceActionTable |
+| start | RollDiceActionTable |
 | enter | player | Cirilo |
 | enter | first die | 1 |
 | enter | second die | 1 |
@@ -21,7 +21,7 @@ define COMMAND_PATTERN {java -Xdebug -XrunjdWP:transport=dt_socket,server=y,susp
 *!
 !* '''Another player can throw with two dices'''
 !| ActionFixture |
-| start | RoleDiceActionTable |
+| start | RollDiceActionTable |
 | enter | player | Aman |
 | enter | first die | 5 |
 | enter | second die | 1 |
@@ -33,7 +33,7 @@ define COMMAND_PATTERN {java -Xdebug -XrunjdWP:transport=dt_socket,server=y,susp
 *!
 !* '''The same player can throw with two dices but because the game is not saved the result is the same'''
 !| ActionFixture |
-| start | RoleDiceActionTable |
+| start | RollDiceActionTable |
 | enter | player | Aman |
 | enter | first die | 5 |
 | enter | second die | 1 |
@@ -45,7 +45,7 @@ define COMMAND_PATTERN {java -Xdebug -XrunjdWP:transport=dt_socket,server=y,susp
 *!
 !* '''A player can throw with two dices and save the game'''
 !| ActionFixture |
-| start | RoleDiceActionTable |
+| start | RollDiceActionTable |
 | enter | player | Kris |
 | enter | first die | 5 |
 | enter | second die | 1 |
@@ -58,7 +58,7 @@ define COMMAND_PATTERN {java -Xdebug -XrunjdWP:transport=dt_socket,server=y,susp
 *!
 !* '''A player can throw with two dices after a saved game has been restored'''
 !| ActionFixture |
-| start | RoleDiceActionTable |
+| start | RollDiceActionTable |
 | press | get saved game |
 | enter | player | Kris |
 | enter | first die | 5 |

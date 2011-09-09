@@ -7,7 +7,7 @@
 
 *!
 !* '''A player can throw with two dices'''
-| role dice decision table |
+| roll dice decision table |
 | player | first die | second die | position? |
 | Cirilo | 1 | 1 | Community Chest |
 | Cirilo | 3 | 4 | Conneticut Avenue |
@@ -15,7 +15,7 @@
 
 *!
 !* '''A Player can move his token forward the sum of both dices'''
-| role dice decision table |
+| roll dice decision table |
 | player | first die | second die | old position? | position? |
 | Cirilo | 5 | 6 | GO                    | St. Charles Place |
 | Aman   | 2 | 4 | GO                    | Oriental Avenue |
@@ -30,7 +30,7 @@
 
 *!
 !* '''When a player throws double he gets another turn (with a maximum of three throws)'''
-| role dice decision table |
+| roll dice decision table |
 | player | first die | second die | position? | another turn? |
 | Cirilo | 6 | 6 | Electric Company  | yes |
 | Cirilo | 2 | 2 | St. James Place   | yes |
@@ -38,7 +38,7 @@
 
 *!
 !* '''When a user throws double thrice he has to go to jail'''
-| role dice decision table |
+| roll dice decision table |
 | player | first die | second die | position? | another turn? |
 | Cirilo | 6 | 6 | Electric Company  | yes |
 | Cirilo | 3 | 1 | St. James Place   | no |

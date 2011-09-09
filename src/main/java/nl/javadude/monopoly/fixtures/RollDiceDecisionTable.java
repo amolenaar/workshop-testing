@@ -1,7 +1,7 @@
 package nl.javadude.monopoly.fixtures;
 
 
-public class RoleDiceDecisionTable extends CommonFixtureCode {
+public class RollDiceDecisionTable extends CommonFixtureCode {
 	
 	public void setPlayer(String name) {
 		super.setPlayer(name);
@@ -27,7 +27,7 @@ public class RoleDiceDecisionTable extends CommonFixtureCode {
 		return super.getNewPosition();
 	}
 	
-	public String anotherTurn() {
-		return (super.allowedAnotherTurn()) ? "yes" : "no";
+	public String anotherRoll() {
+		return (super.allowedAnotherRoll()) ? "yes" : "no";
 	}
 }
