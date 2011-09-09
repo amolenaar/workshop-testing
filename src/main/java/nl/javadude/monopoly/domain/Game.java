@@ -12,7 +12,6 @@ public class Game implements Serializable {
 
 	private List<Player> players = new ArrayList<Player>();
 	protected Player currentPlayer;
-	private int playerPosition;
 
 	public Game() {
 	}
@@ -25,8 +24,7 @@ public class Game implements Serializable {
 	 * Initialize the game, set the first player.
 	 */
 	public void startPlay() {
-		playerPosition = new Random().nextInt(players.size());
-		currentPlayer = players.get(playerPosition);
+		currentPlayer = players.get(0);
 		currentPlayer.startTurn();
 	}
 
@@ -44,7 +42,7 @@ public class Game implements Serializable {
 	}
 
 	public void nextPlayer() {
-		playerPosition = ++playerPosition % players.size();
+		int playerPosition = (players.indexOf(currentPlayer) + 1) % players.size();
 		currentPlayer.forceTurnFinish();
 		currentPlayer = players.get(playerPosition);
 		currentPlayer.startTurn();

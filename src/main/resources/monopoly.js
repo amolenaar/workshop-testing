@@ -7,8 +7,6 @@ W=60;
 
 $(document).ready(function() {
 	
-	var current_player;
-	
 	function height(index) {
 		return (index <= 10 || (index >= 20 && index <= 30)) ? H : W;
 	}
@@ -74,7 +72,11 @@ $(document).ready(function() {
 		var ul = $('#players>ul');
 		ul.empty();
 		with_players(function(player, key) {
-			ul.append('<li style="color:' + COLORS[key % COLORS.length] + '">' + player.name + ': money: ' + player.money+ '; possessions: ' + player.possessions + '</li>');
+			var p = $('<li style="color:' + COLORS[key % COLORS.length] + '">' + player.name + ': money: ' + player.money+ '; possessions: ' + player.possessions + '</li>');
+			if (!player.finishedTurn) {
+				p.addClass('active');
+			}
+			ul.append(p);
 		});
 	}
 
@@ -85,19 +87,14 @@ $(document).ready(function() {
 			//console.log($(".square:has(span:contains('" + player.currentPosition.name + "'))"))
 			var p = $('<div id="player' + key + '" class="player" rel="' + player.name + '"></div>');
 			p.css('background-color', COLORS[key % COLORS.length]);
-			if (player.name == current_player.name) {
-				p.addClass('selected');
+			if (!player.finishedTurn) {
+				p.addClass('active');
 			}
 			console.log('place on board', player, p);
 			$('#square' + (player.currentPosition.position || 0)).append(p);
 		});
 	}
 	
-	function next_turn() {
-		$.getJSON("player/next", function(player) {
-			current_player = player;
-		});
-	}
 
 	//////// Set up:
 	
@@ -130,10 +127,9 @@ $(document).ready(function() {
 		$('#players>form').hide();
 		$('dice').show();
 
-		place_players();
-		get_players();
 		$.post("startgame", function() {
-			next_turn();
+			get_players();
+			place_players();
 		});
 		return false;
 	});
@@ -142,18 +138,27 @@ $(document).ready(function() {
 	// move player
 	$('button[name=roll]').click(function() {
 		$.post('rolldice/' + $('input[name=d1]').val() + '/' + $('input[name=d2]').val(), function(data) {
+			get_players();
 			place_players();
+			// on 'turnAction' and canBuy: enable buy button
 		});
 		return false;
 	});
 	
 	// TODO: button for buy
 	$('button[name=buy]').click(function() {
-		console.log('Buy for', $('.player[rel="' + current_player.name + '"]'))
-		$.post('player/' + current_player.name + '/buy', function(data) {
-			console.log(data);
+		$.post('player/buy', function(data) {
+			get_players();
+			place_players();
 		});
 		return false;
 	});
-	
+
+	$('button[name=finish]').click(function() {
+		$.getJSON("player/next", function() {
+			get_players();
+			place_players();
+		});
+	});
+
 });

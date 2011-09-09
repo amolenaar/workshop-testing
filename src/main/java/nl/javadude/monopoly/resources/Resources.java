@@ -104,6 +104,14 @@ public class Resources {
     }
 
     @GET
+    @Path("/player/next")
+    public String nextPlayer() {
+    	game().nextPlayer();
+    	return toJson(game().getCurrentPlayer());
+    }
+
+
+    @GET
     @Path("/players")
     public String playerList() {
     	return toJson(game().getPlayers());
@@ -120,9 +128,9 @@ public class Resources {
     }
     
     @POST
-    @Path("/player/{name}/buy")
-    public String buy(@PathParam("name") final String name) {
-    	return toJson(game().findPlayer(name).buy());
+    @Path("/player/buy")
+    public String buy() {
+    	return toJson(game().getCurrentPlayer().buy());
     }
     
     @SuppressWarnings("rawtypes")

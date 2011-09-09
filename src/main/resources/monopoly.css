@@ -27,9 +27,13 @@
     width: 20px;
 }
 
-.player.selected {
+.player.active {
 	border: 2px solid white;
     margin: 1px;
+}
+
+#players .active {
+	text-decoration: underline;
 }
 
 /*

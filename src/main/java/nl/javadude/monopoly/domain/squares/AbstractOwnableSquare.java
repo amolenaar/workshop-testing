@@ -21,7 +21,7 @@ public abstract class AbstractOwnableSquare extends AbstractSquare implements IO
 		return cost;
 	}
 
-	public void setOwner(Player owner) {
+	public void setOwned(Player owner) {
 		this.owner = owner;
 	}
 
@@ -38,14 +38,19 @@ public abstract class AbstractOwnableSquare extends AbstractSquare implements IO
 	}
 
 	public boolean isUnowned() {
-		return owner == null;
+		return !isOwned();
 	}
 	
 	public boolean canBuy() {
 		return isUnowned();
 	}
 	
-	public Player getOwner() {
+	public boolean isOwned() {
+		return owner != null;
+	}
+	
+	// Not an official getter, otherwise Json will run into a recursive loop.
+	public Player owner() {
 		return owner;
 	}
 }

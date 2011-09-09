@@ -16,7 +16,9 @@ public interface IOwnable extends ISquare {
 
 	boolean isUnowned();
 
-	void setOwner(Player player);
+	void setOwned(Player player);
 	
-	Player getOwner();
+	boolean isOwned();
+	
+	Player owner();
 }
