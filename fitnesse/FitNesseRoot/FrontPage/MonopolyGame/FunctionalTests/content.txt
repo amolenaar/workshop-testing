@@ -8,3 +8,9 @@
 | ${testRequirementUs09} | >TestUs09 | WIP |  |
 | ${testRequirementUs10} | >TestUs10 | WIP |  |
 | ${testRequirementUs11} | >TestUs11 | WIP |  |
+
+!*****> '''Classpath'''
+!path ./target/classes
+# begin of maven classpath
+# end of maven classpath
+*****!
