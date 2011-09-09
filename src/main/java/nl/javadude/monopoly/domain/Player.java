@@ -33,7 +33,7 @@ public class Player implements Serializable, MoneyExchanger {
 	public void pay(long amount, MoneyExchanger toPlayer) {
 		toPlayer.receiveMoney(amount);
 		// TODO payed money needs to be withdrawn also!!
-		//money -= amount;
+		money -= amount;
 	}
 
 	public void receiveMoney(long amount) {
