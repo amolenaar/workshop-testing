@@ -1,4 +1,8 @@
 
+h1 em {
+	color: gray;
+}
+
 #players {
     left: 200px;
     position: absolute;
@@ -17,7 +21,54 @@
 
 .square span {
 	display: block;
-	padding-top: 1em;
+	padding-top: .6em;
+}
+
+.square .cost {
+	display: none;
+	font-size: 60%;
+    margin: 2px;
+    text-align: left;
+    overflow: visible;
+    padding-top: 0;
+    text-align: left;
+    width: 0;
+}
+
+.DrawCard {
+	background-color: #CFEC78;
+}
+
+.Realty {
+	
+}
+
+.Start {
+	background-color: #BFFFD8;
+}
+
+.Jail {
+	
+}
+
+.Utility {
+	background-color: #CFEC78;
+}
+
+.FreeParking {
+	
+}
+
+.Station {
+	
+}
+
+.PoliceAgent {
+	
+}
+
+.TaxSquare {
+	background-color: #CFEC78;
 }
 
 .player {

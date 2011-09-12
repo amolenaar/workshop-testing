@@ -40,10 +40,14 @@ $(document).ready(function() {
 					y -= h;
 					if (key == 30) y += H - W;
 				}
+				
+				s.addClass($(val.class.split('.')).last().get(0));
+				
 				if (val.rent) {
 					s.attr("title", "cost: " + val.cost + "; rent: " + val.rent);
 					s.data('cost', val.cost);
 					s.data('rent', val.rent);
+					s.append("<span class='cost'>cost:&nbsp;" + val.cost + "<br/>rent:&nbsp;" + val.rent + "</span>")
 				} else if (val.cost) {
 					s.attr("title", "cost: " + val.cost);
 					s.data('cost', val.cost);
@@ -53,7 +57,14 @@ $(document).ready(function() {
 				}
 				
 			    board.append(s);
-			  });
+			});
+			
+			$('.square').hover(function() {
+				$(this).find('.cost').fadeIn();
+			}, function() {
+				$(this).find('.cost').fadeOut();
+			});
+
 		});
 	}
 
@@ -68,22 +79,19 @@ $(document).ready(function() {
 
 
 	// Set up players
-	function get_players() {
+	function place_players() {
 		var ul = $('#players>ul');
 		ul.empty();
+		$('.player').remove();
+
+		// Create elements for all players (with color?) Place them in the element with the name.
 		with_players(function(player, key) {
-			var p = $('<li style="color:' + COLORS[key % COLORS.length] + '">' + player.name + ': money: ' + player.money+ '; possessions: ' + player.possessions + '</li>');
+			var p = $('<li style="color:' + COLORS[key % COLORS.length] + '">' + player.name + ': money: ' + player.money+ '; possessions: ' + $.map(player.possessions, function(a) { return a.name }).join(', ') + '</li>');
 			if (!player.finishedTurn) {
 				p.addClass('active');
 			}
 			ul.append(p);
-		});
-	}
 
-	function place_players() {
-		$('.player').remove();
-		// Create elements for all players (with color?) Place them in the element with the name.
-		with_players(function(player, key) {
 			//console.log($(".square:has(span:contains('" + player.currentPosition.name + "'))"))
 			var p = $('<div id="player' + key + '" class="player" rel="' + player.name + '"></div>');
 			p.css('background-color', COLORS[key % COLORS.length]);
@@ -99,7 +107,7 @@ $(document).ready(function() {
 	//////// Set up:
 	
 	build_board();
-	get_players();
+	place_players();
 	
 	
 	//////// Event handlers:
@@ -108,7 +116,7 @@ $(document).ready(function() {
 		var name = $(this).parent().find('[name=name]');
 		if (name.val()) {
 			$.post('player', { name: name.val() }, function() {
-				get_players();
+				place_players();
 				name.val('');
 			});
 		} else {
@@ -128,7 +136,6 @@ $(document).ready(function() {
 		$('dice').show();
 
 		$.post("startgame", function() {
-			get_players();
 			place_players();
 		});
 		return false;
@@ -138,7 +145,6 @@ $(document).ready(function() {
 	// move player
 	$('button[name=roll]').click(function() {
 		$.post('rolldice/' + $('input[name=d1]').val() + '/' + $('input[name=d2]').val(), function(data) {
-			get_players();
 			place_players();
 			// on 'turnAction' and canBuy: enable buy button
 		});
@@ -148,7 +154,6 @@ $(document).ready(function() {
 	// TODO: button for buy
 	$('button[name=buy]').click(function() {
 		$.post('player/buy', function(data) {
-			get_players();
 			place_players();
 		});
 		return false;
@@ -156,7 +161,6 @@ $(document).ready(function() {
 
 	$('button[name=finish]').click(function() {
 		$.getJSON("player/next", function() {
-			get_players();
 			place_players();
 		});
 	});
