@@ -1,0 +1,11 @@
+!3 !help
+'''Motivation'''
+A player needs to encounter some risks to make the game less predictable
+
+'''Additional requirements'''
+There are three rules that can cause a player to get into jail
+1. If a player lands on the ''Goto Jail'' space
+2. If a player throws double thrice
+3. If a player picks a ''Goto Jail'' card from the ''Chance'' cards
+----
+!contents -R2 -g -f -h

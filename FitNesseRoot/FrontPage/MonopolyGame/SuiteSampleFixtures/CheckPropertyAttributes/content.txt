@@ -1,0 +1,21 @@
+This fixture is meant ot check the attributes of a piece of property.
+What is its value, how many houses or hotels does it contain, what is the price, the price for its houses and hotels, is it for sale and who owns it.
+
+| check attributes for property | conneticut avenue |
+| check | value | $200 |
+| check | houses | 0 |
+| check | hotels | 0 |
+| check | house price | $10 |
+| check | hotel prices | $20 |
+| check | available | true |
+| check | owner | bank  |
+
+Variant of the same fixture:
+
+| check property status |
+| view street with name | conneticut avenue |
+| check | value | $200 |
+| check | houses | 0 |
+| check | hotels | 0 |
+| check | available | true |
+| check | owner | bank  |

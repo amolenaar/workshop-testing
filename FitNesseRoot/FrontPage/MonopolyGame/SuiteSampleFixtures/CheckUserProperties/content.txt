@@ -1,0 +1,19 @@
+!*> Setup
+!define TEST_RUNNER {fitlibrary.suite.FitLibraryServer}
+
+!|!-nl.javadude.monopoly.fixtures.CheckUserPropertiesFixture-!|
+
+*!
+Action fixture that checks the properties for a user, how much does he own and what is his current position.
+
+| get user | cirilo |
+| check | balance  | 500 |
+| check | position | Conneticut Avenue |
+
+Extended fixture which can check the users assets:
+
+| get user | cirilo |
+| check  | balance | 500 |
+| check  | position | Conneticut Avenue |
+| check  | owns street | Vermont Avenue | false |
+| check  | owns street | Park Place | false |

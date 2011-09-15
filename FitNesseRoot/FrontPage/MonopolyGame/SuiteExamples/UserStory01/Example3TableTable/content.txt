@@ -1,0 +1,12 @@
+!3 ${testRequirementUs01}
+
+'''Check to see if the sum of both dices is correctly calculated'''
+
+!* '''Example 3: Table table'''
+| abandon story test |
+
+| count dice table table|
+| 1 | 2 | 3 | 3 | 4 | 4 | 3 | 6 |
+|   | 3 | | 6 | | 8 | | 9 |
+
+*!

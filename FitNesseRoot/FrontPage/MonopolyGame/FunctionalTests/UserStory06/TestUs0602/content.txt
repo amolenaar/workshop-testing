@@ -1,0 +1,19 @@
+!*> Test Setup
+
+!define TEST_SYSTEM {slim}
+
+|import|
+|nl.javadude.monopoly.fixtures|
+
+*!
+!2 ${testRequirementUs02}
+!3 !help
+-When a player throws double he gets another turn, after three times throwing doubles he lands in Jail
+----
+| roll dice decision table |
+| player | first die | second die | position? | another roll? |
+| Cirilo | 6 | 6 | Electric Company  | yes |
+| Cirilo | 2 | 2 | St. James Place   | yes |
+| Cirilo | 3 | 3 | Jail              | no  |
+
+

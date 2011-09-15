@@ -1,0 +1,74 @@
+!*> Test Setup
+
+!define TEST_SYSTEM {slim}
+
+|Import|
+|com.xebia.fitnesse.selenium|
+
+*!
+
+
+| script |
+| start | selenium driver |
+| start browser | firefox | with selenium rc | localhost | on port | 4444 | point at | !-http://maps.google.com-! |
+| speed limit | 50 |
+| open | / |
+| type in | q_d | text | Vermont Avenue |
+| click | q-sub |
+| wait for text present | Vermont Ave, New York, NY 11207 |
+| wait for text present | Vermont Ave |
+| click | //div[@id='refsec']/div[5]/a/b |
+| click | mtgt_A.1000 |
+| ensure | text is present | Vermont Ave |
+| shutdown browser |
+
+
+DSL:
+
+|comment|
+| '''Start command''' |
+| start | selenium driver |
+| start browser | BROWSER | with selenium rc | HOSTNAME | on port | PORT | point at | URL |
+||
+| '''Browser commands''' |
+| open | URL |
+| shutdown browser |
+||
+| check | location | URL |
+| check | element | LOCATOR | contains text | TEXT |
+| check | element | LOCATOR | has value | VALUE |
+| check | element | LOCATOR | has selected label | LABEL |
+||
+| click | LOCATOR |
+| click | LOCATOR | and wait |
+| click | LOCATOR | and wait | MILLIS |
+||
+| ensure | element | LOCATOR | is present |
+| ensure | element | LOCATOR | has value | VALUE |
+| ensure | element | LOCATOR | has empty value |
+| ensure | element | LOCATOR | contains text | TEXT |
+| ensure | element | LOCATOR | contains no text |
+| ensure | element | LOCATOR | is editable |
+| ensure | element | LOCATOR | has selected label | LABEL |
+| ensure | text | TEXT | is present |
+||
+| reject | element | LOCATOR | is present |
+| reject | element | LOCATOR | has value | VALUE |
+| reject | element | LOCATOR | has empty value |
+| reject | element | LOCATOR | contains text | TEXT |
+| reject | element | LOCATOR | contains no text |
+| reject | element | LOCATOR | is editable |
+| reject | element | LOCATOR | has selected label | LABEL |
+| reject | text | TEXT | is present |
+||
+| select from | LOCATOR | option | LABEL |
+||
+| store text | LOCATOR | as | VARIABLE |
+| store value | LOCATOR | as | VARIABLE |
+||
+| type in | LOCATOR | nothing |
+| type in | LOCATOR | text | TEXT |
+||
+| pause | MILLIS |
+||
+| wait for text present | TEXT |

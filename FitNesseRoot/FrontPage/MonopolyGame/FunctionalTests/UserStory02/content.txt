@@ -1,0 +1,11 @@
+!2 ${testRequirementUs02}
+
+'''Motivation: A player must be able to posess properties in order to earn money.'''
+
+'''Additional requirements:'''
+- A user must land on the property in order to buy it
+- A user must have enough money to buy a property
+- The property must be free (not owned by another player)
+- The property must be subject to sale (not chance, free parking, jail, etc.)
+----
+!contents -R2 -f -g -h
