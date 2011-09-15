@@ -1,6 +1,0 @@
-The idea for this fixture is that it checks the sum of both dice
-
-| count dice table table|
-| 1 | 2 | 3 | 3 | 4 | 4 | 3 | 6 |
-|   | 3 | | 6 | | 8 | | 9 |
-
