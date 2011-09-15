@@ -1,19 +1,9 @@
 !2 Monopoly project
-
-!contents
-
-!img http://files/images/mr-monopoly.jpg
-
->RequirementsPage
->BackLog
->FunctionalTests
->SampleFixture
->ExercisesTeam01
->ExercisesTeam02
->ExercisesTeam03
->ExercisesTeam04
+!contents -R4 -g -f -h
 
 !*> Used variables
+
+!define TEST_SYSTEM {slim}
 
 !define testRequirementUs01 {'''US01 As a Player I can roll the dice so that my token can move to a new position'''}
 !define testRequirementUs02 {'''US02 As a Player I can pay so that I can buy assets (streets/stations)'''}
@@ -26,6 +16,5 @@
 !define testRequirementUs09 {'''US09 As a Player I can view the status of an asset in order to determine if I want to buy'''}
 !define testRequirementUs10 {'''US10 As a Player I can view my possessions in order to determine a strategy'''}
 !define testRequirementUs11 {'''US11 As a Player I receive salary when passing or landing on GO'''}
-!define testRequirementUsPijp {'''USPijp As a Player I can pijp'''
-}
+
 *!
