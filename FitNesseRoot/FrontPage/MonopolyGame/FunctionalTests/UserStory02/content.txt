@@ -9,3 +9,4 @@
 - The property must be subject to sale (not chance, free parking, jail, etc.)
 ----
 !contents -R2 -f -g -h
+!define TEST_SYSTEM {fit}

@@ -8,12 +8,4 @@
 - When a player throws double he gets another turn (with a maximum of three throws)
 - When a user throws double thrice he has to go to jail outside the scope: see US06
 ----
-| Description | Testcase | Status | Remark |
-| Player moves forward by the sum of the dice | >TestCase01 |OK||
-| Trowing doubles give the right to another turn | >TestCase02 |OK||
-
-| comment |
-| >Example1DecisionTable |
-| >Example2ActionTable |
-| >Example3TableTable does not yet exist |
-| >Example4GivWenThen does not yet exist |
+!contents -R2 -g -f -h

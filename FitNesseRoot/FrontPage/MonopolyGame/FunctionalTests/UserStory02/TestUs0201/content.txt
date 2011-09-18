@@ -1,11 +1,8 @@
-!*> Test Setup
-!define TEST_RUNNER {fitlibrary.suite.FitLibraryServer}
-define COMMAND_PATTERN {java -Xdebug -XrunjdWP:transport=dt_socket,server=y,suspend=y,address=1044 -cp %p %m}
 
 !|!-nl.javadude.monopoly.fixtures.SetUpUserFixture-!|
 | new game |
 
-*!
+
 !2 ${testRequirementUs02}
 !3 !help
 If a Property is free for sale (it's a saleable item)

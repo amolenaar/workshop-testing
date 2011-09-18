@@ -1,4 +1,12 @@
 
+!*> Test Setup
+
+|import|
+|nl.javadude.monopoly.fixtures|
+
+*!
+
+
 !* '''A player can throw with two dices'''
 | roll dice decision table |
 | player | first die | second die | position? |
