@@ -45,8 +45,8 @@ $(document).ready(function() {
 				
 				if (val.rent) {
 					s.attr("title", "cost: " + val.cost + "; rent: " + val.rent);
-					s.data('cost', val.cost);
-					s.data('rent', val.rent);
+					s.attr('cost', val.cost);
+					s.attr('rent', val.rent);
 					s.append("<span class='cost'>cost:&nbsp;" + val.cost + "<br/>rent:&nbsp;" + val.rent + "</span>")
 				} else if (val.cost) {
 					s.attr("title", "cost: " + val.cost);
