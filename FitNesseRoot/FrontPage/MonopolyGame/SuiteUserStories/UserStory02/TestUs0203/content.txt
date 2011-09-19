@@ -17,18 +17,25 @@ A Property is to expensive to buy
 
 | create user | Kris |
 | set balance  | 500 |
-| set position | Oriental Avenue |
+| set position | Conneticut Avenue |
 
 *!
-!* Player Cirilo buys a property, Kris can't buy it again
+!* Player Kris buys a property, Cirilo can't buy it again
 |!-nl.javadude.monopoly.fixtures.GameFixture-!|
 | start game with players | Cirilo, Kris |
-| player | Cirilo |
+| player | Kris |
 | first die | 1 |
 | second die | 1 |
 | play |
 | check | position | St. Charles Place |
 | check | can buy | true |
+| check | buy | true |
+| player | Cirilo |
+| first die | 1 |
+| second die | 1 |
+| play |
+| check | position | St. Charles Place |
+| check | can buy | false |
 | check | buy | false |
 
 *!
