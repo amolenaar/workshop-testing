@@ -1,2 +1,0 @@
-!2 !help
-!contents -R3 -f -g -h
