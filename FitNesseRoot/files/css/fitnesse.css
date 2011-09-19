@@ -18,17 +18,17 @@ div.sidebar {
   margin: 0px;
   line-height: 2.2em;
   text-indent: .5em;
-  color: white;
+  color: black;
   font-family: sans-serif, verdana, tahoma, arial, sans-serif;
   font-size: 14px;
-  background-color: #3A00BC;
+  background-color: #CFECE8;
   text-decoration: none;
   border: solid 1px #8D8360;
 }
 
 .actions a:hover {
   color: #3D4529;
-  background-color: #FF6E00;
+  background-color: #BFFFD8;
 }
 
 
@@ -60,15 +60,4 @@ div.art_niche {
   font-size: 1.0em;
   font-style: normal;
   margin-left: 1.5em;
-}
-
-xebiumLog {
-  position: absolute;
-  top: 0px;
-  right: 100px;
-  width: 100px;
-  height: 90px;
-  margin: 5px;
-  text-align: center;
-  background-image: url("/../xebium.log");
 }
