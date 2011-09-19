@@ -25,13 +25,13 @@ public class Board implements Serializable {
 	public static final Start START = new Start();
 	public static final Jail JAIL = new Jail();
 
-    public static final Board BOARD = new Board();
+    //public static final Board BOARD = new Board();
 
 	private final List<ISquare> squares = new ArrayList<ISquare>();
 	private Stack<Card> communityChest = new Stack<Card>();
 	private Stack<Card> chance = new Stack<Card>();
     
-	private Board() {
+	public Board() {
 		add(START);
 		add(new Realty("Mediterranean Avenue", 60, 2));
 		add(new DrawCard("Community Chest", communityChest));

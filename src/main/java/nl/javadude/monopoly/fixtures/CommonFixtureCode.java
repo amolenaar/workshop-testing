@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import nl.javadude.monopoly.domain.Board;
 import nl.javadude.monopoly.domain.Dice;
 import nl.javadude.monopoly.domain.Game;
 import nl.javadude.monopoly.domain.ISquare;
@@ -23,21 +22,21 @@ public class CommonFixtureCode extends Fixture {
 
 	private Game game = new Game();
 
-	private Board board = Board.BOARD;
-
 	private Player player;
 
 	public void setPlayer(String name) {
-		addPlayerIfNotYetInGame(name);
-		player = game.findPlayer(name);
-		game.setCurrentPlayer(player);
+		if (game.getCurrentPlayer() == null || !name.equals(game.getCurrentPlayer().getName())) {
+			addPlayerIfNotYetInGame(name);
+			player = game.findPlayer(name);
+			game.setCurrentPlayer(player);
+			player.startTurn();
+		}
 	}
 
 	private void addPlayerIfNotYetInGame(String name) {
 		if (!game.playerInGame(name)) {
-			player = new Player(name);
+			player = game.addPlayer(name);
 			player.startTurn();
-			game.add(player);
 		}
 	}
 
@@ -76,7 +75,7 @@ public class CommonFixtureCode extends Fixture {
 	}
 
 	public void setLocation(String locationName) {
-		ISquare newLocation = board.findLocation(locationName);
+		ISquare newLocation = game.getBoard().findLocation(locationName);
 		player.setCurrentPosition(newLocation);
 	}
 
@@ -90,12 +89,10 @@ public class CommonFixtureCode extends Fixture {
 
 	public void saveGame() {
 		save(game, "game.data");
-		save(board, "board.data");
 	}
 
 	public void getSavedGame() {
 		game = (Game) restore("game.data");
-		board = (Board) restore("board.data");
 	}
 
 	protected void save(Object obj, String fileName) {

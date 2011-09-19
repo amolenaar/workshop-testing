@@ -1,28 +1,25 @@
 package nl.javadude.monopoly.fixtures;
 
-import nl.javadude.monopoly.domain.Board;
-import nl.javadude.monopoly.domain.Player;
 
 public class SetUserPropertiesFixture extends CommonFixtureCode {
 
-	private Player user;
+	private PlayerProperties user;
 	
 	public void createUser(String name) {
-		user = new Player(name);
-		save(user, name+".data");
+		user = new PlayerProperties(name);
+		PlayerPool.PLAYER_POOL.put(name, user);
+		//save(user, constructFileName(name));
 	}
 	
 	public void setBalance(long amount) {
 		if (user != null) {
 			user.setMoney(amount);
-			save(user, user.getName()+".data");
 		}
 	}
 	
 	public void setPosition(String position) {
 		if (user != null) {
-			user.setCurrentPosition(Board.BOARD.findLocation(position));
-			save(user, user.getName()+".data");
+			user.setCurrentPosition(position);
 		}
 	}
 	

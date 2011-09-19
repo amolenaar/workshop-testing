@@ -11,13 +11,17 @@ import java.util.Random;
 public class Game implements Serializable {
 
 	private List<Player> players = new ArrayList<Player>();
-	protected Player currentPlayer;
-
-	public Game() {
+	private Player currentPlayer;
+	private Board board = new Board();
+	
+	public Board getBoard() {
+		return board;
 	}
-
-	public void add(Player player) {
+	
+	public Player addPlayer(String name) {
+		Player player = new Player(board, name);
 		players.add(player);
+		return player;
 	}
 	
 	/**

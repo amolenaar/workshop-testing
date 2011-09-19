@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public interface ISquare extends Serializable {
 
-	int getPosition();
+	//int getPosition();
 
 	String getName();
 	

@@ -1,19 +1,9 @@
 package nl.javadude.monopoly.fixtures;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-
-import nl.javadude.monopoly.domain.Board;
 import nl.javadude.monopoly.domain.Dice;
 import nl.javadude.monopoly.domain.Game;
 import nl.javadude.monopoly.domain.ISquare;
 import nl.javadude.monopoly.domain.Player;
-
-import org.apache.commons.lang.SerializationException;
-
 import fitlibrary.DoFixture;
 
 public class CommonDoFixtureCode extends DoFixture {
@@ -40,9 +30,8 @@ public class CommonDoFixtureCode extends DoFixture {
 
 	private void addPlayerIfNotYetInGame(String name) {
 		if (!game.playerInGame(name)) {
-			player = new Player(name);
+			player = game.addPlayer(name);
 			player.startTurn();
-			game.add(player);
 		}
 	}
 
@@ -76,7 +65,7 @@ public class CommonDoFixtureCode extends DoFixture {
 	}
 
 	public void setLocation(String locationName) {
-		ISquare newLocation = Board.BOARD.findLocation(locationName);
+		ISquare newLocation = game.getBoard().findLocation(locationName);
 		player.setCurrentPosition(newLocation);
 	}
 
@@ -87,80 +76,5 @@ public class CommonDoFixtureCode extends DoFixture {
 	public boolean canBuy() {
 		return player.getCurrentPosition().canBuy();
 	}
-
-	public void saveGame() {
-		save(game, constructFileName("game"));
-	}
-
-	public void getSavedGame() {
-		game = (Game) restore(constructFileName("game"));
-	}
-
-	protected void save(Object obj, String fileName) {
-		FileOutputStream fos = null;
-		ObjectOutputStream oos = null;
-		try {
-			// Write to disk with FileOutputStream
-			fos = new FileOutputStream(fileName);
-
-			// Write object with ObjectOutputStream
-			oos = new ObjectOutputStream(fos);
-
-			// Write object out to disk
-			oos.writeObject(obj);
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-			throw new RuntimeException("Problem saving object state to "
-					+ fileName);
-		} finally {
-			try {
-				if (oos != null) {
-					oos.close();
-				}
-				if (fos != null) {
-					fos.close();
-				}
-			} catch (IOException e) {
-				// ignore
-			}
-		}
-	}
-
-	protected Object restore(String fileName) {
-		// Read from disk using FileInputStream
-		FileInputStream fis = null;
-		ObjectInputStream ois = null;
-
-		try {
-			fis = new FileInputStream(fileName);
-
-			// Read object using ObjectInputStream
-			ois = new ObjectInputStream(fis);
-
-			// Read an object
-			return ois.readObject();
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-			throw new SerializationException("Problem restoring object state from "
-					+ fileName);
-		} catch (ClassNotFoundException e) {
-			throw new SerializationException("Problem restoring object state from "
-					+ fileName + "because of ClassNotFoundException");
-		} finally {
-			try {
-				if (ois != null) {
-					ois.close();
-				}
-				if (fis != null) {
-					fis.close();
-				}
-			} catch (IOException ioe) {
-				// ignore
-			}
-		}
-	}
 	
-	protected String constructFileName(String name) {
-		return name+".data";
-	}
 }

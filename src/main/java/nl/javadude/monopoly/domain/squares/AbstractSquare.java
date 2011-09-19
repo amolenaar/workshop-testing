@@ -13,10 +13,6 @@ public abstract class AbstractSquare implements ISquare {
 		this.name = name;
 	}
 
-	public int getPosition() {
-		return Board.BOARD.getSquares().indexOf(this);
-	}
-	
 	public String getName() {
 		return name;
 	}

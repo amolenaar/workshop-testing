@@ -59,8 +59,13 @@ public class Resources {
     
     
     
-    //@GET
-    //@Path("/newgame")
+    @GET
+    @Path("/newgame")
+    public String _newGame() {
+    	newGame();
+    	return "";
+    }
+    
     //@Produces("text/plain")
     private Game newGame() {
     	Game game = new Game();
@@ -88,13 +93,13 @@ public class Resources {
     @Path("/board")
     @Produces(JSON)
     public String board() {
-    	return toJson(Board.BOARD.getSquares());
+    	return toJson(game().getBoard().getSquares());
     }
     
     @POST
     @Path("/player")
     public void newPlayer(@FormParam("name") final String name) {
-    	game().add(new Player(name));
+    	game().addPlayer(name);
     }
     
     @GET

@@ -13,9 +13,11 @@ public class Player implements Serializable, MoneyExchanger {
 	private ISquare currentPosition;
 	private long money;
 	private List<IOwnable> possessions = new ArrayList<IOwnable>();
+	private Board board;
 
-	public Player(String name) {
+	public Player(Board board, String name) {
 		this.name = name;
+		this.board = board;
 		turnState = TurnState.END_TURN;
 		// Add the base money to the player.
         Bank.BANK.pay(1500, this);
@@ -61,7 +63,9 @@ public class Player implements Serializable, MoneyExchanger {
 	}
 
 	public boolean isTurnAction() {
-		return turnState == TurnState.TURN_ACTION;
+		return turnState == TurnState.ROLLED_SAME_ONCE 
+				|| turnState == TurnState.ROLLED_SAME_TWICE 
+				|| turnState == TurnState.TURN_ACTION;
 	}
 	
 	public boolean buy() {
@@ -102,7 +106,7 @@ public class Player implements Serializable, MoneyExchanger {
 		if (isJailed()) {
 			currentPosition = Board.JAIL;
 		} else {
-			Board.BOARD.move(this, dice.view());
+			board.move(this, dice.view());
 		}
 	}
 
@@ -138,7 +142,7 @@ public class Player implements Serializable, MoneyExchanger {
 	}
 	
 	public boolean owns(String name) {
-		ISquare sq = Board.BOARD.findLocation(name);
+		ISquare sq = board.findLocation(name);
 		return possessions.contains(sq);
 	}
 	

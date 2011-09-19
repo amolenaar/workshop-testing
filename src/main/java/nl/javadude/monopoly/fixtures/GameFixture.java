@@ -1,7 +1,6 @@
 package nl.javadude.monopoly.fixtures;
 
 import nl.javadude.monopoly.domain.Game;
-import nl.javadude.monopoly.domain.Player;
 
 import org.apache.commons.lang.SerializationException;
 
@@ -10,13 +9,13 @@ public class GameFixture extends CommonDoFixtureCode {
 	public void startGameWithPlayers(String[] playerNames) {
 	  game = new Game();
 	  for (String name : playerNames) {
-		  Player player;
 		  try {
-		   player = (Player) restore(name+".data");
+			  // TODO: use in memory pool.
+			  PlayerPool.newPlayer(name, game);
+			  
 		  } catch (SerializationException ex) {
-			  player = new Player(name);
+			  game.addPlayer(name);
 		  }
-		  game.add(player);
 	  }
 	}
 	
