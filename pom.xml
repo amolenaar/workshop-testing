@@ -76,14 +76,6 @@
       <version>0.5-SNAPSHOT</version>
     </dependency>
 
-    <dependency>
-      <artifactId>fitnium</artifactId>
-      <groupId>com.magneticreason.fitnium</groupId>
-      <version>2</version>
-      <scope>system</scope>
-      <systemPath>${basedir}/lib/fitnium2.jar</systemPath>
-    </dependency>
-
     <!-- test dependencies -->
     <dependency>
       <groupId>junit</groupId>

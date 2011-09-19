@@ -1,15 +1,15 @@
 !*> Test Setup
 
-|import|
-|nl.javadude.monopoly.fixtures|
-
+!define TEST_SYSTEM {fit}
 !define TEST_RUNNER {fitlibrary.suite.FitLibraryServer}
+define COMMAND_PATTERN {java -Xdebug -XrunjdWP:transport=dt_socket,server=y,suspend=y,address=1044 -cp %p %m}
 
-!|com.magneticreason.fitnium.BaseFitniumFixture|
+!path lib/fitnium2.jar
 
 *!
 Set up the browser and connect to selenium
 
+!| !-com.magneticreason.fitnium.BaseFitniumFixture-! |
 |The server is located at | localhost |
 |The server is on port | 4444 |
 |Using the browser | *firefox | start at | http://maps.google.com |
