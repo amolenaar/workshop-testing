@@ -21,7 +21,7 @@ public class Player implements Serializable, MoneyExchanger {
 		turnState = TurnState.END_TURN;
 		// Add the base money to the player.
         Bank.BANK.pay(1500, this);
-		setCurrentPosition(Board.START);
+		setCurrentPosition(board.START);
 	}
 
 	public void setCurrentPosition(ISquare currentPosition) {
@@ -104,7 +104,7 @@ public class Player implements Serializable, MoneyExchanger {
 		
 		turnState = turnState.transition(this);
 		if (isJailed()) {
-			currentPosition = Board.JAIL;
+			currentPosition = board.JAIL;
 		} else {
 			board.move(this, dice.view());
 		}

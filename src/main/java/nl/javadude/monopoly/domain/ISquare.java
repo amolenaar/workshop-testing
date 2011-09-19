@@ -4,7 +4,8 @@ import java.io.Serializable;
 
 public interface ISquare extends Serializable {
 
-	//int getPosition();
+	// Position for Ajax-item placement
+	int getPosition();
 
 	String getName();
 	

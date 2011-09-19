@@ -8,6 +8,7 @@ import nl.javadude.monopoly.domain.ISquare;
  */
 public abstract class AbstractSquare implements ISquare {
 	protected String name;
+	private int position;
 
 	public AbstractSquare(String name) {
 		this.name = name;
@@ -15,6 +16,14 @@ public abstract class AbstractSquare implements ISquare {
 
 	public String getName() {
 		return name;
+	}
+	
+	public void setPosition(int position) {
+		this.position = position;
+	}
+	
+	public int getPosition() {
+		return position;
 	}
 	
 	@Override

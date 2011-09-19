@@ -22,8 +22,8 @@ import nl.javadude.monopoly.domain.squares.Utility;
  */
 public class Board implements Serializable {
 	
-	public static final Start START = new Start();
-	public static final Jail JAIL = new Jail();
+	public final Start START = new Start();
+	public final Jail JAIL = new Jail();
 
     //public static final Board BOARD = new Board();
 
@@ -73,8 +73,16 @@ public class Board implements Serializable {
 		add(new TaxSquare("Luxury Tax", 100));
 		add(new Realty("Boardwalk", 400, 50));
 
+		updateSquarePositions();
 	}
 	
+	private void updateSquarePositions() {
+		int i = 0;
+		for (ISquare s: squares) {
+			((AbstractSquare) s).setPosition(i++);
+		}
+	}
+
 	public ISquare findLocation(String locationName) {
 		for(ISquare square : squares) {
 			if (square.getName().equals(locationName)) {
