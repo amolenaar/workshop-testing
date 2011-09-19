@@ -1,0 +1,52 @@
+
+!*> Test Setup
+
+|import|
+|nl.javadude.monopoly.fixtures|
+
+*!
+
+
+!* '''A player can throw with two dices'''
+| roll dice decision table |
+| player | first die | second die | position? |
+| Cirilo | 1 | 1 | Community Chest |
+| Cirilo | 3 | 4 | Conneticut Avenue |
+| Aman   | 5 | 1 | Oriental Avenue |
+
+*!
+!* '''A Player can move his token forward the sum of both dices'''
+| roll dice decision table |
+| player | first die | second die | old position? | position? |
+| Cirilo | 5 | 6 | GO                    | St. Charles Place |
+| Aman   | 2 | 4 | GO                    | Oriental Avenue |
+| Cirilo | 2 | 6 | St. Charles Place     | New York Avenue |
+| Aman   | 6 | 1 | Oriental Avenue       | States Avenue |
+| Cirilo | 4 | 3 | New York Avenue       | Atlantic Avenue |
+| Aman   | 5 | 2 | States Avenue         | Free Parking |
+| Cirilo | 2 | 4 | Atlantic Avenue       | North Carolina Avenue |
+| Aman   | 6 | 1 | Free Parking          | Ventnor Avenue |
+| Cirilo | 5 | 6 | North Carolina Avenue | Baltic Avenue |
+| Aman   | 6 | 1 | Ventnor Avenue        | Pennsylvania Avenue |
+
+*!
+!* '''When a player throws double he gets another turn (with a maximum of three throws)'''
+| roll dice decision table |
+| player | first die | second die | position? | another turn? |
+| Cirilo | 6 | 6 | Electric Company  | yes |
+| Cirilo | 2 | 2 | St. James Place   | yes |
+| Cirilo | 3 | 3 | Jail              | no  |
+
+*!
+!* '''When a user throws double thrice he has to go to jail'''
+| roll dice decision table |
+| player | first die | second die | position? | another turn? |
+| Cirilo | 6 | 6 | Electric Company  | yes |
+| Cirilo | 3 | 1 | St. James Place   | no |
+| Aman   | 3 | 3 | Oriental Avenue   | yes |
+| Aman   | 2 | 6 | Virginia Avenue   | no |
+| Cirilo | 4 | 4 | Illinois Avenue   | yes |
+| Cirilo | 2 | 2 | Water Works       | yes |
+| Cirilo | 5 | 5 | Jail              | no |
+
+*!

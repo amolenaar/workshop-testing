@@ -1,39 +1,39 @@
-!2 Backlog
+!2 !help
 !3 User Stories
 '''Format: As a ... I can ... So that ...'''
 
 |  comment |
-|'''Description'''|'''Priority'''|
-|${testRequirementUs01}|1|
+|'''Description'''|'''Theme'''|'''Priority'''|
+|${USERSTORY01}|Navigation|1|
 |See section 5.2.6 of the requirements for more details|
-|${testRequirementUs08}|1|
+|${USERSTORY08}|Navigation|1|
 |See sections 5.2.1, 5.2.2 and 5.2.6 of the requirements for more details|
-|${testRequirementUs09}|1|
+|${USERSTORY09}|Assets|1|
 |See section 5.2.8 of the requirements for more details|
-|${testRequirementUs10}|1|
+|${USERSTORY10}|Assets|1|
 |See sections 5.2.8, 5.2.9 and 5.2.18 of the requirements for more details|
-|${testRequirementUs02}|2|
+|${USERSTORY02}|Financial|2|
 |See sections 5.2.5 and 5.2.8 of the requirements for more details|
-|${testRequirementUs03}|2|
+|${USERSTORY03}|Financial|2|
 |See sections 5.2.15 and 5.2.16 of the requirements for more details|
-|${testRequirementUs04}|2|
+|${USERSTORY04}|Financial|2|
 |See section 5.2.9 of the requirements for more details|
-|${testRequirementUs05}|2|
+|${USERSTORY05}|Financial|2|
 |See section 5.2.9 of the requirements for more details|
-|${testRequirementUs06}|3|
+|${USERSTORY06}|Jail|3|
 |See section 5.2.12 of the requirements for more details|
-|${testRequirementUs07}|3|
+|${USERSTORY07}|Navigation|3|
 |See section 5.2.13 of the requirements for more details|
-|${testRequirementUs11}|3|
+|${USERSTORY11}|Financial|3|
 |See section 5.2.7 of the requirements for more details|
 
 | !3 SPRINT 1 |
-| ${testRequirementUs01} |
-| ${testRequirementUs08} |
+| ${USERSTORY01} |
+| ${USERSTORY08} |
 | !3 SPRINT 2 |
-| ${testRequirementUs02} |
-| ${testRequirementUs09} |
-| ${testRequirementUs10} |
+| ${USERSTORY02} |
+| ${USERSTORY09} |
+| ${USERSTORY10} |
 etc..
 
 

@@ -1,4 +1,4 @@
-!3 ${testRequirementUs01}
+!3 ${USERSTORY01}
 !* '''Example 4: !-GivWenZen-! using the script fixture'''
 
 |script|

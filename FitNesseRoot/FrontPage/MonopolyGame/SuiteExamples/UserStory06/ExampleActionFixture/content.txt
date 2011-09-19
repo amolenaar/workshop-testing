@@ -4,7 +4,7 @@
 !define TEST_SYSTEM {fit}
 
 *!
-!3 ${testRequirementUs06}
+!3 ${USERSTORY06}
 '''Reuse of the Action Fixture from US01, adding the ''jail'' check'''
 !* Cirilo gets the first turn and lands in Jail after throwing doubles thrice.
 

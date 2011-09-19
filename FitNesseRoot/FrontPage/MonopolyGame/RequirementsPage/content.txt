@@ -1,4 +1,4 @@
-!2 Monopoly: System requirements
+!2 !help
 !img http://files/images/Monopoly.jpg
 
 5.1.1.	OBJECT

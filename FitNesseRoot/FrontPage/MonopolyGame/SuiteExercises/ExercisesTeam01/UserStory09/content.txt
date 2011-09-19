@@ -1,0 +1,8 @@
+!3 !help
+'''Motivation: A Player needs to know the details in order to determine if he can buy or not'''
+
+'''Additional requirements:'''
+- The asset needs to contain metadata that can be retrieved
+-
+----
+!contents -R2 -f -g -h

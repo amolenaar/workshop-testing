@@ -6,7 +6,7 @@
 |nl.javadude.monopoly.fixtures|
 
 *!
-!2 ${testRequirementUs06}
+!2 ${USERSTORY06}
 '''Here the decision table from US01 is extended with the another turn option'''
 !* '''When a player throws double twice he gets another turn (with a maximum of three throws)'''
 

@@ -1,0 +1,53 @@
+!*> Setup
+!|!-nl.javadude.monopoly.fixtures.RollDiceActionTable-!|
+
+!define TEST_SYSTEM {fit}
+
+*!
+
+| set user properties |
+| create user | cirilo |
+| set | account | $500 |
+| set | position | conneticut avenue |
+
+| set property status |
+| street name | conneticut avenue |
+| value | $200 |
+| houses | 0 |
+| hotels | 0 |
+| available | true |
+
+!* example 1
+
+| buy property |
+| bought by | street name |succeed?| remainingamount?|
+| cirilo |connecticut avenue | true | $300 |
+
+|check property  |
+| street name | available? |
+| connecticut avenue | false |
+
+*!
+!* example 2
+| check possession for user | cirilo |
+| assets | houses | hotels |
+
+| buy property |
+| user | cirilo |
+| asset | connecticut avenue |
+
+| check user |
+| user | cirilo |
+| check | account | $300 |
+
+|check property  |
+| street name  | conneticut avenue |
+| check | owner | cirilo |
+| check | available | false |
+
+| check possession for user | cirilo |
+| assets | houses | hotels |
+| conneticut avenue | 0 | 0 |
+|  blablalbla | 1 | 6 |
+
+*!

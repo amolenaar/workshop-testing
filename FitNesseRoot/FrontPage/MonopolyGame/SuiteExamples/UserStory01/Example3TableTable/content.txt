@@ -1,9 +1,13 @@
-!3 ${testRequirementUs01}
+!3 ${USERSTORY01}
+!*> Setup
 
+!define TEST_SYSTEM{fit}
+| abandon storytest |
+
+*!
 '''Check to see if the sum of both dices is correctly calculated'''
 
 !* '''Example 3: Table table'''
-| abandon story test |
 
 | count dice table table|
 | 1 | 2 | 3 | 3 | 4 | 4 | 3 | 6 |

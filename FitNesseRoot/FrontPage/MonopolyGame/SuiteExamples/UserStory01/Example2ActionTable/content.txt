@@ -4,7 +4,7 @@
 !define TEST_SYSTEM {fit}
 
 *!
-!3 ${testRequirementUs01}
+!3 ${USERSTORY01}
 !* Example 2: Action table
 
 !| ActionFixture |

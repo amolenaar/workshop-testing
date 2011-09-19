@@ -1,0 +1,61 @@
+!*> Test Setup
+
+|import|
+| com.xebia.incubator.xebium |
+
+| library |
+| selenium driver fixture |
+
+
+*!
+!*> Scenario's
+
+| scenario | open monopoly game |
+| start browser | firefox | on url | http://localhost:9998/ |
+| ensure | do | open | on | /workshop-testing/ |
+| set step delay to | 1000 |
+
+| scenario | add user | username |
+| ensure | do | click | on | name=name |
+| ensure | do | type | on | name=name | with | @username |
+| ensure | do | click | on | name=addplayer |
+| ensure | do | waitForTextPresent | on | @username: money: 1500; possessions: |
+
+| scenario | start game |
+| ensure | do | click | on | name=startgame |
+
+| scenario | roll dice with value | die1 | and value | die2 |
+| ensure | do | type | on | name=d1 | with | @die1 |
+| ensure | do | type | on | name=d2 | with | @die2 |
+| ensure | do | click | on | name=roll |
+
+| scenario | verify user | username | is located on position | squarenumber | with name | streetname |
+| ensure | do | verifyText | on | css=#square@squarenumber > span | with | @streetname |
+| ensure | do | verifyElementPresent | on | !-//*[@id='square@squarenumber']/*[@rel='@username']-! |
+
+| scenario | buy property |
+| ensure | do | click | on | name=buy |
+
+| scenario | verify user | username | has money | money | and possessions | possessions |
+| ensure | do | waitForText | on | css=li.active | with | exact:@username: money: @money; possessions: @possessions |
+
+| scenario | finish turn |
+| ensure | do | click | on | name=finish |
+
+| scenario | verify active user is | username |
+| ensure | do | waitForText | on | css=li.active | with | glob:@username* |
+
+*!
+
+| script |
+| open monopoly game |
+| add user | cirilo |
+| add user | arjan |
+| start game |
+| roll dice with value | 1 | and value | 2 |
+| verify user | cirilo | is located on position | 3 | with name | Baltic Avenue |
+| buy property |
+| verify user | cirilo | has money | 1440 | and possessions | Baltic Avenue |
+| finish turn |
+| verify active user is | arjan |
+| stop browser |

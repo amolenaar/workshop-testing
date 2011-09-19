@@ -1,0 +1,38 @@
+| script | selenium driver fixture |
+| start browser | firefox | on url | http://localhost:8080/ |
+| ensure | do | open | on | /workshop-testing/ |
+| ensure | do | click | on | name=name |
+| ensure | do | type | on | name=name | with | arjan |
+| ensure | do | click | on | name=addplayer |
+| ensure | do | waitForText | on | css=li | with | exact:arjan: money: 1500; possessions: |
+| ensure | do | type | on | name=name | with | cirilo |
+| ensure | do | click | on | name=addplayer |
+| ensure | do | verifyText | on | !-//div[@id='players']/ul/li[2]-! | with | exact:cirilo: money: 1500; possessions: |
+| ensure | do | click | on | name=startgame |
+| ensure | do | verifyElementPresent | on | id=player0 |
+| ensure | do | type | on | name=d1 | with | 1 |
+| ensure | do | type | on | name=d2 | with | 2 |
+| ensure | do | click | on | name=roll |
+| ensure | do | verifyText | on | css=#square3 > span | with | Baltic Avenue |
+| ensure | do | verifyElementPresent | on | !-//*[@id='square3']/*[@rel='arjan']-! |
+| ensure | do | click | on | name=buy |
+| ensure | do | verifyText | on | css=li.active | with | exact:arjan: money: 1440; possessions: Baltic Avenue |
+| ensure | do | click | on | name=finish |
+| ensure | do | type | on | name=d2 | with | 4 |
+| ensure | do | click | on | name=roll |
+| ensure | do | click | on | name=buy |
+| ensure | do | click | on | name=finish |
+| ensure | do | click | on | name=roll |
+| ensure | do | click | on | name=buy |
+| ensure | do | click | on | name=finish |
+| ensure | do | click | on | name=roll |
+| ensure | do | click | on | name=finish |
+| ensure | do | click | on | name=roll |
+| ensure | do | click | on | name=buy |
+| ensure | do | click | on | name=finish |
+| ensure | do | type | on | name=d2 | with | 3 |
+| ensure | do | click | on | name=roll |
+| ensure | do | click | on | name=buy |
+| ensure | do | click | on | name=roll |
+| ensure | do | click | on | name=finish |
+| stop browser |

@@ -1,0 +1,29 @@
+!*> Test Setup
+
+|import|
+|nl.javadude.monopoly.fixtures|
+
+!define TEST_RUNNER {fitlibrary.suite.FitLibraryServer}
+
+!|com.magneticreason.fitnium.BaseFitniumFixture|
+
+*!
+Set up the browser and connect to selenium
+
+|The server is located at | localhost |
+|The server is on port | 4444 |
+|Using the browser | *firefox | start at | http://maps.google.com |
+|check | is selenium initialised | true |
+|set speed to |50| milliseconds |
+|set timeout to |50000| milliseconds |
+| write to debug | starting test |
+
+Lets try to login
+
+|starting at URL| http://maps.google.com |
+| enter | Vermont avenue | in input field | name=q |
+| check | does button With Id | q-sub | exist | true |
+| click button | q-sub |
+| wait For Page To Load For | 5 | seconds |
+| write to debug | test complete |
+| close the browser |
