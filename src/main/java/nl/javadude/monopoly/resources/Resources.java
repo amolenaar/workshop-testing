@@ -29,7 +29,7 @@ public class Resources {
 	
 	@Context
 	HttpServletRequest request;
-
+	
     @GET
     public InputStream getIndexHtml() {
     	return getClass().getClassLoader().getResourceAsStream("index.html");
@@ -61,9 +61,9 @@ public class Resources {
     
     @GET
     @Path("/newgame")
-    public String _newGame() {
+    public InputStream _newGame() {
     	newGame();
-    	return "";
+    	return getIndexHtml();
     }
     
     //@Produces("text/plain")
