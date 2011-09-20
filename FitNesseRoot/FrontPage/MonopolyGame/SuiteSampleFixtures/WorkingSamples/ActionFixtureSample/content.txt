@@ -3,6 +3,7 @@
 !|!-nl.javadude.monopoly.fixtures.RollDiceActionTable-!|
 
 !define TEST_SYSTEM {fit}
+define COMMAND_PATTERN {java -Xdebug -XrunjdWP:transport=dt_socket,server=y,suspend=y,address=1044 -cp %p %m}
 
 *!
 !* '''A player can throw with two dices'''
@@ -12,7 +13,6 @@
 | check | position | GO |
 | enter | first die | 1 |
 | enter | second die | 1 |
-| check | position | Community Chest |
 | press | play |
 | check | position | Community Chest |
 | check | repeat | true |
@@ -49,6 +49,7 @@
 | enter | player | Kris |
 | enter | first die | 5 |
 | enter | second die | 1 |
+| press | play |
 | check | position | Oriental Avenue |
 | check | repeat | false |
 | check | jail | false |
@@ -60,6 +61,7 @@
 | start | RollDiceActionTable |
 | press | get saved game |
 | enter | player | Kris |
+| check | position | Oriental Avenue |
 | enter | first die | 5 |
 | enter | second die | 1 |
 | press | play |

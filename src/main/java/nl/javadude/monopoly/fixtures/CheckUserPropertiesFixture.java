@@ -6,11 +6,10 @@ import nl.javadude.monopoly.domain.Player;
 
 public class CheckUserPropertiesFixture extends CommonDoFixtureCode {
 
-	private Player user;
+	private static PlayerProperties user;
 
-	public void getUser(String name) {
-		//PlayerProperties p = PlayerPool.PLAYER_POOL.get(name);
-		throw new NotImplementedException();
+	public synchronized void getUser(String name) {
+	    user = PlayerPool.PLAYER_POOL.get(name);
 	}
 
 	public long balance() {
@@ -18,10 +17,10 @@ public class CheckUserPropertiesFixture extends CommonDoFixtureCode {
 	}
 
 	public String position() {
-		return user.getCurrentPosition().getName();
+		return user.getCurrentPosition();
 	}
 	
 	public boolean ownsStreet(String name) {
-		return user.owns(name);
+	    throw new NotImplementedException();
 	}
 }

@@ -20,7 +20,7 @@ public class RollDiceActionTable extends CommonFixtureCode {
 	}
 	
 	public String position() {
-		return super.getNewPosition();
+		return super.getOldPosition();
 	}
 	
 	public boolean repeat() {

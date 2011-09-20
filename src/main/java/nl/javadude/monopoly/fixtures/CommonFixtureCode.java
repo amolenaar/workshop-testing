@@ -30,6 +30,10 @@ public class CommonFixtureCode extends Fixture {
 			player = game.findPlayer(name);
 			game.setCurrentPlayer(player);
 			player.startTurn();
+		} 
+		// Player is the current player.
+		else {
+		   player.startTurn(); 
 		}
 	}
 
@@ -63,7 +67,11 @@ public class CommonFixtureCode extends Fixture {
 	}
 
 	public boolean allowedAnotherTurn() {
-		return !(player.isFinishedTurn() || player.isJailed());
+	    if(player.isJailed()) return false;
+	    if(player.isFinishedTurn()) return false;
+	    if(die1 != die2) return false;
+	    
+		return true;
 	}
 
 	public boolean allowedAnotherRoll() {
@@ -93,6 +101,7 @@ public class CommonFixtureCode extends Fixture {
 
 	public void getSavedGame() {
 		game = (Game) restore("game.data");
+		player = game.getCurrentPlayer();
 	}
 
 	protected void save(Object obj, String fileName) {
