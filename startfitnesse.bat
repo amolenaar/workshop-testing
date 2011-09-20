@@ -1,0 +1,1 @@
+mvn -Pfitnesse test

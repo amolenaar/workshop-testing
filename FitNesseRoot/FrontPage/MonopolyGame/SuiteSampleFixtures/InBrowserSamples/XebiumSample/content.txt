@@ -11,7 +11,7 @@
 !*> Scenario's
 
 | scenario | open monopoly game |
-| start browser | firefox | on url | http://localhost:9998/ |
+| start browser | firefox | on url | http://localhost:8080/ |
 | ensure | do | open | on | /workshop-testing/ |
 | set step delay to | 1000 |
 

@@ -13,7 +13,7 @@
 !*****> '''Classpath'''
 !path ./target/classes
 # begin of maven classpath
-!define M2_REPO (/Users/cirilowortel/.m2/repository)
+!define M2_REPO (C:\Documents and Settings\Administrator\.m2)
 !path ${M2_REPO}/com/sun/jersey/jersey-server/1.8/jersey-server-1.8.jar
 !path ${M2_REPO}/asm/asm/3.1/asm-3.1.jar
 !path ${M2_REPO}/com/sun/jersey/jersey-core/1.8/jersey-core-1.8.jar
@@ -63,7 +63,7 @@
 !path ${M2_REPO}/org/slf4j/slf4j-log4j12/1.5.0/slf4j-log4j12-1.5.0.jar
 !path ${M2_REPO}/log4j/log4j/1.2.13/log4j-1.2.13.jar
 !path ${M2_REPO}/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar
-!path /Users/cirilowortel/Documents/xebia/Testpractice/FitnesseTraining/MonopolyGame/target/classes
-!path /Users/cirilowortel/Documents/xebia/Testpractice/FitnesseTraining/MonopolyGame/target/test-classes
+!path C:\data\workshop-testing\target\classes
+!path C:\data\workshop-testing\target\test-classes
 # end of maven classpath
 *****!
