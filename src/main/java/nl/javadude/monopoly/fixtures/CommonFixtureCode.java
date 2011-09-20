@@ -30,10 +30,6 @@ public class CommonFixtureCode extends Fixture {
 			player = game.findPlayer(name);
 			game.setCurrentPlayer(player);
 			player.startTurn();
-		} 
-		// Player is the current player.
-		else {
-		   player.startTurn(); 
 		}
 	}
 

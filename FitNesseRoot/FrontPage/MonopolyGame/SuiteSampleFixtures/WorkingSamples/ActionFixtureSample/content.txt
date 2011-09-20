@@ -51,6 +51,11 @@ define COMMAND_PATTERN {java -Xdebug -XrunjdWP:transport=dt_socket,server=y,susp
 | enter | second die | 1 |
 | press | play |
 | check | position | Oriental Avenue |
+| enter | player | Aman |
+| enter | first die | 5 |
+| enter | second die | 1 |
+| press | play |
+| check | position | Oriental Avenue |
 | check | repeat | false |
 | check | jail | false |
 | press | save game |
