@@ -1,0 +1,44 @@
+!2 ${USERSTORY08} 
+!3 Testcase: !help
+Several players enter the game and take turns throwing the dice.
+- Each player moves forward to the expected position by the sum of the dice.
+----
+!* '''A player can throw with two dices'''
+!| ActionFixture |
+| start | RollDiceActionTable |
+| enter | player | Cirilo |
+| check | position | GO |
+| enter | first die | 1 |
+| enter | second die | 1 |
+| check | position | Community Chest |
+| enter | first die | 3 |
+| enter | second die | 2 |
+| check | position | Chance |
+| enter | player | Aman |
+| check | position | GO |
+| enter | first die | 5 |
+| enter | second die | 1 |
+| check | position | Oriental Avenue |
+| enter | player | Kris |
+| check | position | GO |
+| enter | first die | 5 |
+| enter | second die | 1 |
+| check | position | Oriental Avenue |
+| enter | player | Cirilo |
+| check | position | Chance |
+| enter | first die | 1 |
+| enter | second die | 1 |
+| check | position | Conneticut Avenue |
+| enter | player | Aman |
+| check | position | Oriental Avenue |
+| enter | first die | 5 |
+| enter | second die | 1 |
+| check | position | St. Charles Place |
+| enter | player | Cirilo |
+| check | position | Conneticut Avenue |
+| enter | player | Aman |
+| check | position | St. Charles Place |
+| enter | player | Kris |
+| check | position | Oriental Avenue |
+
+*!

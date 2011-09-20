@@ -1,5 +1,5 @@
 !2 Monopoly project
-!contents -R4 -g -f -h
+!contents -R1 -g -f -h
 
 !*> Used variables
 

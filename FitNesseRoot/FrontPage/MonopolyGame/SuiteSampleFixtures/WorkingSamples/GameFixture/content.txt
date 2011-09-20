@@ -19,6 +19,10 @@ define COMMAND_PATTERN {java -Xdebug -XrunjdWP:transport=dt_socket,server=y,susp
 | set balance  | 500 |
 | set position | Jail |
 
+| create user | wilco |
+| set balance  | 1500 |
+| set position | GO |
+
 *!
 
 |!-nl.javadude.monopoly.fixtures.GameFixture-!|

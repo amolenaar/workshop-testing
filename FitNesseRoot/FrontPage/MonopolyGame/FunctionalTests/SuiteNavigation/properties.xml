@@ -8,7 +8,7 @@
 	<Refactor/>
 	<Search/>
 	<Suite/>
-	<Suites></Suites>
+	<Suites/>
 	<SymbolicLinks>
 		<UserStory01>.FrontPage.MonopolyGame.SuiteUserStories.UserStory01</UserStory01>
 		<UserStory08>.FrontPage.MonopolyGame.SuiteUserStories.UserStory08</UserStory08>

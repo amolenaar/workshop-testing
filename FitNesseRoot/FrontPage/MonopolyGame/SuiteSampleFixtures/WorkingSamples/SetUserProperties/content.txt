@@ -13,6 +13,7 @@ Whats his name, position and account balance.
 | enter | set balance  | 500 |
 | enter | set position | Conneticut Avenue |
 
+
 !| ActionFixture |
 | start | CheckUserPropertiesFixture |
 | enter | get user | cirilo |

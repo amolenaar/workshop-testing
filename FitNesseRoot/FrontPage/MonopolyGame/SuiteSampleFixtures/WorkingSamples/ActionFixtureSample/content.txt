@@ -9,10 +9,12 @@
 !| ActionFixture |
 | start | RollDiceActionTable |
 | enter | player | Cirilo |
+| check | position | GO |
 | enter | first die | 1 |
 | enter | second die | 1 |
+| check | position | Community Chest |
 | press | play |
-| check | position | Income Tax |
+| check | position | Community Chest |
 | check | repeat | true |
 | check | jail | false |
 
@@ -24,7 +26,7 @@
 | enter | first die | 5 |
 | enter | second die | 1 |
 | press | play |
-| check | position | Electric Company |
+| check | position | Oriental Avenue |
 | check | repeat | false |
 | check | jail | false |
 
@@ -36,7 +38,7 @@
 | enter | first die | 5 |
 | enter | second die | 1 |
 | press | play |
-| check | position | Electric Company |
+| check | position | Oriental Avenue |
 | check | repeat | false |
 | check | jail | false |
 
@@ -47,8 +49,7 @@
 | enter | player | Kris |
 | enter | first die | 5 |
 | enter | second die | 1 |
-| press | play |
-| check | position | Electric Company |
+| check | position | Oriental Avenue |
 | check | repeat | false |
 | check | jail | false |
 | press | save game |
@@ -62,7 +63,7 @@
 | enter | first die | 5 |
 | enter | second die | 1 |
 | press | play |
-| check | position | St. Charles Place |
+| check | position | Electric Company |
 | check | repeat | false |
 | check | jail | false |
 
