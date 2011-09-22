@@ -1,3 +1,10 @@
+!*> Setup
+
+!|!-nl.javadude.monopoly.fixtures.RollDiceActionTable-!|
+
+!define TEST_SYSTEM {fit}
+
+*!
 !2 ${USERSTORY08} 
 !3 Testcase: !help
 Several players enter the game and take turns throwing the dice.

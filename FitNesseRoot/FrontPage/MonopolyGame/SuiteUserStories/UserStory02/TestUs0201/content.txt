@@ -1,8 +1,3 @@
-
-!|!-nl.javadude.monopoly.fixtures.SetUpUserFixture-!|
-| new game |
-
-
 !2 ${USERSTORY02}
 !3 !help
 If a Property is free for sale (it's a saleable item)
@@ -30,12 +25,5 @@ If a Property is free for sale (it's a saleable item)
 | check | can buy | true |
 | check | buy | true |
 | check | budget | 360 |
-| check | repeat | true |
-| first die | 5 |
-| second die | 4 |
-| play |
-| check | position | Free Parking |
-| check | can buy | false |
-| check | buy | false |
 
 *!

@@ -1,42 +1,44 @@
 !*> Test Setup
-!define TEST_RUNNER {fitlibrary.suite.FitLibraryServer}
 !define TEST_SYSTEM {fit}
-define COMMAND_PATTERN {java -Xdebug -XrunjdWP:transport=dt_socket,server=y,suspend=y,address=1044 -cp %p %m}
+
+!define TEST_RUNNER {fitlibrary.suite.FitLibraryServer}
 
 !|!-nl.javadude.monopoly.fixtures.SetUpUserFixture-!|
+| new game |
 
 *!
-!* Set start situation
-| create user | cirilo |
-| set balance  | 500 |
-| set position | Park Place |
+!2 ${USERSTORY02}
+!3 !help
+A user Passing GO lands on a correct position
+A user landing on GO, after continuing lands on a correct position
+----
+!* Setup users
 
-| create user | kris |
+| create user | Cirilo |
 | set balance  | 500 |
-| set position | Short line |
+| set position | Short Line |
+
+| create user | Kris |
+| set balance  | 500 |
+| set position | Pennsylvania Avenue |
 
 *!
-
+!* Player Cirilo buys a property, Kris can't buy it again but has to pay rent
 |!-nl.javadude.monopoly.fixtures.GameFixture-!|
-| start game with players | cirilo, kris |
-| player | cirilo |
+| start game with players | Cirilo, Kris |
+| player | Cirilo |
+| first die | 2 |
+| second die | 4 |
+| play |
+| check | position | Mediterranean Avenue |
+| player | Kris |
+| first die | 3 |
+| second die | 3 |
+| play |
+| check | position | GO |
 | first die | 1 |
 | second die | 3 |
 | play |
-| check | position | Mediterranean Avenue |
-| player| kris |
-| first die | 3 |
-| second die | 2 |
-| play |
-| check | position | GO |
-| player | cirilo |
-| first die | 1 |
-| second die | 3 |
-| play |
-| check | position | Mediterranean Avenue |
-| player| kris |
-| first die | 3 |
-| second die | 2 |
-| play |
-| check | position | GO |
+| check | position | Income Tax |
 
+*!

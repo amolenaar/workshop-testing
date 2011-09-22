@@ -1,14 +1,9 @@
-!*> Setup
-!define TEST_RUNNER {fitlibrary.suite.FitLibraryServer}
-define COMMAND_PATTERN {java -Xdebug -XrunjdWP:transport=dt_socket,server=y,suspend=y,address=1044 -cp %p %m}
-
-!|!-nl.javadude.monopoly.fixtures.SetUpUserFixture-!|
-| new game |
-
-*!
 !2 ${USERSTORY02}
 
 A Property is owned by another player
+ player is not allowed to buy
+ rent is withdrawn automatically
+----
 !* Setup users
 
 | create user | Cirilo |

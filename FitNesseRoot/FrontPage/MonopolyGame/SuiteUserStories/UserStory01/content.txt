@@ -7,5 +7,6 @@
 - A Player can move his token forward by the sum of both dice
 - When a player throws double he gets another turn (with a maximum of three throws)
 - When a user throws double thrice he has to go to jail outside the scope: see US06
+- When a users turn ends, the next user has his turn
 ----
 !contents -R2 -g -f -h

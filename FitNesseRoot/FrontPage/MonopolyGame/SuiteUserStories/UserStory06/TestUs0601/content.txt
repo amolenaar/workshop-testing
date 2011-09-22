@@ -1,4 +1,3 @@
-
 !2 ${USERSTORY06}
 
 '''Player throws multiple rounds until reaching the sum of 30 which corresponds with ''Goto Jail'' and as a result lands in Jail'''
@@ -11,7 +10,6 @@
 | Aman   | 3 | 3 | Oriental Avenue   | yes |
 | Aman   | 2 | 6 | Virginia Avenue   | no |
 | Cirilo | 4 | 4 | Illinois Avenue   | yes |
-| Cirilo | 1 | 1 | Atlantic Avenue   | yes |
-| Cirilo | 1 | 1 | Jail              | no |
+| Cirilo | 2 | 4 | Jail   | no |
 
 *!

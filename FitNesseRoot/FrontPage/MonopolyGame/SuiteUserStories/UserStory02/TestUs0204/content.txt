@@ -1,27 +1,28 @@
 !2 ${USERSTORY02}
-
-A Property is to expensive to buy
-!* Setup users
-
+!3 !help
+If a Property is not a salable item
+- player is unable to buy
+----
+!* Setup Users
 | create user | Cirilo |
-| set balance  | 50 |
+| set balance  | 500 |
 | set position | Conneticut Avenue |
 
 | create user | Kris |
 | set balance  | 500 |
-| set position | Conneticut Avenue |
+| set position | Tennessee Avenue |
 
 *!
-!* Player Kris buys a property, Cirilo can't buy it again
+!* Test if player can buy property
 |!-nl.javadude.monopoly.fixtures.GameFixture-!|
 | start game with players | Cirilo, Kris |
 | player | Cirilo |
-| first die | 1 |
-| second die | 1 |
+| first die | 6 |
+| second die | 5 |
 | play |
-| check | position | St. Charles Place |
+| check | position | Free Parking |
 | check | can buy | false |
 | check | buy | false |
-| check | budget | 50 |
+| check | budget | 500 |
 
 *!

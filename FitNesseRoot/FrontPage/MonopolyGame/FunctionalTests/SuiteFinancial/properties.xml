@@ -2,13 +2,13 @@
 <properties>
 	<Edit/>
 	<Files/>
-	<Help>Suite containing stories for functional theme Financial</Help>
+	<Help>Functional theme Financial</Help>
 	<Properties/>
 	<RecentChanges/>
 	<Refactor/>
 	<Search/>
 	<Suite/>
-	<Suites></Suites>
+	<Suites/>
 	<SymbolicLinks>
 		<UserStory02>.FrontPage.MonopolyGame.SuiteUserStories.UserStory02</UserStory02>
 	</SymbolicLinks>
