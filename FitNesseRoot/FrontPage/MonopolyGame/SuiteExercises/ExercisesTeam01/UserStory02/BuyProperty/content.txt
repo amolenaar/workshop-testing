@@ -1,0 +1,7 @@
+|Buy property on board                                                                     |
+|Player #|Funds|Property #|Property Price|Property Status|Player Buys?|Outcome             |
+|1       |100  |1         |50            |free           |Y           |property owned      |
+|2       |0    |2         |50            |free           |Y           |impossible          |
+|2       |100  |1         |50            |owned          |Y           |impossible          |
+|2       |0    |3         |50            |free           |N           |Transaction canceled|
+|2       |100  |3         |50            |free           |N           |Transaction canceled|
