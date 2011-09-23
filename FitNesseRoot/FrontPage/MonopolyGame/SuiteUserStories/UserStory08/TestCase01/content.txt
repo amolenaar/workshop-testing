@@ -1,0 +1,57 @@
+!*> Setup
+
+!|!-nl.javadude.monopoly.fixtures.RollDiceActionTable-!|
+
+!define TEST_SYSTEM {fit}
+
+*!
+!2 ${USERSTORY08} 
+!3 Testcase: !help
+Several players enter the game and take turns throwing the dice.
+- Each player moves forward to the expected position by the sum of the dice.
+----
+!* '''A player can throw with two dices'''
+!| ActionFixture |
+| start | RollDiceActionTable |
+| enter | player | Cirilo |
+| check | position | GO |
+| enter | first die | 1 |
+| enter | second die | 1 |
+| press | play |
+| check | position | Community Chest |
+| enter | first die | 3 |
+| enter | second die | 2 |
+| press | play |
+| check | position | Chance |
+| enter | player | Aman |
+| check | position | GO |
+| enter | first die | 5 |
+| enter | second die | 1 |
+| press | play |
+| check | position | Oriental Avenue |
+| enter | player | Kris |
+| check | position | GO |
+| enter | first die | 5 |
+| enter | second die | 1 |
+| press | play |
+| check | position | Oriental Avenue |
+| enter | player | Cirilo |
+| check | position | Chance |
+| enter | first die | 1 |
+| enter | second die | 1 |
+| press | play |
+| check | position | Conneticut Avenue |
+| enter | player | Aman |
+| check | position | Oriental Avenue |
+| enter | first die | 5 |
+| enter | second die | 1 |
+| press | play |
+| check | position | Electric Company |
+| enter | player | Cirilo |
+| check | position | Conneticut Avenue |
+| enter | player | Aman |
+| check | position | Electric Company |
+| enter | player | Kris |
+| check | position | Oriental Avenue |
+
+*!
