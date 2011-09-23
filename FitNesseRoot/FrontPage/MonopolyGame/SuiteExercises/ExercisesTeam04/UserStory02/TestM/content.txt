@@ -1,0 +1,37 @@
+!*> Test Setup
+
+|import|
+| com.xebia.incubator.xebium |
+
+| library |
+| selenium driver fixture |
+
+
+*!
+
+| script | selenium driver fixture |
+| start browser | firefox | on url | http://localhost:8080/ |
+| ensure | do | open | on | /workshop-testing/ |
+| ensure | do | click | on | name=name |
+| ensure | do | type | on | name=name | with | Marino |
+| ensure | do | click | on | name=addplayer |
+| ensure | do | type | on | name=name | with | Melvin |
+| ensure | do | click | on | name=addplayer |
+| ensure | do | click | on | name=startgame |
+| ensure | do | click | on | name=d1 |
+| ensure | do | type | on | name=d1 | with | 3 |
+| ensure | do | type | on | name=d2 | with | 4 |
+| ensure | do | click | on | name=roll |
+| ensure | do | click | on | name=finish |
+| ensure | do | type | on | name=d1 | with | 5 |
+| ensure | do | type | on | name=d2 | with | 6 |
+| ensure | do | type | on | name=d1 | with | 6 |
+| ensure | do | click | on | name=roll |
+| ensure | do | click | on | name=roll |
+| ensure | do | type | on | name=d2 | with | 5 |
+| ensure | do | click | on | name=roll |
+| ensure | do | click | on | name=finish |
+| ensure | do | click | on | name=roll |
+| ensure | do | click | on | name=roll |
+| ensure | do | click | on | name=finish |
+| stop browser |
