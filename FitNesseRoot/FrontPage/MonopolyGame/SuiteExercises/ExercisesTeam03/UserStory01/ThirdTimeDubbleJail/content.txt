@@ -1,0 +1,5 @@
+| Throw 2 dices |
+| dice 1 | dice 2 | result |
+| 1      | 1      | nog een keer |
+| 2      | 2      | nog een keer |
+| 2      | 2      | gevangenis |
