@@ -1,0 +1,34 @@
+|Import                    |
+|com.xebia.incubator.xebium|
+
+|library                |
+|selenium driver fixture|
+
+|scenario     |Roll Dice  with player | Player | and currentposition | Currentpos | and die 1 | D1 | and die 2 | D2 | lands on new position | Newpos |
+|start browser|firefox|on url              |http://localhost:8080/                               |
+|ensure       |do     |open                |on|/workshop-testing/newgame                               |
+| set step delay to | 100 |
+|ensure       |do     |type                |on|name=name           |with          |@Player|
+|ensure       |do     |click               |on|name=addplayer                                    |
+|ensure       |do     |type                |on|name=name           |with          |Joop |
+|ensure       |do     |click               |on|name=addplayer                                    |
+|ensure       |do     |click               |on|name=startgame                                    |
+|ensure       |do     |verifyElementPresent|on|//*[@id='square@Currentpos']/*[@rel='@Player']|
+|ensure       |do     |type                |on|name=d1             |with          |@D1           |
+|ensure       |do     |type                |on|name=d2             |with          |@D2           |
+|ensure       |do     |click               |on|name=roll                                         |
+|ensure       |do     |verifyElementPresent|on|//*[@id='square@Newpos']/*[@rel='@Player']    |
+|stop browser                                                                                    |
+
+| comment |
+| add a new player | player |
+| verify player | player | postion is | position |
+| roll dice with value | 1 | and | 2|
+| verify player | player | postion is | position |
+
+|Roll Dice  with player and currentposition  and die 1 and die 2 lands on new position |
+|Player |Currentpos |D1 |D2 |Newpos|
+|Jan    |0          |1  |2  |3     |
+|Piet   |0          |6  |5  |11    |
+|Jan    |3          |2  |3  |8     |
+
