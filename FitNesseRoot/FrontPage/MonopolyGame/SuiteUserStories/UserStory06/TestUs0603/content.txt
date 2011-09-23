@@ -1,4 +1,0 @@
-!3 !help
-
-User story not yet implemented: Prune Property set
-

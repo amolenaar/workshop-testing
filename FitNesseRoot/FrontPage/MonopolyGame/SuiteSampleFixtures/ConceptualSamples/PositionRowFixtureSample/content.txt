@@ -1,8 +1,0 @@
-This fixture is based upon the fitnesse '''row fixture'''
-It should return all players that take part in the game and their current position.
-
-| check player position |
-| player | position |
-| Aman | Oriental Avenue |
-| Cirilo | Conneticut Avenue |
-| Harsh | Go |

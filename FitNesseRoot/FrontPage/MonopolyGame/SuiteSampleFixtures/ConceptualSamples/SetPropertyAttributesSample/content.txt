@@ -1,9 +1,0 @@
-This fixture is meant to set the attributes for a property
-What is its street-name, value, how many houses or hotels does it contain and is it available for sale.
-
-| set property status |
-| street name | conneticut avenue |
-| value | $200 |
-| houses | 0 |
-| hotels | 0 |
-| available | true |
