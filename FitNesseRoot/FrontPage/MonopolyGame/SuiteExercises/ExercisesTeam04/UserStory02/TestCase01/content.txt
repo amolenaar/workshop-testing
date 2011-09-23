@@ -1,0 +1,11 @@
+|Check if player has enough money|
+|Player Money       |12000      |
+|Property Value       |5000       |
+|Property can be bought          |
+
+
+|Check if player has enough money|
+|Player Money       |4000      |
+|Property Value       |5000       |
+|Property cannot be bought          |
+

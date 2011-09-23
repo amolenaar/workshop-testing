@@ -1,0 +1,10 @@
+| Check if player position allows him to buy the property |
+| Player Position | Station West |
+| Property to Buy | Station West |
+| Player is allowed to buy |
+
+| Check if player position allows him to buy the property |
+| Player Position | Station West |
+| Property to Buy | Kalverstraat |
+| Player is not allowed to buy |
+

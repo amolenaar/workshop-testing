@@ -1,0 +1,10 @@
+| Check if property can be  sold |
+| Property | Station West |
+| Buyable | true |
+| Property can be bought |
+
+| Check if property can be  sold |
+| Property | Jail |
+| Buyable | false |
+| Property cannot be bought |
+

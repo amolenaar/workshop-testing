@@ -1,0 +1,9 @@
+| check if property is free for sale |
+| Property | Station West |
+| Property Owner | - |
+| Property is available |
+
+| check if property is free for sale |
+| Property | Station West |
+| Property Owner | Player 1 |
+| Property is not available |
