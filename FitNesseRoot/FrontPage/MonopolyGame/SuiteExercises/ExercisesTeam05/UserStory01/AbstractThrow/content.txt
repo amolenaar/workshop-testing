@@ -1,0 +1,7 @@
+|throw dice|
+
+|read value of two dice|
+
+|add face values|
+
+|move the dice|

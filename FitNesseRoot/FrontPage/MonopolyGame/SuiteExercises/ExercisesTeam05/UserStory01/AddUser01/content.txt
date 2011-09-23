@@ -1,0 +1,9 @@
+| script | selenium driver fixture |
+| start browser | firefox | on url | http://localhost:8080/ |
+| ensure | do | open | on | /workshop-testing/ |
+| ensure | do | click | on | name=d2 |
+| ensure | do | type | on | name=name | with | Daniel |
+| ensure | do | click | on | name=addplayer |
+| ensure | do | type | on | name=name | with | Junaid |
+| ensure | do | click | on | name=addplayer |
+| stop browser |

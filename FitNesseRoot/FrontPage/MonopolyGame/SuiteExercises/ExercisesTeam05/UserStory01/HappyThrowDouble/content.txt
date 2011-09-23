@@ -1,0 +1,11 @@
+| script | selenium driver fixture |
+| start browser | firefox | on url | http://localhost:8080/ |
+| ensure | do | open | on | /workshop-testing/ |
+| ensure | do | type | on | name=d1 | with | 1 |
+| ensure | do | type | on | name=d2 | with | 1 |
+| ensure | do | click | on | name=roll |
+| ensure | do | type | on | name=d1 | with | 3 |
+| ensure | do | type | on | name=d2 | with | 2 |
+| ensure | do | click | on | name=roll |
+| ensure | do | click | on | name=finish |
+| stop browser |

@@ -1,0 +1,10 @@
+|Throw dice|
+| script | selenium driver fixture |
+| start browser | firefox | on url | http://localhost:8080/ |
+| ensure | do | open | on | /workshop-testing/ |
+| ensure | do | click | on | name=d1 |
+| ensure | do | type | on | name=d1 | with | 3 |
+| ensure | do | type | on | name=d2 | with | 6 |
+| ensure | do | click | on | name=roll |
+| stop browser |
+
