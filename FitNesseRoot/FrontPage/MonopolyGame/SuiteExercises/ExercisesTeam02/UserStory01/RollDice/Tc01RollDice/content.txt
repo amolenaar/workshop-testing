@@ -1,0 +1,4 @@
+| Generate random numer | Dice1 | Dice2|
+| Check Dice | Dice1 | Dice2|
+| Check randomness | Dice1 | Dice2|
+

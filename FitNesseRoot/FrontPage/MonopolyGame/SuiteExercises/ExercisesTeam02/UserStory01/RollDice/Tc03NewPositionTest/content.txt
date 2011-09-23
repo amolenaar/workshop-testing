@@ -1,0 +1,4 @@
+| Check new position | old position + dice roll |
+| Check Direction | Clockwise |
+| Check max value |
+| Check go to jail | wait for event | Check jail position |
