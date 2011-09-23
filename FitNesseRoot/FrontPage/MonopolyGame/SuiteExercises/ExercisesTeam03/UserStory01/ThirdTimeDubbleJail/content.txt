@@ -1,5 +1,20 @@
-| Throw 2 dices |
-| dice 1 | dice 2 | result |
-| 1      | 1      | nog een keer |
-| 2      | 2      | nog een keer |
-| 2      | 2      | gevangenis |
+!*> Test Setup
+
+|import|
+|nl.javadude.monopoly.fixtures|
+
+*!
+
+
+!* '''When a user throws double thrice he has to go to jail'''
+| roll dice decision table |
+| player | first die | second die | position? | another roll? |
+| Cirilo | 6 | 6 | Electric Company  | yes |
+| Cirilo | 3 | 1 | St. James Place   | no |
+| Aman   | 3 | 3 | Oriental Avenue   | yes |
+| Aman   | 2 | 6 | Virginia Avenue   | no |
+| Cirilo | 4 | 4 | Illinois Avenue   | yes |
+| Cirilo | 2 | 2 | Water Works       | yes |
+| Cirilo | 5 | 5 | Jail              | no |
+
+*!
