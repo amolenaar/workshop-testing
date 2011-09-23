@@ -1,7 +1,25 @@
-|throw dice|
+!*> Test Setup
 
-|read value of two dice|
+|import|
+| com.xebia.incubator.xebium |
 
-|add face values|
+| library |
+| selenium driver fixture |
 
-|move the dice|
+
+*!
+
+| comment |
+|Given user1 is at start |
+| user1 | position | GO |
+|When d1 = 5 and d2 =1 |
+| d1 | 5 | d2 | 1 |
+|Then user1 is at position Oriental Avenue|
+| user1 | position | Oriental Avenue |
+
+
+| script |
+| given a user is at position go |
+| when he throws 5 and 1 |
+| the he lands on Oriental Avenue |
+| stop |

@@ -1,0 +1,24 @@
+| scenario | given a user is at position go |
+| start browser | firefox | on url | http://localhost:8080/ |
+| set step delay to | 1000 |
+| ensure | do | open | on | /workshop-testing/newgame |
+| ensure | do | type | on | name=name | with | junaidh |
+| ensure | do | click | on | name=addplayer |
+| ensure | do | type | on | name=name | with | Daniel |
+| ensure | do | click | on | name=addplayer |
+| ensure | do | click | on | name=startgame |
+| ensure | do | waitForElementPresent | on | !-//*[@id='square0']/*[@id='player0']-! |
+
+| scenario | when he throws 5 and 1 |
+| ensure | do | click | on | name=d1 |
+| ensure | do | type | on | name=d1 | with | 5 |
+| ensure | do | click | on | name=d2 |
+| ensure | do | type | on | name=d2 | with | 1 |
+| ensure | do | click | on | name=roll |
+
+| scenario | the he lands on Oriental Avenue |
+| ensure | do | waitForElementPresent | on | !-//*[@id='square6']/*[@id='player0']-! |
+
+
+| scenario | stop |
+| stop browser |
