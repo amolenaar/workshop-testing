@@ -6,50 +6,16 @@
   <groupId>nl.javadude.monopoly.workshop</groupId>
   <version>1.0-SNAPSHOT</version>
   <name>Monopoly :: Workshop :: Testing</name>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
   <inceptionYear>2008</inceptionYear>
   <properties>
-    <xebium.version>0.5-SNAPSHOT</xebium.version>
-    <fitnesse.version>20110104</fitnesse.version>
-    <fitlibrary.version>20091020</fitlibrary.version>
+    <xebium.version>0.9</xebium.version>
+    <fitnesse.version>20121107</fitnesse.version>
+    <fitlibrary.version>20080812</fitlibrary.version>
     <fitnesse.port>9000</fitnesse.port>
     <fitnesse.expiration>0</fitnesse.expiration>
   </properties>
   
-  <repositories>
-    <repository>
-      <id>maven2-repository.java.net</id>
-      <name>Java.net Repository for Maven</name>
-      <url>http://download.java.net/maven/2/</url>
-      <layout>default</layout>
-    </repository>
-    <repository>
-      <id>vt-oss-releases</id>
-      <name>Valtech Open Source Releases</name>
-      <url>http://source.valtech.com/repo/content/repositories/releases/
-      </url>
-    </repository>
-    <repository>
-      <id>os-xebia</id>
-      <name>Xebia Open Source Repository</name>
-      <url>http://os.xebia.com/repository/</url>
-    </repository>
-  </repositories>
-
-  <pluginRepositories>
-    <pluginRepository>
-      <id>vt-oss-releases</id>
-      <name>Valtech Open Source Releases</name>
-      <url>http://source.valtech.com/repo/content/repositories/releases/
-      </url>
-    </pluginRepository>
-    <pluginRepository>
-      <id>os-xebia</id>
-      <name>Xebia Open Source Repository</name>
-      <url>http://os.xebia.com/repository/</url>
-    </pluginRepository>
-  </pluginRepositories>
-
   <!-- Dependency list -->
   <dependencies>
     <dependency>
@@ -62,6 +28,8 @@
       <groupId>org.fitnesse</groupId>
       <artifactId>fitnesse</artifactId>
       <version>${fitnesse.version}</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/lib/fitnesse-standalone-${fitnesse.version}.jar</systemPath>
     </dependency>
 
     <dependency>
@@ -71,9 +39,27 @@
     </dependency>
 
     <dependency>
-      <artifactId>xebium</artifactId>
       <groupId>com.xebia.incubator</groupId>
-      <version>0.5-SNAPSHOT</version>
+      <artifactId>xebium</artifactId>
+      <version>${xebium.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.fitnesse.plugins</groupId>
+      <artifactId>fitnesse-ivy-classpath</artifactId>
+      <version>0.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.6.4</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.6.4</version>
     </dependency>
 
     <!-- test dependencies -->
@@ -88,16 +74,6 @@
       <artifactId>mockito-all</artifactId>
       <version>1.8.5</version>
       <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <version>1.5.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-      <version>1.5.0</version>
     </dependency>
     <dependency>
     	<groupId>org.json</groupId>
@@ -157,7 +133,7 @@
       </plugin>
     </plugins>
   </build>
-  
+
   <profiles>
     <profile>
       <id>fitnesse</id>
@@ -167,29 +143,6 @@
       <build>
         <plugins>
           <plugin>
-            <groupId>com.valtech.source.maven</groupId>
-            <artifactId>maven-fitnesse-cpgen-plugin</artifactId>
-            <version>1.0</version>
-            <configuration>
-              <fitnesseRoot>${basedir}/FitNesseRoot</fitnesseRoot>
-            </configuration>
-            <executions>
-              <execution>
-                <phase>process-resources</phase>
-                <goals>
-                  <goal>gencp</goal>
-                </goals>
-              </execution>
-            </executions>
-            <dependencies>
-              <dependency>
-                <groupId>commons-io</groupId>
-                <artifactId>commons-io</artifactId>
-                <version>1.4</version>
-              </dependency>
-            </dependencies>
-          </plugin>
-          <plugin>
             <artifactId>maven-antrun-plugin</artifactId>
             <version>1.6</version>
             <executions>
@@ -197,16 +150,16 @@
                 <id>start-fitnesse</id>
                 <phase>test</phase>
                 <configuration>
-                  <tasks>
-                    <echo taskname="fitnesse" message="Starting FitNesse ${fitnesse.version}... (Selenium ${selenium.version})" />
-                    <java classname="fitnesseMain.FitNesseMain"
-                      classpathref="maven.runtime.classpath"
-                      fork="true">
+                  <target>
+                    <echo taskname="fitnesse" message="Starting FitNesse ${fitnesse.version}..." />
+                    <java classname="fitnesseMain.FitNesseMain" fork="true">
+                      <classpath refid="maven.runtime.classpath" />
+                      <classpath path="${basedir}/lib/fitnesse-standalone-20121107.jar" />
                       <arg line="-p ${fitnesse.port}" />
                       <arg line="-d ." />
                       <arg line="-e ${fitnesse.expiration}" />
                     </java>
-                  </tasks>
+                  </target>
                 </configuration>
                 <goals>
                   <goal>run</goal>
@@ -230,6 +183,18 @@
       <id>lvanderpoel</id>
       <email>lvanderpoel@xebia.com</email>
       <name>Lieke van der Poel</name>
+      <organization>Xebia B.V.</organization>
+    </developer>
+    <developer>
+      <id>amolenaar</id>
+      <email>amolenaar@xebia.com</email>
+      <name>Arjan Molenaar</name>
+      <organization>Xebia B.V.</organization>
+    </developer>
+    <developer>
+      <id>cwortel</id>
+      <email>cwortel@xebia.com</email>
+      <name>Cirilo Wortel</name>
       <organization>Xebia B.V.</organization>
     </developer>
   </developers>

@@ -7,6 +7,7 @@ import java.util.List;
 /**
  *
  */
+@SuppressWarnings("serial")
 public class Player implements Serializable, MoneyExchanger {
 	private String name;
 	private TurnState turnState;
@@ -63,11 +64,11 @@ public class Player implements Serializable, MoneyExchanger {
 	}
 
 	public boolean isTurnAction() {
-		return turnState == TurnState.ROLLED_SAME_ONCE 
-				|| turnState == TurnState.ROLLED_SAME_TWICE 
+		return turnState == TurnState.ROLLED_SAME_ONCE
+				|| turnState == TurnState.ROLLED_SAME_TWICE
 				|| turnState == TurnState.TURN_ACTION;
 	}
-	
+
 	public boolean buy() {
 		if (isTurnAction() && currentPosition instanceof IOwnable) {
 			IOwnable ownable = (IOwnable) currentPosition;
@@ -94,14 +95,14 @@ public class Player implements Serializable, MoneyExchanger {
 			if (!ownable.isUnowned()) {
 				pay(ownable.getRent(), ownable.owner());
 			}
-		}		
+		}
 	}
-	
+
 	public void move(Dice dice) {
 		if (!isRollAllowed()) {
 			return;
 		}
-		
+
 		turnState = turnState.transition(this);
 		if (isJailed()) {
 			currentPosition = board.JAIL;
@@ -132,19 +133,19 @@ public class Player implements Serializable, MoneyExchanger {
 	}
 
 	public boolean isRollAllowed() {
-		return turnState == TurnState.START_TURN 
+		return turnState == TurnState.START_TURN
 				|| turnState == TurnState.ROLLED_SAME_ONCE
 				|| turnState == TurnState.ROLLED_SAME_TWICE;
 	}
-	
+
 	public void forceTurnFinish() {
 		turnState = TurnState.END_TURN;
 	}
-	
+
 	public boolean owns(String name) {
 		ISquare sq = board.findLocation(name);
 		return possessions.contains(sq);
 	}
-	
-	
+
+
 }

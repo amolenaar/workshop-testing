@@ -12,10 +12,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 
-import nl.javadude.monopoly.domain.Board;
 import nl.javadude.monopoly.domain.Dice;
 import nl.javadude.monopoly.domain.Game;
-import nl.javadude.monopoly.domain.Player;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

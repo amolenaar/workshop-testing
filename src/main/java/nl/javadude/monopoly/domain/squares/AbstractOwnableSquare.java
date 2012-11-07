@@ -1,12 +1,16 @@
 package nl.javadude.monopoly.domain.squares;
 
-import nl.javadude.monopoly.domain.*;
+import nl.javadude.monopoly.domain.IAutomatic;
+import nl.javadude.monopoly.domain.IOwnable;
+import nl.javadude.monopoly.domain.Player;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  *
  */
+@SuppressWarnings("serial")
 public abstract class AbstractOwnableSquare extends AbstractSquare implements IOwnable, IAutomatic {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Realty.class);
 	protected long cost;
@@ -40,15 +44,15 @@ public abstract class AbstractOwnableSquare extends AbstractSquare implements IO
 	public boolean isUnowned() {
 		return !isOwned();
 	}
-	
+
 	public boolean canBuy() {
 		return isUnowned();
 	}
-	
+
 	public boolean isOwned() {
 		return owner != null;
 	}
-	
+
 	// Not an official getter, otherwise Json will run into a recursive loop.
 	public Player owner() {
 		return owner;

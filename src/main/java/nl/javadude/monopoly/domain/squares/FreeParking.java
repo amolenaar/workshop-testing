@@ -1,10 +1,10 @@
 package nl.javadude.monopoly.domain.squares;
 
-import nl.javadude.monopoly.domain.squares.AbstractSquare;
 
 /**
  *
  */
+@SuppressWarnings("serial")
 public class FreeParking extends AbstractSquare {
 
 	public FreeParking() {

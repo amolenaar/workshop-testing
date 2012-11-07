@@ -4,6 +4,7 @@ package nl.javadude.monopoly.domain.squares;
 /**
  *
  */
+@SuppressWarnings("serial")
 public class Station extends AbstractOwnableSquare {
 
 	public Station(String name) {

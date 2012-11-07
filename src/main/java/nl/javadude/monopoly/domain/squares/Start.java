@@ -1,11 +1,12 @@
 package nl.javadude.monopoly.domain.squares;
 
-import nl.javadude.monopoly.domain.*;
-import nl.javadude.monopoly.domain.squares.AbstractSquare;
+import nl.javadude.monopoly.domain.IAutomatic;
+import nl.javadude.monopoly.domain.Player;
 
 /**
  *
  */
+@SuppressWarnings("serial")
 public class Start extends AbstractSquare implements IAutomatic {
 
 	public Start() {

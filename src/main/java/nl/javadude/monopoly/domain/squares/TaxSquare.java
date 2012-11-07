@@ -1,14 +1,14 @@
 package nl.javadude.monopoly.domain.squares;
 
-import nl.javadude.monopoly.domain.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import nl.javadude.monopoly.domain.Bank;
+import nl.javadude.monopoly.domain.IAutomatic;
+import nl.javadude.monopoly.domain.Player;
 
 /**
  *
  */
+@SuppressWarnings("serial")
 public class TaxSquare extends AbstractSquare implements IAutomatic {
-	private static final Logger LOGGER = LoggerFactory.getLogger(TaxSquare.class);
 	private long tax;
 
 	public TaxSquare(String name, long tax) {

@@ -1,13 +1,17 @@
 package nl.javadude.monopoly.domain.squares;
 
-import nl.javadude.monopoly.domain.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+import nl.javadude.monopoly.domain.Card;
+import nl.javadude.monopoly.domain.IAutomatic;
+import nl.javadude.monopoly.domain.Player;
+
 /**
  *
  */
+@SuppressWarnings("serial")
 public class DrawCard extends AbstractSquare implements IAutomatic {
 
 	private Stack<Card> stack;
@@ -22,7 +26,7 @@ public class DrawCard extends AbstractSquare implements IAutomatic {
 	public void execute(Player player) {
 		//throw new UnsupportedOperationException("Don't know how to draw card");
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == null || !(obj instanceof DrawCard)) {
@@ -35,5 +39,5 @@ public class DrawCard extends AbstractSquare implements IAutomatic {
 	public double getUnifier() {
 		return unifier;
 	}
-	
+
 }

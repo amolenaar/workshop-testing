@@ -6,6 +6,7 @@ import nl.javadude.monopoly.domain.IOwnable;
 /**
  *
  */
+@SuppressWarnings("serial")
 public class Utility extends AbstractOwnableSquare {
 
 	public Utility(String name) {

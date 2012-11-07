@@ -1,11 +1,11 @@
 package nl.javadude.monopoly.domain.squares;
 
-import nl.javadude.monopoly.domain.Board;
 import nl.javadude.monopoly.domain.ISquare;
 
 /**
  *
  */
+@SuppressWarnings("serial")
 public abstract class AbstractSquare implements ISquare {
 	protected String name;
 	private int position;
@@ -17,15 +17,15 @@ public abstract class AbstractSquare implements ISquare {
 	public String getName() {
 		return name;
 	}
-	
+
 	public void setPosition(int position) {
 		this.position = position;
 	}
-	
+
 	public int getPosition() {
 		return position;
 	}
-	
+
 	@Override
 	public String toString() {
 		return name;
@@ -43,6 +43,6 @@ public abstract class AbstractSquare implements ISquare {
 		AbstractSquare sq = (AbstractSquare) obj;
 		return (sq.getName() != null && sq.getName().equals(getName()));
 	}
-	
-	
+
+
 }

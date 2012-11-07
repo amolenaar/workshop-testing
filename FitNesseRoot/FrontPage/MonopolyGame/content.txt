@@ -18,3 +18,8 @@
 !define USERSTORY11 {'''US11 As a Player I receive salary when passing or landing on GO'''}
 
 *!
+
+!***> Classpath
+!path target/classes
+!resolve -pom -c runtime pom.xml
+*!

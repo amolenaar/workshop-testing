@@ -58,13 +58,13 @@ $(document).ready(function() {
 				
 			    board.append(s);
 			});
-			
+/*			
 			$('.square').hover(function() {
 				$(this).find('.cost').fadeIn();
 			}, function() {
 				$(this).find('.cost').fadeOut();
 			});
-
+*/
 		});
 	}
 

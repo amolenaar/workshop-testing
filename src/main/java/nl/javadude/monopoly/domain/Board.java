@@ -20,8 +20,9 @@ import nl.javadude.monopoly.domain.squares.Utility;
  * Representation of a monopoly board. We assume that in any game only one board
  * is used, and that any thread only deals with a single game.
  */
+@SuppressWarnings("serial")
 public class Board implements Serializable {
-	
+
 	public final Start START = new Start();
 	public final Jail JAIL = new Jail();
 
@@ -30,7 +31,7 @@ public class Board implements Serializable {
 	private final List<ISquare> squares = new ArrayList<ISquare>();
 	private Stack<Card> communityChest = new Stack<Card>();
 	private Stack<Card> chance = new Stack<Card>();
-    
+
 	public Board() {
 		add(START);
 		add(new Realty("Mediterranean Avenue", 60, 2));
@@ -75,7 +76,7 @@ public class Board implements Serializable {
 
 		updateSquarePositions();
 	}
-	
+
 	private void updateSquarePositions() {
 		int i = 0;
 		for (ISquare s: squares) {
@@ -114,7 +115,7 @@ public class Board implements Serializable {
 			return sum;
 		}
 	}
-	
+
 	public List<ISquare> getSquares() {
 		return new ArrayList<ISquare>(squares);
 	}

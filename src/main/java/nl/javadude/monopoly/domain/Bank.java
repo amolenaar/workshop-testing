@@ -10,7 +10,6 @@ import org.slf4j.LoggerFactory;
 public class Bank implements MoneyExchanger {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Bank.class);
 	public static final Bank BANK = new Bank();
-	private final String name = "BANK";
 
 	private Bank() {
 	}
