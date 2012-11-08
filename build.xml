@@ -15,8 +15,11 @@
 			<fileset dir="src/main/resources" includes="**" />
 		</copy>
 	</target>
+	<target name="cache-dependencies" depends="ivy-init">
+		<ivy:resolve type="jar" />
+	</target>
 
-	<target name="run" depends="compile">
+	<target name="fitnesse" depends="compile,cache-dependencies">
 		<ivy:cachepath pathid="fitnesse.classpath" conf="fitnesse" type="jar" />
 		<java classname="fitnesseMain.FitNesseMain" fork="true" failonerror="true">
 			<classpath>
