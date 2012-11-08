@@ -13,9 +13,7 @@ import nl.javadude.monopoly.domain.Player;
 
 import org.apache.commons.lang.SerializationException;
 
-import fit.Fixture;
-
-public class CommonFixtureCode extends Fixture {
+public class CommonFixtureCode {
 
 	private int die1;
 	private int die2;
@@ -58,7 +56,6 @@ public class CommonFixtureCode extends Fixture {
 	}
 
 	public String getNewPosition() {
-		doPlayAction();
 		return player.getCurrentPosition().getName();
 	}
 
@@ -66,7 +63,7 @@ public class CommonFixtureCode extends Fixture {
 	    if(player.isJailed()) return false;
 	    if(player.isFinishedTurn()) return false;
 	    if(die1 != die2) return false;
-	    
+
 		return true;
 	}
 
@@ -89,6 +86,11 @@ public class CommonFixtureCode extends Fixture {
 
 	public boolean canBuy() {
 		return player.getCurrentPosition().canBuy();
+	}
+
+
+	public void newGame() {
+		game = new Game();
 	}
 
 	public void saveGame() {
@@ -162,5 +164,13 @@ public class CommonFixtureCode extends Fixture {
 				// ignore
 			}
 		}
+	}
+
+	protected Game getGame() {
+		return game;
+	}
+
+	protected Player getPlayer() {
+		return player;
 	}
 }

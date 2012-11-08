@@ -1,5 +1,3 @@
-!3 ${USERSTORY06}
-
 '''Motivation'''
 A player needs to encounter some risks to make the game less predictable
 

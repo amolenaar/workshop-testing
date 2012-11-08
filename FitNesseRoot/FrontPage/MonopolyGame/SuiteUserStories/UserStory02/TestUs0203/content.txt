@@ -1,19 +1,19 @@
-!2 ${USERSTORY02}
-
 A Property is to expensive to buy
-!* Setup users
 
+!*** Setup users
+
+| script | set up user fixture |
 | create user | Cirilo |
-| set balance  | 50 |
+| set balance | 50 |
 | set position | Conneticut Avenue |
-
 | create user | Kris |
-| set balance  | 500 |
+| set balance | 500 |
 | set position | Conneticut Avenue |
 
 *!
-!* Player Kris buys a property, Cirilo can't buy it again
-|!-nl.javadude.monopoly.fixtures.GameFixture-!|
+Player Kris buys a property, Cirilo can't buy it again
+
+| script | Game Fixture |
 | start game with players | Cirilo, Kris |
 | player | Cirilo |
 | first die | 1 |
@@ -23,5 +23,3 @@ A Property is to expensive to buy
 | check | can buy | false |
 | check | buy | false |
 | check | budget | 50 |
-
-*!

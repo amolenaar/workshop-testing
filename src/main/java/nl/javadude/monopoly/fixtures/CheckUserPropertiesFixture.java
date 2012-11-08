@@ -2,7 +2,7 @@ package nl.javadude.monopoly.fixtures;
 
 import org.apache.commons.lang.NotImplementedException;
 
-public class CheckUserPropertiesFixture extends CommonDoFixtureCode {
+public class CheckUserPropertiesFixture {
 
 	private static PlayerProperties user;
 
@@ -17,7 +17,7 @@ public class CheckUserPropertiesFixture extends CommonDoFixtureCode {
 	public String position() {
 		return user.getCurrentPosition();
 	}
-	
+
 	public boolean ownsStreet(String name) {
 	    throw new NotImplementedException();
 	}

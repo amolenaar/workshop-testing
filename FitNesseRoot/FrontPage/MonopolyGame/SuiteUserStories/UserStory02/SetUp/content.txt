@@ -1,8 +1,2 @@
-!*> Test Setup
-
-!define TEST_RUNNER {fitlibrary.suite.FitLibraryServer}
-
-!|!-nl.javadude.monopoly.fixtures.SetUpUserFixture-!|
-| new game |
-
-*!
+| import |
+| nl.javadude.monopoly.fixtures |

@@ -1,4 +1,3 @@
-!2 !help
 !3 User Stories
 '''Format: As a ... I can ... So that ...'''
 

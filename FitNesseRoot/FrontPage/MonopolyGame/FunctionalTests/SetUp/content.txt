@@ -1,5 +1,3 @@
-!*> Test Setup
-
 |Import|
 |nl.javadude.monopoly.fixtures|
 | com.xebia.incubator.xebium |
@@ -7,6 +5,3 @@
 
 #| library |
 #| selenium driver fixture |
-
-
-*!

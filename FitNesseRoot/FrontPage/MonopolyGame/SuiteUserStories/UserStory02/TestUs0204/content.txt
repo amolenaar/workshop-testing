@@ -1,20 +1,18 @@
-!2 ${USERSTORY02}
-!3 !help
 If a Property is not a salable item
 - player is unable to buy
 ----
 !* Setup Users
+| script | set up user fixture |
 | create user | Cirilo |
 | set balance  | 500 |
 | set position | Conneticut Avenue |
-
 | create user | Kris |
 | set balance  | 500 |
 | set position | Tennessee Avenue |
 
 *!
 !* Test if player can buy property
-|!-nl.javadude.monopoly.fixtures.GameFixture-!|
+| script | Game fixture|
 | start game with players | Cirilo, Kris |
 | player | Cirilo |
 | first die | 6 |
