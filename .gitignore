@@ -1,0 +1,9 @@
+.classpath
+.project
+.settings/
+FitNesseRoot/ErrorLogs/
+FitNesseRoot/RecentChanges/
+FitNesseRoot/files/testResults/
+FitNesseRoot/updateList
+target/
+velocity.log
