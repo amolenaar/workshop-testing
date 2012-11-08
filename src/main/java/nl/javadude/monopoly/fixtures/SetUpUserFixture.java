@@ -11,6 +11,10 @@ public class SetUpUserFixture {
 		System.out.println("Created new user " + name);
 	}
 
+	public void setUser(String name) {
+		createUser(name);
+	}
+
 	public void setBalance(long amount) {
 		if (user != null) {
 			user.setMoney(amount);

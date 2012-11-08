@@ -1,14 +1,13 @@
-!3 ${USERSTORY01}
+When a player throws double he gets another turn (with a maximum of three throws)
 
-!* '''When a player throws double he gets another turn (with a maximum of three throws)'''
 | roll dice decision table |
 | player | first die | second die | position? | another roll? |
 | Cirilo | 6 | 6 | Electric Company  | yes |
 | Cirilo | 2 | 2 | St. James Place   | yes |
 | Cirilo | 3 | 2 | Kentucky Avenue   | no  |
 
-*!
-!* '''When a user throws double thrice he has to go to jail'''
+When a user throws double thrice he has to go to jail
+
 | roll dice decision table |
 | player | first die | second die | position? | another roll? |
 | Cirilo | 6 | 6 | Electric Company  | yes |
@@ -18,5 +17,3 @@
 | Cirilo | 4 | 4 | Illinois Avenue   | yes |
 | Cirilo | 2 | 2 | Water Works       | yes |
 | Cirilo | 5 | 5 | Jail              | no |
-
-*!

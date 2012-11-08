@@ -1,30 +1,19 @@
-!*> Test Setup
-!define TEST_SYSTEM {fit}
-
-!define TEST_RUNNER {fitlibrary.suite.FitLibraryServer}
-
-!|!-nl.javadude.monopoly.fixtures.SetUpUserFixture-!|
-| new game |
-
-*!
 !2 ${USERSTORY02}
-!3 !help
+
 A user Passing GO lands on a correct position
 A user landing on GO, after continuing lands on a correct position
 ----
 !* Setup users
 
-| create user | Cirilo |
-| set balance  | 500 |
-| set position | Short Line |
-
-| create user | Kris |
-| set balance  | 500 |
-| set position | Pennsylvania Avenue |
+| set up user fixture |
+| user | balance  | position |
+|  Cirilo | 500 | Short Line |
+| Kris | 500 | Pennsylvania Avenue |
 
 *!
-!* Player Cirilo buys a property, Kris can't buy it again but has to pay rent
-|!-nl.javadude.monopoly.fixtures.GameFixture-!|
+
+Player Cirilo buys a property, Kris can't buy it again but has to pay rent
+| script | game fixture|
 | start game with players | Cirilo, Kris |
 | player | Cirilo |
 | first die | 2 |
@@ -40,5 +29,3 @@ A user landing on GO, after continuing lands on a correct position
 | second die | 3 |
 | play |
 | check | position | Income Tax |
-
-*!

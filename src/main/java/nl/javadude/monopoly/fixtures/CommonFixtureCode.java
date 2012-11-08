@@ -46,10 +46,6 @@ public class CommonFixtureCode {
 		this.die2 = die2;
 	}
 
-	public String getOldPosition() {
-		return player.getCurrentPosition().getName();
-	}
-
 	public void doPlayAction() {
 		Dice.getInstance().setDiceValues(die1, die2);
 		player.move(Dice.getInstance());

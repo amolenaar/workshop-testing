@@ -1,6 +1,7 @@
 !3 !help
 
-!* '''A Player can move his token forward the sum of both dices'''
+A Player can move his token forward the sum of both dices
+
 | roll dice decision table |
 | player | first die | second die | old position? | position? |
 | Cirilo | 5 | 6 | GO                    | St. Charles Place |
@@ -13,5 +14,3 @@
 | Aman   | 6 | 1 | Free Parking          | Ventnor Avenue |
 | Cirilo | 5 | 6 | North Carolina Avenue | Baltic Avenue |
 | Aman   | 6 | 1 | Ventnor Avenue        | Pennsylvania Avenue |
-
-*!

@@ -1,4 +1,3 @@
-!2 !help
 Motivation:
 - A player collects rent when other players land on his property and therefor he likes to know when other players visit his property.
 - A player might want to change his strategy if other players are about to land on his property.

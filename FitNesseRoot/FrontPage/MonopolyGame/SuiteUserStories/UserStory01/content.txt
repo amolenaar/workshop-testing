@@ -1,4 +1,3 @@
-!3 !help
 '''Motivation'''
 - Players need to move across the board, the dice tells them how many positions they may move
 
