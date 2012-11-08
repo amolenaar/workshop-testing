@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0">
+        <info organisation="nl.javadude.monopoly.workshop"
+		module="workshop-testing">
+                <description homepage="http://fitnesse.org">
+                        The fully integrated standalone wiki and
+                        acceptance testing framework.
+                </description>
+        </info>
+  
+	<configurations>
+		<conf name="default" visibility="public" />
+		<conf name="test" visibility="public" extends="default" />
+		<conf name="compile" visibility="public" extends="default" />
+		<conf name="fitnesse" visibility="private" />
+		<conf name="acceptance" visibility="public" extends="default" />
+		<conf name="server" visibility="public" extends="default" />
+	</configurations>
+
+	<dependencies>
+ 		<dependency org="com.sun.jersey" name="jersey-core" rev="1.15" />
+ 		<dependency org="com.sun.jersey" name="jersey-server" rev="1.15" conf="*->default"/>
+ 		<dependency org="com.sun.jersey" name="jersey-servlet" rev="1.15" conf="server->default"/>
+		<dependency org="org.json" name="json" rev="20090211" />
+		<dependency org="commons-lang" name="commons-lang" rev="2.6" />
+		<dependency org="org.slf4j" name="slf4j-api" rev="1.6.4" />
+		<dependency org="org.slf4j" name="slf4j-simple" rev="1.6.4" conf="server->default" />
+		<dependency org="org.mortbay.jetty" name="jetty-ant" rev="6.1.25" conf="*->default" />
+		<!-- Test -->
+		<dependency org="junit" name="junit" rev="4.5" conf="test->default" />
+		<dependency org="com.xebia.incubator" name="xebium" rev="0.9" conf="acceptance->default" />
+		<!-- FitNesse -->
+		<dependency org="org.fitnesse.plugins" name="fitnesse-ivy-classpath" rev="0.1" conf="fitnesse->default" />
+		<exclude org="org.fitnesse" module="fitnesse" />
+		<exclude type="src" ext="jar" />
+		<exclude type="javadoc" ext="jar" />
+		<exclude type="license" ext="txt" />
+
+	</dependencies>
+</ivy-module>

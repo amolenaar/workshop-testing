@@ -1,0 +1,7 @@
+<ivysettings>
+        <settings defaultResolver="maven2" />
+        <caches  defaultCacheDir="${user.dir}/local-cache" checkUpToDate="false" />
+        <resolvers>
+                <ibiblio name="maven2" root="http://repo1.maven.org/maven2" m2compatible="true" />
+        </resolvers>
+</ivysettings>

@@ -1,0 +1,64 @@
+<project name="workshop-testing" default="run" basedir="."
+        xmlns:ivy="antlib:org.apache.ivy.ant">
+
+	<property name="port" value="9000" />
+
+	<target name="clean">
+		<delete dir="target" />
+	</target>
+
+	<target name="compile" depends="ivy-init">
+		<mkdir dir="target/classes" />
+		<ivy:cachepath pathid="compile.classpath" conf="default" type="jar" />
+		<javac srcdir="src/main/java" destdir="target/classes" classpathref="compile.classpath" debug="true" source="1.6" target="1.6" />
+		<copy todir="target/classes">
+			<fileset dir="src/main/resources" includes="**" />
+		</copy>
+	</target>
+
+	<target name="run" depends="compile">
+		<ivy:cachepath pathid="fitnesse.classpath" conf="fitnesse" type="jar" />
+		<java classname="fitnesseMain.FitNesseMain" fork="true" failonerror="true">
+			<classpath>
+				<path refid="fitnesse.classpath" />
+				<pathelement path="${basedir}/lib/fitnesse-standalone-20121107.jar" />
+			</classpath>
+                        <arg value="-o" />
+                        <arg value="-e" />
+                        <arg value="0" />
+                        <arg value="-p" />
+                        <arg value="${port}" />
+                </java>
+	</target>
+
+	<target name="server" depends="compile">
+		<ivy:cachepath pathid="server.classpath" conf="server" type="jar" />
+		<taskdef classpathref="server.classpath" resource="tasks.properties" loaderref="jetty.loader" />
+		<mkdir dir="target/jetty-temp" />
+		<jetty tempDirectory="target/jetty-temp">
+			<webapp name="workshop-testing" warfile="src/main/webapp" contextPath="/workshop-testing">
+				<classes dir="target/classes" />
+			</webapp>
+		</jetty>
+	</target>
+
+        <target name="ivy-init" depends="ivy-download">
+                <path id="ivy.class.path">
+                        <fileset dir="antlib">
+                                <include name="*.jar"/>
+                        </fileset>
+                </path>
+                <taskdef resource="org/apache/ivy/ant/antlib.xml"
+                        uri="antlib:org.apache.ivy.ant"
+                        classpathref="ivy.class.path" />
+        </target>
+
+	<property name="maven.central.url" value="http://repo2.maven.org/maven2" />
+
+        <available file="antlib/ivy.jar" type="file" property="have.ivy.jar"/>
+
+	<target name="ivy-download" unless="have.ivy.jar">
+                <mkdir dir="antlib" />
+                <get src="${maven.central.url}/org/apache/ivy/ivy/2.3.0-rc1/ivy-2.3.0-rc1.jar" dest="antlib/ivy.jar" usetimestamp="true" verbose="true" />
+	</target>
+</project>
