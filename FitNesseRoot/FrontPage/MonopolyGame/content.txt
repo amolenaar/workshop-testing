@@ -21,5 +21,6 @@
 
 !***> Classpath
 !path target/classes
-!resolve -pom -c runtime pom.xml
+!path lib/fitnesse-standalone-20121107.jar
+!resolve -c acceptance -s ivysettings.xml
 *!
