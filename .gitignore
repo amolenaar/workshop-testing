@@ -2,8 +2,12 @@
 .project
 .settings/
 FitNesseRoot/ErrorLogs/
+FitNesseRoot/FitNesse/
 FitNesseRoot/RecentChanges/
 FitNesseRoot/files/testResults/
+FitNesseRoot/properties
 FitNesseRoot/updateList
 target/
 velocity.log
+antlib/
+local-cache/
