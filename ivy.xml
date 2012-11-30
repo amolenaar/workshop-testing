@@ -28,6 +28,7 @@
 		<dependency org="org.mortbay.jetty" name="jetty-ant" rev="6.1.25" conf="*->default" />
 		<!-- Test -->
 		<dependency org="junit" name="junit" rev="4.5" conf="test->default" />
+		<dependency org="org.mockito" name="mockito-all" rev="1.8.5" conf="test->default" />
 		<dependency org="com.xebia.incubator" name="xebium" rev="0.9" conf="acceptance->default" />
 		<!-- FitNesse -->
 		<dependency org="org.fitnesse.plugins" name="fitnesse-ivy-classpath" rev="0.1" conf="fitnesse->default" />
