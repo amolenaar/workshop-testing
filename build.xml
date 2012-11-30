@@ -15,6 +15,7 @@
 			<fileset dir="src/main/resources" includes="**" />
 		</copy>
 	</target>
+
 	<target name="cache-dependencies" depends="ivy-init">
 		<ivy:resolve type="jar" />
 	</target>
