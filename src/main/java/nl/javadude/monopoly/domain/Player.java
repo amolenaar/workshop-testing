@@ -89,7 +89,7 @@ public class Player implements Serializable, MoneyExchanger {
 		payRent();
 	}
 
-	private void payRent() {
+	void payRent() {
 		if (currentPosition instanceof IOwnable) {
 			IOwnable ownable = (IOwnable) currentPosition;
 			if (!ownable.isUnowned()) {
