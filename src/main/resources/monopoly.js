@@ -19,9 +19,9 @@ $(document).ready(function() {
 		$.getJSON("board", function(data) {
 			var board = $("#board");
 			var x=100, y=100;
-			console.log('board', data);
+			console.log('board: ', JSON.stringify(data));
 			$.each(data, function(key, val) {
-				var s = $('<div id="square' + key + '" class="square"><span>' + val.name + '</span></div>')
+				var s = $('<div id="square' + key + '" class="square"><span>' + val.name + '</span></div>');
 				var w = width(key), h = height(key);
 				s.css({ 'width': w - 2, 'height': h - 2, 'left': x, 'top': y});
 				if (key < 10) {
@@ -47,7 +47,7 @@ $(document).ready(function() {
 					s.attr("title", "cost: " + val.cost + "; rent: " + val.rent);
 					s.attr('cost', val.cost);
 					s.attr('rent', val.rent);
-					s.append("<span class='cost'>cost:&nbsp;" + val.cost + "<br/>rent:&nbsp;" + val.rent + "</span>")
+					s.append("<span class='cost'>cost:&nbsp;" + val.cost + "<br/>rent:&nbsp;" + val.rent + "</span>");
 				} else if (val.cost) {
 					s.attr("title", "cost: " + val.cost);
 					s.data('cost', val.cost);
