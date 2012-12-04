@@ -11,3 +11,5 @@ target/
 velocity.log
 antlib/
 local-cache/
+.idea
+*.iml
