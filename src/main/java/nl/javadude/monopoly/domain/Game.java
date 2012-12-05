@@ -58,7 +58,7 @@ public class Game implements Serializable {
     }
 
 	public boolean playerInGame(String name) {
-		return (findPlayer(name) != null) ? true : false;
+		return (findPlayer(name) != null);
 	}
 
 	public Player findPlayer(String name) {

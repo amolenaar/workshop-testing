@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 @SuppressWarnings("serial")
 public abstract class AbstractOwnableSquare extends AbstractSquare implements IOwnable, IAutomatic {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Realty.class);
-	protected long cost;
+	protected final long cost;
 	protected Player owner;
 
 	public AbstractOwnableSquare(String name, long cost) {

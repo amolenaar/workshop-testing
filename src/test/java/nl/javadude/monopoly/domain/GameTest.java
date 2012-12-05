@@ -1,6 +1,5 @@
 package nl.javadude.monopoly.domain;
 
-import org.apache.commons.lang.NotImplementedException;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -149,7 +149,7 @@ public class Player implements Serializable, MoneyExchanger {
 
 	public boolean owns(String name) {
 		ISquare sq = board.findLocation(name);
-		return possessions.contains(sq);
+		return sq instanceof IOwnable && possessions.contains(sq);
 	}
 
 

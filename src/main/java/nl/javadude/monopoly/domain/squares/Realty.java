@@ -7,7 +7,7 @@ package nl.javadude.monopoly.domain.squares;
 @SuppressWarnings("serial")
 public class Realty extends AbstractOwnableSquare {
 
-	private int rent;
+	private final int rent;
 
 	public Realty(String name, int cost, int rent) {
 		super(name, cost);
