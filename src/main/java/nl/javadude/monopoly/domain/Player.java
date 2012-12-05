@@ -128,6 +128,15 @@ public class Player implements Serializable, MoneyExchanger {
 		turnState = TurnState.START_TURN;
 	}
 
+    public void finishTurn() {
+        turnState = TurnState.END_TURN;
+    }
+
+    public boolean isStartedTurn()
+    {
+        return turnState == TurnState.START_TURN;
+    }
+
 	public boolean isFinishedTurn() {
 		return turnState == TurnState.END_TURN;
 	}
@@ -138,14 +147,13 @@ public class Player implements Serializable, MoneyExchanger {
 				|| turnState == TurnState.ROLLED_SAME_TWICE;
 	}
 
-	public void forceTurnFinish() {
-		turnState = TurnState.END_TURN;
-	}
-
 	public boolean owns(String name) {
 		ISquare sq = board.findLocation(name);
 		return possessions.contains(sq);
 	}
 
-
+    public boolean canEndTurn()
+    {
+        return isTurnAction() || isJailed();
+    }
 }

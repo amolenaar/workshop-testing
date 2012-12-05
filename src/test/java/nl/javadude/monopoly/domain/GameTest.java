@@ -1,17 +1,54 @@
 package nl.javadude.monopoly.domain;
 
-import org.apache.commons.lang.NotImplementedException;
-import org.junit.Test;
+import static junit.framework.Assert.*;
+
+import org.junit.*;
 
 public class GameTest {
 
-	// Test the following requirement:
-	//  - The next player can only start playing after the current player finished his turn.
-	//    Rolling dice is mandatory when it's a player's turn
+    private final Game theGame = new Game();
+    private final Player theFirstPlayer = theGame.addPlayer("myPlayer");
+    private final Player theSecondPlayer = theGame.addPlayer("myOtherPlayer");
 
-	@Test
-	public void playerShouldHaveRolledDiceBeforeNextPlayerCanPlay() {
-		// Implement
-		throw new NotImplementedException();
-	}
+    @Before
+    public void setup()
+    {
+        theGame.startPlay();
+    }
+
+    @Test
+    public void currentPlayerIsNotChangedWhenPlayerDidNotMove()
+    {
+        theGame.nextPlayer();
+        verifyCurrentPlayer(theFirstPlayer);
+    }
+
+    @Test
+    public void currentPlayerIsChangedWhenPlayerHasMoved()
+    {
+        theFirstPlayer.move();
+        theGame.nextPlayer();
+        verifyCurrentPlayer(theSecondPlayer);
+    }
+
+    @Test
+    public void nextPlayerMustEndTurnOfPreviousPlayer()
+    {
+        theFirstPlayer.move();
+        theGame.nextPlayer();
+        assertTrue(theFirstPlayer.isFinishedTurn());
+    }
+
+    @Test
+    public void nextPlayerMustStartTurnOfNewPlayer()
+    {
+        theFirstPlayer.move();
+        theGame.nextPlayer();
+        assertTrue(theSecondPlayer.isStartedTurn());
+    }
+
+    private void verifyCurrentPlayer(Player aPlayer)
+    {
+        assertEquals(aPlayer, theGame.getCurrentPlayer());
+    }
 }

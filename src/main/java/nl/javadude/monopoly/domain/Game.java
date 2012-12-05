@@ -40,19 +40,24 @@ public class Game implements Serializable {
 		return currentPlayer;
 	}
 
-	public void setCurrentPlayer(Player player) {
-		if (player.isFinishedTurn()) player.startTurn();
-		currentPlayer = player;
-	}
-
 	public void nextPlayer() {
-		int playerPosition = (players.indexOf(currentPlayer) + 1) % players.size();
-		currentPlayer.forceTurnFinish();
-		currentPlayer = players.get(playerPosition);
-		currentPlayer.startTurn();
+        if (!currentPlayer.canEndTurn())
+        {
+            return;
+        }
+
+        currentPlayer.finishTurn();
+        currentPlayer = getNextPlayer();
+        currentPlayer.startTurn();
 	}
 
-	public boolean playerInGame(String name) {
+    private Player getNextPlayer()
+    {
+        int myNextIndex = (players.indexOf(currentPlayer) + 1) % players.size();
+        return players.get(myNextIndex);
+    }
+
+    public boolean playerInGame(String name) {
 		return (findPlayer(name) != null) ? true : false;
 	}
 
@@ -64,4 +69,10 @@ public class Game implements Serializable {
 		}
 		return null;
 	}
+
+    // Used for fixture only
+    public void setCurrentPlayer(Player player) {
+        if (player.isFinishedTurn()) player.startTurn();
+        currentPlayer = player;
+    }
 }
