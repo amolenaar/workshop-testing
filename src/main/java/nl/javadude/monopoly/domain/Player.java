@@ -69,6 +69,10 @@ public class Player implements Serializable, MoneyExchanger {
 				|| turnState == TurnState.TURN_ACTION;
 	}
 
+    public boolean canEndTurn() {
+        return isTurnAction() || isJailed();
+    }
+
 	public boolean buy() {
 		if (isTurnAction() && currentPosition instanceof IOwnable) {
 			IOwnable ownable = (IOwnable) currentPosition;

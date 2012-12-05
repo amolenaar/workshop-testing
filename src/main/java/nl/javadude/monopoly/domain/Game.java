@@ -47,10 +47,12 @@ public class Game implements Serializable {
 
 	public void nextPlayer() {
 		int playerPosition = (players.indexOf(currentPlayer) + 1) % players.size();
-		currentPlayer.forceTurnFinish();
-		currentPlayer = players.get(playerPosition);
-		currentPlayer.startTurn();
-	}
+        if (currentPlayer.canEndTurn()) {
+            currentPlayer.forceTurnFinish();
+            currentPlayer = players.get(playerPosition);
+            currentPlayer.startTurn();
+        }
+    }
 
 	public boolean playerInGame(String name) {
 		return (findPlayer(name) != null) ? true : false;
