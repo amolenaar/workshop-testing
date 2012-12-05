@@ -21,11 +21,6 @@ public class PlayerTest {
 	}
 
 	@Test
-	public void shouldNotBeInDebt() {
-		throw new NotImplementedException();
-	}
-
-	@Test
 	public void shouldPayRent() {
 		Player ownerPlayer = mock(Player.class);
 		Realty realty = mock(Realty.class);
@@ -39,4 +34,33 @@ public class PlayerTest {
 		verify(ownerPlayer).receiveMoney(1000L);
 		assertThat(player.getMoney(), is(500L));
 	}
+
+    @Test
+    public void shouldDeductBalanceWhenBuying() {
+        Realty realty = new Realty("Test", 1500, 0);
+        player.startTurn();
+        player.move();
+        player.setCurrentPosition(realty);
+        assertThat(player.buy(), is(true));
+        assertThat(player.getMoney(), is(0l));
+    }
+
+
+    @Test
+   	public void shouldNotGoInDebtWhenBuying() {
+            Realty realty = new Realty("Test", 15000, 0);
+            player.startTurn();
+            player.move();
+            player.setCurrentPosition(realty);
+            assertThat(player.buy(), is(false));
+            assertThat(player.getMoney(), is(1500l));
+   	}
+
+    @Test
+    public void shouldNotGoInDebtWhenPaying() {
+        MoneyExchanger receiver = mock(MoneyExchanger.class);
+        player.pay(2000l, receiver);
+        assertThat(player.getMoney(), is(0l));
+        verify(receiver).receiveMoney(1500l);
+    }
 }

@@ -34,9 +34,9 @@ public class Player implements Serializable, MoneyExchanger {
 	}
 
 	public void pay(long amount, MoneyExchanger toPlayer) {
-		toPlayer.receiveMoney(amount);
-		// TODO payed money needs to be withdrawn also!!
-		money -= amount;
+        Long toTransfer = Math.min(amount, money);
+		toPlayer.receiveMoney(toTransfer);
+		money -= toTransfer;
 	}
 
 	public void receiveMoney(long amount) {
@@ -76,8 +76,9 @@ public class Player implements Serializable, MoneyExchanger {
 	public boolean buy() {
 		if (isTurnAction() && currentPosition instanceof IOwnable) {
 			IOwnable ownable = (IOwnable) currentPosition;
-			if (ownable.forSale()) {
-				pay(ownable.getCost(), Bank.BANK);
+            final long cost = ownable.getCost();
+            if (ownable.forSale() && cost <= getMoney()) {
+                pay(cost, Bank.BANK);
 				ownable.setOwned(this);
 				addPossession(ownable);
 				return true;
