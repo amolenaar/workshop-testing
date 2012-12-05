@@ -146,7 +146,7 @@ $(document).ready(function() {
 	$('button[name=roll]').click(function() {
 		$.post('rolldice/' + $('input[name=d1]').val() + '/' + $('input[name=d2]').val(), function(data) {
 			place_players();
-			// on 'turnAction' and canBuy: enable buy button
+			// on 'turnAction' and forSale: enable buy button
 		});
 		return false;
 	});

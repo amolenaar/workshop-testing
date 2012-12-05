@@ -81,7 +81,7 @@ public class CommonFixtureCode {
 	}
 
 	public boolean canBuy() {
-		return player.getCurrentPosition().canBuy();
+		return player.getCurrentPosition().forSale();
 	}
 
 

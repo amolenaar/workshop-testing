@@ -31,7 +31,7 @@ public abstract class AbstractSquare implements ISquare {
 		return name;
 	}
 
-	public boolean canBuy() {
+	public boolean forSale() {
 		return false;
 	}
 

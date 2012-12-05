@@ -9,6 +9,6 @@ public interface ISquare extends Serializable {
 
 	String getName();
 	
-	boolean canBuy();
+	boolean forSale();
 
 }

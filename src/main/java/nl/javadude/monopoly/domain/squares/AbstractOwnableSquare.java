@@ -45,7 +45,7 @@ public abstract class AbstractOwnableSquare extends AbstractSquare implements IO
 		return !isOwned();
 	}
 
-	public boolean canBuy() {
+	public boolean forSale() {
 		return isUnowned();
 	}
 
