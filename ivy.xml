@@ -28,6 +28,7 @@
 		<dependency org="org.mortbay.jetty" name="jetty-ant" rev="6.1.25" conf="*->default" />
 		<!-- Test -->
 		<dependency org="junit" name="junit" rev="4.5" conf="test->default" />
+        <dependency org="org.hamcrest" name="hamcrest-all" rev="1.3"/>
 		<dependency org="org.mockito" name="mockito-all" rev="1.8.5" conf="test->default" />
 		<dependency org="com.xebia.incubator" name="xebium" rev="0.9" conf="acceptance->default" />
 		<!-- FitNesse -->
