@@ -2,7 +2,9 @@ package nl.javadude.monopoly.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /**
  * Plumbing class for the Game of Monopoly.
@@ -10,7 +12,7 @@ import java.util.List;
 @SuppressWarnings("serial")
 public class Game implements Serializable {
 
-	private List<Player> players = new ArrayList<Player>();
+	private Queue<Player> players = new LinkedList<Player>();
 	private Player currentPlayer;
 	private Board board = new Board();
 
@@ -28,7 +30,8 @@ public class Game implements Serializable {
 	 * Initialize the game, set the first player.
 	 */
 	public void startPlay() {
-		currentPlayer = players.get(0);
+		currentPlayer = players.poll();
+        players.add(currentPlayer);
 		currentPlayer.startTurn();
 	}
 
@@ -46,10 +49,10 @@ public class Game implements Serializable {
 	}
 
 	public void nextPlayer() {
-		int playerPosition = (players.indexOf(currentPlayer) + 1) % players.size();
         if (currentPlayer.canEndTurn()) {
             currentPlayer.forceTurnFinish();
-            currentPlayer = players.get(playerPosition);
+            currentPlayer = players.poll();
+            players.add(currentPlayer);
             currentPlayer.startTurn();
         }
     }
