@@ -15,6 +15,8 @@ import nl.javadude.monopoly.domain.squares.Start;
 import nl.javadude.monopoly.domain.squares.Station;
 import nl.javadude.monopoly.domain.squares.TaxSquare;
 import nl.javadude.monopoly.domain.squares.Utility;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Representation of a monopoly board. We assume that in any game only one board
@@ -31,6 +33,8 @@ public class Board implements Serializable {
 	private final List<ISquare> squares = new ArrayList<ISquare>();
 	private Stack<Card> communityChest = new Stack<Card>();
 	private Stack<Card> chance = new Stack<Card>();
+
+    private final Logger log  = LoggerFactory.getLogger(Board.class);
 
 	public Board() {
 		add(START);
@@ -99,6 +103,7 @@ public class Board implements Serializable {
 
 	public void move(Player player, int roll) {
 		ISquare newSquare = squares.get(calculateNewPosition(player, roll));
+        log.info("moving {} to square {}", player.getName(), newSquare);
 		player.setCurrentPosition(newSquare);
 		if (newSquare instanceof IAutomatic) {
 		   ((IAutomatic) newSquare).execute(player);

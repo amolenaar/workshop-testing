@@ -46,10 +46,10 @@ public class SmokeTest {
 		resources.newPlayer("Arjan");
 		resources.newPlayer("Iwein");
 		resources.startGame();
-		resources.rollDice(3, 1);
+		resources.rollDice(2, 4);
 		resources.buy();
 		resources.nextPlayer();
-		resources.rollDice(3, 1);
+		resources.rollDice(2, 4);
 
 		assertThat(resources.nextPlayer(), hasName("Arjan"));
 		assertThat(game.findPlayer("Arjan").getMoney(), lessThan(1500L));

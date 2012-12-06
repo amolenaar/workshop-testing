@@ -1,5 +1,8 @@
 package nl.javadude.monopoly.domain;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -16,6 +19,8 @@ public class Game implements Serializable {
 	private Player currentPlayer;
 	private Board board = new Board();
     private TurnState turnState = TurnState.END_TURN;
+
+    private Logger log = LoggerFactory.getLogger(Game.class);
 
 	public Board getBoard() {
 		return board;
@@ -50,14 +55,22 @@ public class Game implements Serializable {
 	}
 
     public void nextPlayer() {
+        log.debug("Trying moving to next player in state {}", turnState);
         if (turnState == TurnState.TURN_ACTION ||
                 turnState == TurnState.ROLLED_SAME_ONCE ||
                 turnState == TurnState.ROLLED_SAME_TWICE) {
+            //end current players turn
+            turnState = turnState.transition(currentPlayer);
+            log.trace("Ended current players turn {}", turnState);
+            //swap players
             currentPlayer.deactivate();
             currentPlayer = players.poll();
             players.add(currentPlayer);
             currentPlayer.activate();
-            turnState.transition(currentPlayer);
+
+            //start next players turn
+            turnState = turnState.transition(currentPlayer);
+            log.info("Started next {}'s turn", currentPlayer.getName());
         }
     }
 
