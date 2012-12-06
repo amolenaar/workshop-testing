@@ -10,6 +10,6 @@ public class AutomatedPlayer extends Player
 
     public int rollDice()
     {
-        return -1;
+        return 2;
     }
 }
