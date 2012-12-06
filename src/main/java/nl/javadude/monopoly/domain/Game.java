@@ -8,12 +8,14 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
 
 /**
  * Plumbing class for the Game of Monopoly.
  */
 @SuppressWarnings("serial")
-public class Game implements Serializable {
+public class Game implements Serializable //IGame
+{
 
 	private Queue<Player> players = new LinkedList<Player>();
 	private Player currentPlayer;
@@ -26,10 +28,15 @@ public class Game implements Serializable {
 		return board;
 	}
 
-	public Player addPlayer(String name) {
-		Player player = new Player(board, name);
+	public Player addPlayer(Player player) {
 		players.add(player);
-		return player;
+        return player;
+	}
+
+	public Player addPlayer(String name) {
+        final Player player = new Player(getBoard(), name);
+        players.add(player);
+        return player;
 	}
 
 	/**
@@ -54,7 +61,8 @@ public class Game implements Serializable {
 		currentPlayer = player;
 	}
 
-    public void nextPlayer() {
+
+    public Player nextPlayer() {
         log.debug("Trying moving to next player in state {}", turnState);
         if (turnState == TurnState.TURN_ACTION ||
                 turnState == TurnState.ROLLED_SAME_ONCE ||
@@ -72,10 +80,12 @@ public class Game implements Serializable {
             turnState = turnState.transition(currentPlayer);
             log.info("Started next {}'s turn", currentPlayer.getName());
         }
+        return currentPlayer;
     }
 
+
 	public boolean playerInGame(String name) {
-		return (findPlayer(name) != null);
+		return (findPlayer(name) != null) ? true : false;
 	}
 
 	public Player findPlayer(String name) {
@@ -94,5 +104,23 @@ public class Game implements Serializable {
             board.move(getCurrentPlayer(), Dice.INSTANCE.view());
             turnState = turnState.transition(getCurrentPlayer());
         }
+    }
+
+    public List<ISquare> getSquares()
+    {
+        return getBoard().getSquares();
+    }
+
+    public Player rollDice(int d1, int d2)
+    {
+        Dice dice = Dice.INSTANCE;
+       	dice.setDiceValues(d1, d2);
+       	move();
+       	return currentPlayer;
+    }
+
+    public boolean currentPlayerBuy()
+    {
+        return currentPlayer.buy();
     }
 }

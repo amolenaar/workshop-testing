@@ -1,22 +1,13 @@
 package nl.javadude.monopoly.resources;
 
-import java.io.InputStream;
-import java.util.List;
+import java.io.*;
+import java.util.*;
+import javax.servlet.http.*;
+import javax.ws.rs.*;
+import javax.ws.rs.core.*;
+import org.json.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.FormParam;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.Context;
-
-import nl.javadude.monopoly.domain.Dice;
-import nl.javadude.monopoly.domain.Game;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
+import nl.javadude.monopoly.domain.*;
 
 // The Java class will be hosted at the URI path "/helloworld"
 @Path("/")
@@ -71,8 +62,8 @@ public class Resources {
     	return game;
     }
 
-    private Game game() {
-    	Game game = (Game) request.getSession().getAttribute("game");
+    private IGame game() {
+    	IGame game = (Game) request.getSession().getAttribute("game");
     	if (game == null) {
     		return newGame();
     	}
@@ -91,13 +82,13 @@ public class Resources {
     @Path("/board")
     @Produces(JSON)
     public String board() {
-    	return toJson(game().getBoard().getSquares());
+    	return toJson(game().getSquares());
     }
 
     @POST
     @Path("/player")
     public void newPlayer(@FormParam("name") final String name) {
-    	game().addPlayer(name);
+    	game().addPlayer(new Player(game().getBoard(), name));
     }
 
     @GET
@@ -123,17 +114,13 @@ public class Resources {
     @POST
     @Path("/rolldice/{d1}/{d2}")
     public String rollDice(@PathParam("d1") final int d1, @PathParam("d2") final int d2) {
-    	Dice dice = Dice.INSTANCE;
-    	dice.setDiceValues(d1, d2);
-    	String player = player();
-    	game().move();
-    	return player();
+        return toJson(game().rollDice(d1, d2));
     }
 
     @POST
     @Path("/player/buy")
     public String buy() {
-    	return toJson(game().getCurrentPlayer().buy());
+    	return toJson(game().currentPlayerBuy());
     }
 
     @SuppressWarnings("rawtypes")

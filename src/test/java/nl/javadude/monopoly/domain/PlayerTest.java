@@ -1,14 +1,17 @@
 package nl.javadude.monopoly.domain;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import nl.javadude.monopoly.domain.squares.Realty;
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
+<<<<<<< HEAD
 import org.junit.Before;
 import org.junit.Test;
+=======
+import org.junit.*;
+
+import nl.javadude.monopoly.domain.squares.*;
+>>>>>>> b1c78761fb5862f4f58d23f3637661291fde1d2e
 
 public class PlayerTest {
 
@@ -33,6 +36,20 @@ public class PlayerTest {
 		verify(ownerPlayer).receiveMoney(1000L);
 		assertThat(player.getMoney(), is(500L));
 	}
+
+@Test
+   	public void payWhenMoneyEnough_paid() {
+        player.setMoney(10);
+        boolean paid = player.pay(9, Bank.BANK);
+        assertTrue(paid);
+    }
+
+    @Test
+   	public void payWhenMoneyNotEnough_notPaid() {
+        player.setMoney(10);
+        boolean paid = player.pay(11, Bank.BANK);
+        assertFalse(paid);
+    }
 
     @Test
     public void shouldDeductBalanceWhenBuying() {

@@ -14,9 +14,10 @@ public class Bank implements MoneyExchanger {
 	private Bank() {
 	}
 
-	public void pay(long amount, MoneyExchanger toPlayer) {
+	public boolean pay(long amount, MoneyExchanger toPlayer) {
 		LOGGER.info("Bank paid {} to {}", amount, toPlayer);
 		toPlayer.receiveMoney(amount);
+        return true;
 	}
 
 	public void receiveMoney(long amount) {

@@ -3,6 +3,9 @@ package nl.javadude.monopoly.domain;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 import static org.hamcrest.CoreMatchers.is;
@@ -29,9 +32,10 @@ public class GameTest {
         assertThat(theGame.getCurrentPlayer().getName(), is("myPlayer"));
 	}
 
-    // Test the following requirement:
-	//  - The next player can only start playing after the current player finished his turn.
-	//    Rolling dice is mandatory when it's a player's turn
+    @Test
+    public void testGetSquares_MultipleSquares(){
+        assertTrue(theGame.getSquares().size() > 1);
+    }
 
     @Test
 	public void shouldNotAllowNextPlayerIfPlayerHasntMovedYet() {
@@ -92,6 +96,56 @@ public class GameTest {
         theGame.move();
         theGame.nextPlayer();
         assertTrue(theSecondPlayer.isActive());
+    }
+
+    @Test
+    public void testAddPlayer() {
+        Player myPlayer = new Player(theGame.getBoard(), "player");
+        theGame.addPlayer(myPlayer);
+        assertTrue(theGame.getPlayers().contains(myPlayer));
+    }
+
+    @Test
+    public void startPlay(){
+        Player myPlayer1 = mock(Player.class);
+        Player myPlayer2 = mock(Player.class);
+        theGame.addPlayer(myPlayer1);
+        theGame.addPlayer(myPlayer2);
+        theGame.startPlay();
+        verify(myPlayer1).activate();
+        verifyZeroInteractions(myPlayer2);
+    }
+
+    @Test
+    public void testGetPlayers(){
+        testAddPlayer();
+    }
+
+    @Test
+    public void getCurrentPlayer(){
+        Player myPlayer1 = new Player(theGame.getBoard(), "player1");
+        Player myPlayer2 = new Player(theGame.getBoard(), "player2");
+        theGame.addPlayer(myPlayer1);
+        theGame.addPlayer(myPlayer2);
+        theGame.startPlay();
+        theGame.rollDice(1,2);
+        theGame.nextPlayer();
+        assertEquals(theGame.getCurrentPlayer(), myPlayer2);
+    }
+
+    @Test
+    public void testRollDice(){
+        //todo
+    }
+
+    @Test
+    public void testCurrentPlayerBuy(){
+        //todo
+    }
+
+    @Test
+    public void testNextPlayer(){
+        //todo
     }
 
     private void verifyCurrentPlayer(Player aPlayer)
