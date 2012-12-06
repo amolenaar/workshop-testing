@@ -33,17 +33,9 @@ public class SmokeTest {
 		session = mock(HttpSession.class);
 		when(request.getSession()).thenReturn(session);
 
-		doAnswer(new Answer<Object>() {
-	        public Object answer(InvocationOnMock invocation) {
-	            game = (Game) invocation.getArguments()[1];
-	            return null;
-	        }
-	    }).when(session).setAttribute(eq("game"), isA(Game.class));
+		doAnswer(extractGame()).when(session).setAttribute(eq("game"), isA(Game.class));
 
-		doAnswer(new Answer<Object>() {
-			public Object answer(InvocationOnMock invocation) throws Throwable {
-				return game;
-			}}).when(session).getAttribute(eq("game"));
+		doAnswer(provideGame()).when(session).getAttribute(eq("game"));
 
 		resources.setRequest(request);
 	}
@@ -62,6 +54,22 @@ public class SmokeTest {
 		assertThat(resources.nextPlayer(), hasName("Arjan"));
 		assertThat(game.findPlayer("Arjan").getMoney(), lessThan(1500L));
 		assertThat(game.findPlayer("Iwein").getMoney(), lessThan(1500L));
+	}
+
+	private Answer<Object> provideGame() {
+		return new Answer<Object>() {
+			public Object answer(InvocationOnMock invocation) throws Throwable {
+				return game;
+			}};
+	}
+
+	private Answer<Object> extractGame() {
+		return new Answer<Object>() {
+	        public Object answer(InvocationOnMock invocation) {
+	            game = (Game) invocation.getArguments()[1];
+	            return null;
+	        }
+	    };
 	}
 
 	private Matcher<String> hasName(final String name) {
