@@ -5,10 +5,12 @@ import org.slf4j.LoggerFactory;
 
 public final class AutomatedPlayer
 {
+	
 	Logger theLogger = LoggerFactory.getLogger(getClass());
+	private String theName;
     public AutomatedPlayer(String name)
     {
-
+    	theName = name;
     }
 
     public int rollDice()
@@ -18,6 +20,6 @@ public final class AutomatedPlayer
 
     public String getName()
     {
-        return null;
+        return theName;
     }
 }
