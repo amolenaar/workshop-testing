@@ -23,16 +23,16 @@ import org.json.JSONObject;
 public class Resources {
 
 	public static final String JSON = "application/json";
-	
-	
+
+
 	@Context
 	HttpServletRequest request;
-	
+
     @GET
     public InputStream getIndexHtml() {
     	return getClass().getClassLoader().getResourceAsStream("index.html");
     }
-    
+
     @GET
     @Path("/jquery.js")
     @Produces("text/javascript")
@@ -40,30 +40,30 @@ public class Resources {
     	return getClass().getClassLoader().getResourceAsStream("jquery-1.6.2.min.js");
     }
 
-    
+
     @GET
     @Path("/monopoly.js")
     @Produces("text/javascript")
     public InputStream getMonopolyJs() {
     	return getClass().getClassLoader().getResourceAsStream("monopoly.js");
     }
-    
+
     @GET
     @Path("/monopoly.css")
     @Produces("text/css")
     public InputStream getMonopolyCss() {
     	return getClass().getClassLoader().getResourceAsStream("monopoly.css");
     }
-    
-    
-    
+
+
+
     @GET
     @Path("/newgame")
     public InputStream _newGame() {
     	newGame();
     	return getIndexHtml();
     }
-    
+
     //@Produces("text/plain")
     private Game newGame() {
     	Game game = new Game();
@@ -86,20 +86,20 @@ public class Resources {
     	game().startPlay();
     	return "";
     }
-    
+
     @GET
     @Path("/board")
     @Produces(JSON)
     public String board() {
     	return toJson(game().getBoard().getSquares());
     }
-    
+
     @POST
     @Path("/player")
     public void newPlayer(@FormParam("name") final String name) {
     	game().addPlayer(name);
     }
-    
+
     @GET
     @Path("/player")
     public String player() {
@@ -129,24 +129,32 @@ public class Resources {
     	game().getCurrentPlayer().move(dice);
     	return player();
     }
-    
+
     @POST
     @Path("/player/buy")
     public String buy() {
     	return toJson(game().getCurrentPlayer().buy());
     }
-    
+
     @SuppressWarnings("rawtypes")
 	private static String toJson(List o) {
 		JSONArray a = new JSONArray();
-		for (Object e: (List) o) {
+		for (Object e: o) {
 			a.put(new JSONObject(e, true));
 		}
 		return a.toString();
     }
-    
+
     private static String toJson(Object o) {
     	return new JSONObject(o, true).toString();
     }
 
+    /**
+     * Test fixture.
+     *
+     * @param request
+     */
+    void setRequest(HttpServletRequest request) {
+    		this.request = request;
+    }
 }
