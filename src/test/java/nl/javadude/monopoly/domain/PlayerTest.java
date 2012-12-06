@@ -4,14 +4,10 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
-<<<<<<< HEAD
 import org.junit.Before;
 import org.junit.Test;
-=======
-import org.junit.*;
 
 import nl.javadude.monopoly.domain.squares.*;
->>>>>>> b1c78761fb5862f4f58d23f3637661291fde1d2e
 
 public class PlayerTest {
 

@@ -63,7 +63,7 @@ public class Resources {
     }
 
     private IGame game() {
-    	IGame game = (Game) request.getSession().getAttribute("game");
+    	IGame game = (IGame) request.getSession().getAttribute("game");
     	if (game == null) {
     		return newGame();
     	}

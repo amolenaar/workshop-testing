@@ -14,7 +14,7 @@ import java.util.concurrent.ArrayBlockingQueue;
  * Plumbing class for the Game of Monopoly.
  */
 @SuppressWarnings("serial")
-public class Game implements Serializable //IGame
+public class Game implements Serializable, IGame
 {
 
 	private Queue<Player> players = new LinkedList<Player>();

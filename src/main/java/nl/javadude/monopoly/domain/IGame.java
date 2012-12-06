@@ -8,7 +8,7 @@ public interface IGame
 
     List<ISquare> getSquares();
 
-    void addPlayer(Player player);
+    Player addPlayer(Player player);
 
     void startPlay();
 

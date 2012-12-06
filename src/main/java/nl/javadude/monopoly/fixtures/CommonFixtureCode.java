@@ -25,14 +25,7 @@ public class CommonFixtureCode {
 
 	private void addPlayerIfNotYetInGame(String name) {
 		if (!game.playerInGame(name)) {
-<<<<<<< HEAD
 			player = game.addPlayer(name);
-		//	player.startTurn();
-=======
-            player = new Player(game.getBoard(), name);
-			game.addPlayer(player);
-			player.startTurn();
->>>>>>> b1c78761fb5862f4f58d23f3637661291fde1d2e
 		}
 	}
 
