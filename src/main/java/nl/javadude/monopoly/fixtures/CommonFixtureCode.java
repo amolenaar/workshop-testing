@@ -27,14 +27,14 @@ public class CommonFixtureCode {
 			addPlayerIfNotYetInGame(name);
 			player = game.findPlayer(name);
 			game.setCurrentPlayer(player);
-			player.startTurn();
+		//	player.startTurn();
 		}
 	}
 
 	private void addPlayerIfNotYetInGame(String name) {
 		if (!game.playerInGame(name)) {
 			player = game.addPlayer(name);
-			player.startTurn();
+		//	player.startTurn();
 		}
 	}
 
@@ -48,7 +48,7 @@ public class CommonFixtureCode {
 
 	public void doPlayAction() {
 		Dice.getInstance().setDiceValues(die1, die2);
-		player.move(Dice.getInstance());
+		game.move();
 	}
 
 	public String getNewPosition() {
@@ -57,14 +57,14 @@ public class CommonFixtureCode {
 
 	public boolean allowedAnotherTurn() {
 	    if(player.isJailed()) return false;
-	    if(player.isFinishedTurn()) return false;
+	   // if(player.isFinishedTurn()) return false;
 	    if(die1 != die2) return false;
 
 		return true;
 	}
 
 	public boolean allowedAnotherRoll() {
-		return player.isRollAllowed();
+		return false;// player.isRollAllowed();
 	}
 
 	public boolean isInJail() {

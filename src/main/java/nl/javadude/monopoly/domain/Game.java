@@ -1,5 +1,8 @@
 package nl.javadude.monopoly.domain;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -15,6 +18,9 @@ public class Game implements Serializable {
 	private Queue<Player> players = new LinkedList<Player>();
 	private Player currentPlayer;
 	private Board board = new Board();
+    private TurnState turnState = TurnState.END_TURN;
+
+    private Logger log = LoggerFactory.getLogger(Game.class);
 
 	public Board getBoard() {
 		return board;
@@ -32,7 +38,8 @@ public class Game implements Serializable {
 	public void startPlay() {
 		currentPlayer = players.poll();
         players.add(currentPlayer);
-		currentPlayer.startTurn();
+        currentPlayer.activate();
+		turnState = turnState.transition(currentPlayer);
 	}
 
 	public List<Player> getPlayers() {
@@ -44,16 +51,26 @@ public class Game implements Serializable {
 	}
 
 	public void setCurrentPlayer(Player player) {
-		if (player.isFinishedTurn()) player.startTurn();
 		currentPlayer = player;
 	}
 
-	public void nextPlayer() {
-        if (currentPlayer.canEndTurn()) {
-            currentPlayer.forceTurnFinish();
+    public void nextPlayer() {
+        log.debug("Trying moving to next player in state {}", turnState);
+        if (turnState == TurnState.TURN_ACTION ||
+                turnState == TurnState.ROLLED_SAME_ONCE ||
+                turnState == TurnState.ROLLED_SAME_TWICE) {
+            //end current players turn
+            turnState = turnState.transition(currentPlayer);
+            log.trace("Ended current players turn {}", turnState);
+            //swap players
+            currentPlayer.deactivate();
             currentPlayer = players.poll();
             players.add(currentPlayer);
-            currentPlayer.startTurn();
+            currentPlayer.activate();
+
+            //start next players turn
+            turnState = turnState.transition(currentPlayer);
+            log.info("Started next {}'s turn", currentPlayer.getName());
         }
     }
 
@@ -69,4 +86,13 @@ public class Game implements Serializable {
 		}
 		return null;
 	}
+
+    public void move() {
+        if (turnState == TurnState.START_TURN ||
+                turnState == TurnState.ROLLED_SAME_ONCE ||
+                turnState ==TurnState.ROLLED_SAME_TWICE) {
+            board.move(getCurrentPlayer(), Dice.INSTANCE.view());
+            turnState = turnState.transition(getCurrentPlayer());
+        }
+    }
 }

@@ -9,11 +9,14 @@ import nl.javadude.monopoly.domain.Player;
 @SuppressWarnings("serial")
 public class PoliceAgent extends AbstractSquare implements IAutomatic {
 
-	public PoliceAgent(Jail jail) {
+    private final Jail jail;
+
+    public PoliceAgent(Jail jail) {
 		super("Police Agent / Go To Jail");
-	}
+        this.jail = jail;
+    }
 
 	public void execute(Player player) {
-		//player.gotSentToJail();
+		player.setCurrentPosition(jail);
 	}
 }

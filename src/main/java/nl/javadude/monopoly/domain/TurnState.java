@@ -53,7 +53,7 @@ public enum TurnState {
 	END_TURN {
 		@Override
 		public TurnState transition(Player player) {
-			return END_TURN;
+			return START_TURN;
 		}
 	};
 	
