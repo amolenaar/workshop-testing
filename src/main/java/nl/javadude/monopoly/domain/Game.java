@@ -21,7 +21,6 @@ public class Game implements Serializable, IGame
 
 	public void addPlayer(Player player) {
 		players.add(player);
-		return player;
 	}
 
 	/**

@@ -1,15 +1,12 @@
 package nl.javadude.monopoly.domain;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import nl.javadude.monopoly.domain.squares.Realty;
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
-import org.apache.commons.lang.NotImplementedException;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
+
+import nl.javadude.monopoly.domain.squares.*;
 
 public class PlayerTest {
 

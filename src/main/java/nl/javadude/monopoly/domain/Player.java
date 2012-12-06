@@ -76,7 +76,7 @@ public class Player implements Serializable, MoneyExchanger {
 	public boolean buy() {
 		if (isTurnAction() && currentPosition instanceof IOwnable) {
 			IOwnable ownable = (IOwnable) currentPosition;
-			if (ownable.canBuy()) {
+			if (ownable.forSale()) {
 				if (pay(ownable.getCost(), Bank.BANK))
                 {
 				    ownable.setOwned(this);
