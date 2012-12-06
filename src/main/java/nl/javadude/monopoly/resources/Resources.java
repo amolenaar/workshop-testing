@@ -62,8 +62,8 @@ public class Resources {
     	return game;
     }
 
-    private Game game() {
-    	Game game = (Game) request.getSession().getAttribute("game");
+    private IGame game() {
+    	IGame game = (Game) request.getSession().getAttribute("game");
     	if (game == null) {
     		return newGame();
     	}
@@ -82,7 +82,7 @@ public class Resources {
     @Path("/board")
     @Produces(JSON)
     public String board() {
-    	return toJson(game().getBoard().getSquares());
+    	return toJson(game().getSquares());
     }
     
     @POST
