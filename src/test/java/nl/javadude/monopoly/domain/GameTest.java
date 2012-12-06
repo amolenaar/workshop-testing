@@ -37,16 +37,18 @@ public class GameTest {
 
     @Test
 	public void shouldAllowNextPlayerIfPlayerHasMoved() {
-        game.getCurrentPlayer().move();
+        game.move();
         game.nextPlayer();
         assertThat(game.getCurrentPlayer().getName(), is("Second"));
 	}
 
     @Test
-    public void previousPlayerShouldHaveEndedTurnWhenNextPlayerComesOn() {
-        final Player previousPlayer = game.getCurrentPlayer();
-        previousPlayer.move();
+    public void shouldActivateCurrentPlayer() {
+        assertThat(game.getCurrentPlayer().isActive(), is(true));
+        game.move();
         game.nextPlayer();
-        assertThat(previousPlayer.isFinishedTurn(), is(true));
+        assertThat(game.getCurrentPlayer().isActive(), is(true));
     }
+
+
 }

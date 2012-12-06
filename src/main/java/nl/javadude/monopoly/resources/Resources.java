@@ -126,7 +126,7 @@ public class Resources {
     	Dice dice = Dice.INSTANCE;
     	dice.setDiceValues(d1, d2);
     	String player = player();
-    	game().getCurrentPlayer().move(dice);
+    	game().move();
     	return player();
     }
     

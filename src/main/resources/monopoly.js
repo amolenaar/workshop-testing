@@ -87,7 +87,7 @@ $(document).ready(function() {
 		// Create elements for all players (with color?) Place them in the element with the name.
 		with_players(function(player, key) {
 			var p = $('<li style="color:' + COLORS[key % COLORS.length] + '">' + player.name + ': money: ' + player.money+ '; possessions: ' + $.map(player.possessions, function(a) { return a.name }).join(', ') + '</li>');
-			if (!player.finishedTurn) {
+			if (player.active) {
 				p.addClass('active');
 			}
 			ul.append(p);
@@ -95,7 +95,7 @@ $(document).ready(function() {
 			//console.log($(".square:has(span:contains('" + player.currentPosition.name + "'))"))
 			var p = $('<div id="player' + key + '" class="player" rel="' + player.name + '"></div>');
 			p.css('background-color', COLORS[key % COLORS.length]);
-			if (!player.finishedTurn) {
+			if (player.active) {
 				p.addClass('active');
 			}
 			console.log('place on board', player, p);

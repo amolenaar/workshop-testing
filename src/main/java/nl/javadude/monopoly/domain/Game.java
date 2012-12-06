@@ -15,6 +15,7 @@ public class Game implements Serializable {
 	private Queue<Player> players = new LinkedList<Player>();
 	private Player currentPlayer;
 	private Board board = new Board();
+    private TurnState turnState = TurnState.END_TURN;
 
 	public Board getBoard() {
 		return board;
@@ -32,7 +33,8 @@ public class Game implements Serializable {
 	public void startPlay() {
 		currentPlayer = players.poll();
         players.add(currentPlayer);
-		currentPlayer.startTurn();
+        currentPlayer.activate();
+		turnState = turnState.transition(currentPlayer);
 	}
 
 	public List<Player> getPlayers() {
@@ -44,16 +46,18 @@ public class Game implements Serializable {
 	}
 
 	public void setCurrentPlayer(Player player) {
-		if (player.isFinishedTurn()) player.startTurn();
 		currentPlayer = player;
 	}
 
-	public void nextPlayer() {
-        if (currentPlayer.canEndTurn()) {
-            currentPlayer.forceTurnFinish();
+    public void nextPlayer() {
+        if (turnState == TurnState.TURN_ACTION ||
+                turnState == TurnState.ROLLED_SAME_ONCE ||
+                turnState == TurnState.ROLLED_SAME_TWICE) {
+            currentPlayer.deactivate();
             currentPlayer = players.poll();
             players.add(currentPlayer);
-            currentPlayer.startTurn();
+            currentPlayer.activate();
+            turnState.transition(currentPlayer);
         }
     }
 
@@ -69,4 +73,13 @@ public class Game implements Serializable {
 		}
 		return null;
 	}
+
+    public void move() {
+        if (turnState == TurnState.START_TURN ||
+                turnState == TurnState.ROLLED_SAME_ONCE ||
+                turnState ==TurnState.ROLLED_SAME_TWICE) {
+            board.move(getCurrentPlayer(), Dice.INSTANCE.view());
+            turnState = turnState.transition(getCurrentPlayer());
+        }
+    }
 }

@@ -7,7 +7,6 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import nl.javadude.monopoly.domain.squares.Realty;
 
-import org.apache.commons.lang.NotImplementedException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -38,8 +37,6 @@ public class PlayerTest {
     @Test
     public void shouldDeductBalanceWhenBuying() {
         Realty realty = new Realty("Test", 1500, 0);
-        player.startTurn();
-        player.move();
         player.setCurrentPosition(realty);
         assertThat(player.buy(), is(true));
         assertThat(player.getMoney(), is(0l));
@@ -49,8 +46,6 @@ public class PlayerTest {
     @Test
    	public void shouldNotGoInDebtWhenBuying() {
             Realty realty = new Realty("Test", 15000, 0);
-            player.startTurn();
-            player.move();
             player.setCurrentPosition(realty);
             assertThat(player.buy(), is(false));
             assertThat(player.getMoney(), is(1500l));
