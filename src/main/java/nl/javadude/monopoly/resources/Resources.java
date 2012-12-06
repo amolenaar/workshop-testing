@@ -131,7 +131,7 @@ public class Resources {
     }
     
     @POST
-    @Path("/player/buy")
+    @Path("/player/shouldBuy")
     public String buy() {
     	return toJson(game().getCurrentPlayer().buy());
     }

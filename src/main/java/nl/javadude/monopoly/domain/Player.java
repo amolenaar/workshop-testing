@@ -16,6 +16,8 @@ public class Player implements Serializable, MoneyExchanger {
 	private List<IOwnable> possessions = new ArrayList<IOwnable>();
 	private Board board;
 
+    private Controller theController = null;
+
 	public Player(Board board, String name) {
 		this.name = name;
 		this.board = board;
@@ -109,6 +111,14 @@ public class Player implements Serializable, MoneyExchanger {
 		} else {
 			board.move(this, dice.view());
 		}
+        if (isControlled())
+        {
+            if (theController.shouldBuy(currentPosition))
+            {
+                buy();
+                forceTurnFinish();
+            }
+        }
 	}
 
 	@Override
@@ -147,5 +157,18 @@ public class Player implements Serializable, MoneyExchanger {
 		return possessions.contains(sq);
 	}
 
+    public Controller getController()
+    {
+        return theController;
+    }
 
+    public void setController(Controller aController)
+    {
+        theController = aController;
+    }
+
+    public boolean isControlled()
+    {
+        return theController != null;
+    }
 }

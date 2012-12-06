@@ -20,6 +20,16 @@ public class Game implements Serializable {
 
 	public Player addPlayer(String name) {
 		Player player = new Player(board, name);
+        if (name.equals("bot"))
+        {
+            player.setController(new Controller()
+            {
+                public boolean shouldBuy(ISquare aCurrentPosition)
+                {
+                    return true;  //To change body of implemented methods use File | Settings | File Templates.
+                }
+            });
+        }
 		players.add(player);
 		return player;
 	}
@@ -30,6 +40,12 @@ public class Game implements Serializable {
 	public void startPlay() {
 		currentPlayer = players.get(0);
 		currentPlayer.startTurn();
+        if (currentPlayer.isControlled())
+        {
+            Dice.INSTANCE.roll();
+            currentPlayer.move(Dice.getInstance());
+            nextPlayer();
+        }
 	}
 
 	public List<Player> getPlayers() {
@@ -50,6 +66,12 @@ public class Game implements Serializable {
 		currentPlayer.forceTurnFinish();
 		currentPlayer = players.get(playerPosition);
 		currentPlayer.startTurn();
+        if (currentPlayer.isControlled())
+        {
+            Dice.INSTANCE.roll();
+            currentPlayer.move(Dice.INSTANCE);
+            nextPlayer();
+        }
 	}
 
 	public boolean playerInGame(String name) {

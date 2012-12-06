@@ -146,14 +146,14 @@ $(document).ready(function() {
 	$('button[name=roll]').click(function() {
 		$.post('rolldice/' + $('input[name=d1]').val() + '/' + $('input[name=d2]').val(), function(data) {
 			place_players();
-			// on 'turnAction' and canBuy: enable buy button
+			// on 'turnAction' and canBuy: enable shouldBuy button
 		});
 		return false;
 	});
 	
-	// TODO: button for buy
-	$('button[name=buy]').click(function() {
-		$.post('player/buy', function(data) {
+	// TODO: button for shouldBuy
+	$('button[name=shouldBuy]').click(function() {
+		$.post('player/shouldBuy', function(data) {
 			place_players();
 		});
 		return false;

@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 
 import java.util.*;
 
-import org.hamcrest.*;
 import org.junit.*;
 
 import com.google.common.collect.*;
@@ -101,7 +100,7 @@ public class AutomatedPlayerTest
 //    {
 //        ISquare myGO = theBoard.findLocation("GO");
 //        theAutomatedPlayer.setCurrentPosition(myGO);
-//        theAutomatedPlayer.buy();
+//        theAutomatedPlayer.shouldBuy();
 //        assertThat(theAutomatedPlayer, hasNoPosession());
 //    }
 
@@ -113,7 +112,7 @@ public class AutomatedPlayerTest
 //        ISquare myPlace = theBoard.findLocation("Baltic Avenue");
 //        theAutomatedPlayer.setMoney(0);
 //        theAutomatedPlayer.setCurrentPosition(myPlace);
-//        theAutomatedPlayer.buy();
+//        theAutomatedPlayer.shouldBuy();
 //        assertThat(theAutomatedPlayer, hasNoPosession());
 //    }
 
