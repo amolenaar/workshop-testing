@@ -4,6 +4,6 @@ public interface MoneyExchanger {
 	
 	void receiveMoney(long amount);
 	
-	void pay(long amount, MoneyExchanger receiver);
+	boolean pay(long amount, MoneyExchanger receiver);
 
 }

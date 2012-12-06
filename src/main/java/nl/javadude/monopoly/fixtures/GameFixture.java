@@ -1,8 +1,8 @@
 package nl.javadude.monopoly.fixtures;
 
-import nl.javadude.monopoly.domain.Game;
+import org.apache.commons.lang.*;
 
-import org.apache.commons.lang.SerializationException;
+import nl.javadude.monopoly.domain.*;
 
 public class GameFixture extends CommonFixtureCode {
 
@@ -15,7 +15,7 @@ public class GameFixture extends CommonFixtureCode {
 			  PlayerPool.newPlayer(name, game);
 
 		  } catch (SerializationException ex) {
-			  game.addPlayer(name);
+			  game.addPlayer(new Player(game.getBoard(), name));
 		  }
 	  }
 	}

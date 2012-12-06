@@ -1,52 +1,78 @@
 package nl.javadude.monopoly.domain;
 
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.not;
-import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.junit.Assert.assertThat;
+import org.junit.*;
 
 public class GameTest {
-    private Game game;
 
-    @Before
-    public void setupGame() {
-        game = new Game();
-        game.addPlayer("First");
-        game.addPlayer("Second");
-        game.startPlay();
-    }
-
-	@Test
-	public void shouldHaveCorrectCurrentPlayer() {
-        assertThat(game.getCurrentPlayer(), is(notNullValue()));
-        assertThat(game.getCurrentPlayer().getName(), is("First"));
-	}
-
-    // Test the following requirement:
+    Game theVictim;
+	// Test the following requirement:
 	//  - The next player can only start playing after the current player finished his turn.
 	//    Rolling dice is mandatory when it's a player's turn
 
-    @Test
-	public void shouldNotAllowNextPlayerIfPlayerHasntMovedYet() {
-        game.nextPlayer();
-        assertThat(game.getCurrentPlayer().getName(), is(not("Second")));
+    @Before
+    public void startUp(){
+        theVictim = new Game();
+    }
+
+	@Test
+	public void playerShouldHaveRolledDiceBeforeNextPlayerCanPlay() {
 	}
 
     @Test
-	public void shouldAllowNextPlayerIfPlayerHasMoved() {
-        game.getCurrentPlayer().move();
-        game.nextPlayer();
-        assertThat(game.getCurrentPlayer().getName(), is("Second"));
-	}
+    public void testGetSquares_MultipleSquares(){
+        assertTrue(theVictim.getSquares().size() > 1);
+    }
 
     @Test
-    public void previousPlayerShouldHaveEndedTurnWhenNextPlayerComesOn() {
-        final Player previousPlayer = game.getCurrentPlayer();
-        previousPlayer.move();
-        game.nextPlayer();
-        assertThat(previousPlayer.isFinishedTurn(), is(true));
+    public void testAddPlayer(){
+        Player myPlayer = new Player(theVictim.getBoard(), "player");
+        theVictim.addPlayer(myPlayer);
+        assertTrue(theVictim.getPlayers().contains(myPlayer));
+    }
+
+    @Test
+    public void startPlay(){
+        Player myPlayer1 = mock(Player.class);
+        Player myPlayer2 = mock(Player.class);
+        theVictim.addPlayer(myPlayer1);
+        theVictim.addPlayer(myPlayer2);
+        theVictim.startPlay();
+        verify(myPlayer1).startTurn();
+        verifyZeroInteractions(myPlayer2);
+    }
+
+    @Test
+    public void testGetPlayers(){
+        testAddPlayer();
+    }
+
+    @Test
+    public void getCurrentPlayer(){
+        Player myPlayer1 = new Player(theVictim.getBoard(), "player1");
+        Player myPlayer2 = new Player(theVictim.getBoard(), "player2");
+        theVictim.addPlayer(myPlayer1);
+        theVictim.addPlayer(myPlayer2);
+        theVictim.startPlay();
+        theVictim.rollDice(1,2);
+        theVictim.nextPlayer();
+        assertEquals(theVictim.getCurrentPlayer(), myPlayer2);
+    }
+
+    @Test
+    public void testRollDice(){
+        //todo
+    }
+
+    @Test
+    public void testCurrentPlayerBuy(){
+        //todo
+    }
+
+    @Test
+    public void testNextPlayer(){
+        //todo
     }
 }

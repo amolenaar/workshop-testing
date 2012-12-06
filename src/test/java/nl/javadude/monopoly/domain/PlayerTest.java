@@ -35,6 +35,20 @@ public class PlayerTest {
 		assertThat(player.getMoney(), is(500L));
 	}
 
+@Test
+   	public void payWhenMoneyEnough_paid() {
+        player.setMoney(10);
+        boolean paid = player.pay(9, Bank.BANK);
+        assertTrue(paid);
+    }
+
+    @Test
+   	public void payWhenMoneyNotEnough_notPaid() {
+        player.setMoney(10);
+        boolean paid = player.pay(11, Bank.BANK);
+        assertFalse(paid);
+    }
+
     @Test
     public void shouldDeductBalanceWhenBuying() {
         Realty realty = new Realty("Test", 1500, 0);

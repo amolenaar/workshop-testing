@@ -1,17 +1,9 @@
 package nl.javadude.monopoly.fixtures;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
+import org.apache.commons.lang.*;
 
-import nl.javadude.monopoly.domain.Dice;
-import nl.javadude.monopoly.domain.Game;
-import nl.javadude.monopoly.domain.ISquare;
-import nl.javadude.monopoly.domain.Player;
-
-import org.apache.commons.lang.SerializationException;
+import nl.javadude.monopoly.domain.*;
 
 public class CommonFixtureCode {
 
@@ -33,7 +25,8 @@ public class CommonFixtureCode {
 
 	private void addPlayerIfNotYetInGame(String name) {
 		if (!game.playerInGame(name)) {
-			player = game.addPlayer(name);
+            player = new Player(game.getBoard(), name);
+			game.addPlayer(player);
 			player.startTurn();
 		}
 	}

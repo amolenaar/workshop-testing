@@ -14,7 +14,7 @@ public class Player implements Serializable, MoneyExchanger {
 	private ISquare currentPosition;
 	private long money;
 	private List<IOwnable> possessions = new ArrayList<IOwnable>();
-	private Board board;
+	private final Board board;
 
 	public Player(Board board, String name) {
 		this.name = name;
@@ -33,10 +33,14 @@ public class Player implements Serializable, MoneyExchanger {
 		return currentPosition;
 	}
 
-	public void pay(long amount, MoneyExchanger toPlayer) {
-        Long toTransfer = Math.min(amount, money);
-		toPlayer.receiveMoney(toTransfer);
-		money -= toTransfer;
+	public boolean pay(long amount, MoneyExchanger toPlayer) {
+        if(money < amount)
+            return false;
+
+		toPlayer.receiveMoney(amount);
+		// TODO payed money needs to be withdrawn also!!
+		money -= amount;
+        return true;
 	}
 
 	public void receiveMoney(long amount) {
@@ -69,19 +73,16 @@ public class Player implements Serializable, MoneyExchanger {
 				|| turnState == TurnState.TURN_ACTION;
 	}
 
-    public boolean canEndTurn() {
-        return isTurnAction() || isJailed();
-    }
-
 	public boolean buy() {
 		if (isTurnAction() && currentPosition instanceof IOwnable) {
 			IOwnable ownable = (IOwnable) currentPosition;
-            final long cost = ownable.getCost();
-            if (ownable.forSale() && cost <= getMoney()) {
-                pay(cost, Bank.BANK);
-				ownable.setOwned(this);
-				addPossession(ownable);
-				return true;
+			if (ownable.canBuy()) {
+				if (pay(ownable.getCost(), Bank.BANK))
+                {
+				    ownable.setOwned(this);
+				    addPossession(ownable);
+				    return true;
+                }
 			}
 		}
 		return false;
@@ -98,7 +99,10 @@ public class Player implements Serializable, MoneyExchanger {
 		if (currentPosition instanceof IOwnable) {
 			IOwnable ownable = (IOwnable) currentPosition;
 			if (!ownable.isUnowned()) {
-				pay(ownable.getRent(), ownable.owner());
+				if (!pay(ownable.getRent(), ownable.owner()))
+                {
+                    pay(ownable.owner().getMoney(), ownable.owner());
+                }
 			}
 		}
 	}
@@ -149,7 +153,7 @@ public class Player implements Serializable, MoneyExchanger {
 
 	public boolean owns(String name) {
 		ISquare sq = board.findLocation(name);
-		return sq instanceof IOwnable && possessions.contains(sq);
+		return possessions.contains(sq);
 	}
 
 
