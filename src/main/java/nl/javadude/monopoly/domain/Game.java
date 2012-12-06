@@ -20,7 +20,7 @@ public class Game implements Serializable {
 
 	public Player addPlayer(String name) {
 		Player player = new Player(board, name);
-        if (name.equals("bot"))
+        if (name.contains("bot"))
         {
             player.setController(new Controller()
             {
@@ -37,11 +37,13 @@ public class Game implements Serializable {
 	/**
 	 * Initialize the game, set the first player.
 	 */
-	public void startPlay() {
+	public void startPlay() throws InterruptedException
+    {
 		currentPlayer = players.get(0);
 		currentPlayer.startTurn();
         if (currentPlayer.isControlled())
         {
+            Thread.sleep(1000);
             Dice.INSTANCE.roll();
             currentPlayer.move(Dice.getInstance());
             nextPlayer();

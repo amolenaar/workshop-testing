@@ -15,7 +15,6 @@ public class Player implements Serializable, MoneyExchanger {
 	private long money;
 	private List<IOwnable> possessions = new ArrayList<IOwnable>();
 	private Board board;
-
     private Controller theController = null;
 
 	public Player(Board board, String name) {
