@@ -70,4 +70,10 @@ public class GameStateMachineTest
     {
 
     }
+
+    @Test
+    public void currentPlayerFinishedAndSecondPlayerNotInJail_shouldBeSelected()
+    {
+
+    }
 }
