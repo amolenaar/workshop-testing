@@ -34,12 +34,9 @@ public class Player implements Serializable, MoneyExchanger {
 	}
 
 	public boolean pay(long amount, MoneyExchanger toPlayer) {
-        if(money < amount)
-            return false;
-
-		toPlayer.receiveMoney(amount);
-		// TODO payed money needs to be withdrawn also!!
-		money -= amount;
+        long amountToPay = Math.min(amount, money);
+		toPlayer.receiveMoney(amountToPay);
+		money -= amountToPay;
         return true;
 	}
 
@@ -75,8 +72,9 @@ public class Player implements Serializable, MoneyExchanger {
 		if (currentPosition instanceof IOwnable) {
 			IOwnable ownable = (IOwnable) currentPosition;
 			if (ownable.forSale()) {
-				if (pay(ownable.getCost(), Bank.BANK))
+				if (canPayFor(ownable))
                 {
+                    pay(ownable.getCost(), Bank.BANK);
 				    ownable.setOwned(this);
 				    addPossession(ownable);
 				    return true;
@@ -86,7 +84,11 @@ public class Player implements Serializable, MoneyExchanger {
 		return false;
 	}
 
-	void payRent() {
+    private boolean canPayFor(IOwnable ownable) {
+        return ownable.getCost() <= money;
+    }
+
+    void payRent() {
 		if (currentPosition instanceof IOwnable) {
 			IOwnable ownable = (IOwnable) currentPosition;
 			if (!ownable.isUnowned()) {
