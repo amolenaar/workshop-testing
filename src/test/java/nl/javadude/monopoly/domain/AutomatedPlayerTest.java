@@ -9,6 +9,7 @@ import org.hamcrest.*;
 import org.junit.*;
 
 import com.google.common.collect.*;
+import nl.javadude.monopoly.domain.squares.*;
 
 public class AutomatedPlayerTest
 {
@@ -40,13 +41,12 @@ public class AutomatedPlayerTest
         assertThat(myResult, greaterThanOrEqualTo(2));
     }
 
-    @Ignore("not finsihed yet")
     @Test
-    public void rollDice100Times_notAlwaysTheSame()
+    public void rollDice10000Times_notAlwaysTheSame()
     {
         Collection<Integer> myList = Lists.newArrayList();
         boolean isSame = true;
-        for (int myIndex = 0; myIndex < 100; myIndex++)
+        for (int myIndex = 0; myIndex < 10000; myIndex++)
         {
             int myResult = theAutomatedPlayer.rollDice();
             if (!myList.isEmpty())
@@ -58,7 +58,7 @@ public class AutomatedPlayerTest
                     break;
                 }
             }
-            myList.add(myIndex);
+            myList.add(myResult);
         }
         assertThat(isSame, is(false));
     }
@@ -69,7 +69,33 @@ public class AutomatedPlayerTest
     {
         assertTrue(theAutomatedPlayer.getName().equals(NAME));
     }
-//
+
+    @Test
+    public void realtyIsMoreThan70PercentOfYourBalance_shouldNotBuy()
+    {
+        IOwnable myOwnable = new Realty("REALTY", (int) (theAutomatedPlayer.getBalance()*0.8),100);
+        boolean myBought = theAutomatedPlayer.buy(myOwnable);
+        assertFalse(myBought);
+    }
+
+    @Test
+    public void balanceHigherThan10000_shouldBuy()
+    {
+        IOwnable myOwnable = new Realty("REALTY",1000,100);
+        theAutomatedPlayer.setBalance(100000000L);
+        boolean myBought = theAutomatedPlayer.buy(myOwnable);
+        assertTrue(myBought);
+    }
+
+    @Test
+    public void balanceSmallerThanPrice_shouldNotBuy()
+    {
+        IOwnable myOwnable = new Realty("REALTY", Integer.MAX_VALUE, 100);
+        theAutomatedPlayer.setBalance(myOwnable.getCost() - 1);
+        boolean myBought = theAutomatedPlayer.buy(myOwnable);
+        assertFalse(myBought);
+    }
+
 // @Test
 //    public void onStartPosition_notARealty_cannotBuy()
 //    {
