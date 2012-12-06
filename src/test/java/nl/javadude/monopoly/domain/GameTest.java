@@ -107,11 +107,12 @@ public class GameTest {
 
     @Test
     public void startPlay(){
+        Game game = new Game();
         Player myPlayer1 = mock(Player.class);
         Player myPlayer2 = mock(Player.class);
-        theGame.addPlayer(myPlayer1);
-        theGame.addPlayer(myPlayer2);
-        theGame.startPlay();
+        game.addPlayer(myPlayer1);
+        game.addPlayer(myPlayer2);
+        game.startPlay();
         verify(myPlayer1).activate();
         verifyZeroInteractions(myPlayer2);
     }
@@ -123,14 +124,15 @@ public class GameTest {
 
     @Test
     public void getCurrentPlayer(){
+        Game game = new Game();
         Player myPlayer1 = new Player(theGame.getBoard(), "player1");
         Player myPlayer2 = new Player(theGame.getBoard(), "player2");
-        theGame.addPlayer(myPlayer1);
-        theGame.addPlayer(myPlayer2);
-        theGame.startPlay();
-        theGame.rollDice(1,2);
-        theGame.nextPlayer();
-        assertEquals(theGame.getCurrentPlayer(), myPlayer2);
+        game.addPlayer(myPlayer1);
+        game.addPlayer(myPlayer2);
+        game.startPlay();
+        game.rollDice(1,2);
+        game.nextPlayer();
+        assertEquals(game.getCurrentPlayer(), myPlayer2);
     }
 
     @Test

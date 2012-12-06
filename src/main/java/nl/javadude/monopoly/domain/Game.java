@@ -45,6 +45,7 @@ public class Game implements Serializable, IGame
 	public void startPlay() {
 		currentPlayer = players.poll();
         players.add(currentPlayer);
+        log.info("Activating current player {}", currentPlayer.getName());
         currentPlayer.activate();
 		turnState = turnState.transition(currentPlayer);
 	}
